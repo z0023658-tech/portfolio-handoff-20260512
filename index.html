@@ -142,10 +142,10 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
+            padding: 120px 0 6rem;
             background: radial-gradient(circle at 70% 30%, #161616 0%, #0a0a0a 100%);
         }
 
@@ -159,6 +159,8 @@
         .hero-content h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
         }
 
         .hero-content .subtitle {
@@ -454,7 +456,8 @@
         }
         /* Workflow Automation */
         .automation-grid {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: auto;
         }
 
         .btn-small {
@@ -655,12 +658,12 @@
                 <div class="hero-content">
                     <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
                         <img src="./assets/profile/profile.jpg" alt="王韋捷 Profile" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color);">
-                        <span class="tag">商業影像製作 / AI 工作流 / 分鏡開發 / 專案自動化</span>
+                        <span class="tag">商業影像製作 / AI 視覺開發 / 流程自動化 / 團隊協作</span>
                     </div>
-                    <h1>王韋捷</h1>
-                    <div class="subtitle">從廣告腳本、分鏡提案、視覺測試到流程自動化，將影像製作經驗與生成式 AI 工具整合成可測試、可回修、可交付的工作流程。</div>
+                    <h1>影像實作背景 × AI 工作流開發</h1>
+                    <div class="subtitle">將廣告腳本、分鏡提案與 AI 視覺測試，整合成可回修、可交付的影像開發流程。</div>
                     <p class="description">
-                        目前專注於 Runway、ComfyUI、Google Apps Script 與 Vibe Coding 的實務應用，協助團隊提升前期提案效率、降低溝通成本，並建立更可複製的影像開發流程。
+                        專注於 Runway、ComfyUI、Google Apps Script 與 Vibe Coding 的實務應用，協助團隊提升前期提案效率、降低溝通成本，並建立可複製的製作流程。
                     </p>
                     <div style="display: flex; flex-direction: column; gap: 2rem;">
                         <a href="#contact" class="btn" style="width: fit-content;">洽詢合作項目</a>
@@ -677,19 +680,38 @@
                     <h3>核心技能 / Capabilities</h3>
                     <div class="summary-item">
                         <label>AI 技術工作流</label>
-                        <div>ComfyUI / Stable Diffusion / Runway / Vibe Coding</div>
+                        <div>
+                            <span class="tag">ComfyUI</span>
+                            <span class="tag">Stable Diffusion</span>
+                            <span class="tag">Runway</span>
+                            <span class="tag">Vibe Coding</span>
+                        </div>
                     </div>
                     <div class="summary-item">
                         <label>視覺提案與開發</label>
-                        <div>廣告分鏡 Storyboarding / 藝術指導 Art Direction / 影像風格測試</div>
+                        <div>
+                            <span class="tag">廣告分鏡</span>
+                            <span class="tag">藝術指導</span>
+                            <span class="tag">影像風格測試</span>
+                        </div>
                     </div>
                     <div class="summary-item">
                         <label>流程自動化</label>
-                        <div>Google Apps Script / Google Sheet / Workflow Automation / 提案資料整理</div>
+                        <div>
+                            <span class="tag">Google Apps Script</span>
+                            <span class="tag">Google Sheet</span>
+                            <span class="tag">Workflow Automation</span>
+                            <span class="tag">提案資料整理</span>
+                        </div>
                     </div>
                     <div class="summary-item">
                         <label>專案與行銷思考</label>
-                        <div>團隊協作 / 客戶溝通 / 社群經營研究 / 攝影棚租賃規劃</div>
+                        <div>
+                            <span class="tag">團隊協作</span>
+                            <span class="tag">客戶溝通</span>
+                            <span class="tag">社群經營研究</span>
+                            <span class="tag">攝影棚租賃規劃</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -706,16 +728,15 @@
                 <div class="case-card">
                     <div class="case-media" style="aspect-ratio: 16/9;">
                         <a href="https://youtu.be/SF_C3_U7nvo" target="_blank">
-                            <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px; cursor: pointer;">
+                            <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px; cursor: pointer;">
                         </a>
-                        <video src="./assets/misc/sampo-wireless-fan-ai-video-test.mp4" controls preload="metadata" style="width:100%; height:100%; object-fit: cover; border-radius: 4px; margin-top: 0.5rem;"></video>
                     </div>
                     <div class="case-info">
                         <span class="tag">AI 商品廣告</span>
                         <span class="tag">Workflow 設計</span>
                         <h2 class="card-title"><a href="https://youtu.be/1Hl96FDWwF8" target="_blank" style="color: inherit; text-decoration: none;">聲寶｜DC馬達無線風扇 &nearrow;</a></h2>
                         <p>以 AI Workflow 設計產品廣告的分鏡與視覺測試流程，將產品賣點轉化為可快速驗證的影像提案。</p>
-                        
+                        <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">觀看影片 &rarr;</a>
                         <div class="meta">
                             <div class="meta-item">
                                 <label>使用工具</label>
@@ -741,7 +762,7 @@
                         <span class="tag">AI 分鏡</span>
                         <h2 class="card-title"><a href="https://youtu.be/SF_C3_U7nvo" target="_blank" style="color: inherit; text-decoration: none;">聲寶｜靜音省電風扇 &nearrow;</a></h2>
                         <p>以 ComfyUI 與 Adobe 後製流程測試奇幻風格包裝，將傳統家電賣點轉化為具記憶點的視覺概念。</p>
-                        
+                        <a href="https://youtu.be/SF_C3_U7nvo" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">查看案例 &rarr;</a>
                         <div class="meta">
                             <div class="meta-item">
                                 <label>使用工具</label>
@@ -812,7 +833,7 @@
     <section id="experiments">
         <div class="container">
             <h2 style="margin-bottom: 3rem;">AI 實作測試 / Recent Experiments</h2>
-            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+            <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
                 <!-- Card 1: Multi-view -->
                 <div class="card clickable-card" onclick="openModal('multiview-modal')">
                     <div class="card-media">
@@ -858,7 +879,7 @@
                 <!-- Card 4: ComfyUI Character Turnaround -->
                 <div class="card">
                     <div class="card-media">
-                        <img src="./assets/misc/comfyui-character-turnaround-test.png" alt="ComfyUI 人物三視測試" style="width: 100%; height: 100%; object-fit: contain;">
+                        <img src="./assets/misc/screencrop-1778577873696.png" alt="ComfyUI 人物三視測試" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                     <div class="card-body">
                         <span class="tag">人物測試</span>
@@ -967,7 +988,7 @@
                 <!-- Auto 4: Short Video Script Automation -->
                 <div class="card" style="flex-direction: column;">
                     <div class="card-media">
-                        <img src="./assets/misc/short-video-script-automation-demo.gif" alt="短影音腳本自動化 demo" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+                        <img src="./assets/misc/gas-workflow-demo.gif" alt="短影音腳本自動化 demo" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
                     </div>
                     <div class="card-body" style="flex: 1;">
                         <h3 class="card-title">短影音腳本自動化</h3>
@@ -990,15 +1011,15 @@
             <h2 style="margin-bottom: 3rem;">精選商業影音 / Selected Commercial Works</h2>
             <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
                 <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&si=mrN_0qjQ1lJJaTWi" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><div class="placeholder">COMMERCIAL PHOTO</div></div>
+                    <div class="card-media"><img src="./assets/services/service-commercial-photo-cover.webp" alt="商品廣告製作" style="width:100%; height:100%; object-fit: cover;"></div>
                     <div class="card-body"><h3 class="card-title">商品廣告製作 &nearrow;</h3></div>
                 </a>
                 <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&si=NGnPwRPLwWtmnGlh" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><div class="placeholder">INTERVIEW PHOTO</div></div>
+                    <div class="card-media"><img src="./assets/services/service-interview-photo-cover.webp" alt="人物訪談影像" style="width:100%; height:100%; object-fit: cover;"></div>
                     <div class="card-body"><h3 class="card-title">人物訪談影像 &nearrow;</h3></div>
                 </a>
                 <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&si=GsSxqITdrcHYShG4" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><div class="placeholder">BRAND FILM</div></div>
+                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="形象影片導演" style="width:100%; height:100%; object-fit: cover;"></div>
                     <div class="card-body"><h3 class="card-title">形象影片導演 &nearrow;</h3></div>
                 </a>
             </div>
