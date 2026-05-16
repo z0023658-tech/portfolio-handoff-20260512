@@ -82,6 +82,11 @@
             letter-spacing: -0.01em;
         }
 
+        section > .container > h2,
+        section > .container > .grid > div:first-child > h2 {
+            text-align: center;
+        }
+
         p {
             margin-bottom: 1rem;
             color: var(--text-secondary);
@@ -253,6 +258,16 @@
         .case-media {
             aspect-ratio: 16/9;
             width: 100%;
+        }
+
+        .featured-case .case-media img {
+            cursor: default;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-case .case-media:hover img {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
         }
 
         .case-info .meta {
@@ -633,6 +648,110 @@
             color: var(--accent-color);
             border-bottom-color: var(--accent-color);
         }
+        /* Storyboard category cards */
+        .storyboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stage-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .stage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .stage-step {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .stage-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .stage-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+            flex: 1 1 auto;
+        }
+
+        .stage-img {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .stage-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .storyboard-modal-section {
+            display: none;
+            width: 100%;
+        }
+
+        .storyboard-modal-section.active {
+            display: block;
+        }
+
+        .modal-category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-category-desc {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .modal-image-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-image-block img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .modal-caption {
+            margin-top: 0.5rem;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 991px) {
+            .storyboard-grid { grid-template-columns: 1fr; }
+            .stage-img { height: 200px; }
+        }
     </style>
 </head>
 <body>
@@ -640,7 +759,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-content">
-            <div class="logo">王韋捷 個人網頁</div>
+            <div class="logo">王韋捷｜商業影像 × AI Workflow</div>
             <div class="nav-links">
                 <a href="#hero">首頁</a>
                 <a href="#featured">主打案例</a>
@@ -727,14 +846,12 @@
                 <!-- Case 1 -->
                 <div class="case-card">
                     <div class="case-media" style="aspect-ratio: 16/9;">
-                        <a href="https://youtu.be/SF_C3_U7nvo" target="_blank">
-                            <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px; cursor: pointer;">
-                        </a>
+                        <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px;">
                     </div>
                     <div class="case-info">
                         <span class="tag">AI 商品廣告</span>
                         <span class="tag">Workflow 設計</span>
-                        <h2 class="card-title"><a href="https://youtu.be/1Hl96FDWwF8" target="_blank" style="color: inherit; text-decoration: none;">聲寶｜DC馬達無線風扇 &nearrow;</a></h2>
+                        <h2 class="card-title">聲寶｜DC馬達無線風扇</h2>
                         <p>以 AI Workflow 設計產品廣告的分鏡與視覺測試流程，將產品賣點轉化為可快速驗證的影像提案。</p>
                         <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">觀看影片 &rarr;</a>
                         <div class="meta">
@@ -753,16 +870,14 @@
                 <!-- Case 2 -->
                 <div class="case-card reverse">
                     <div class="case-media" style="aspect-ratio: 16/9;">
-                        <a href="https://youtu.be/SF_C3_U7nvo" target="_blank">
-                            <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px; cursor: pointer;">
-                        </a>
+                        <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px;">
                     </div>
                     <div class="case-info">
                         <span class="tag">AI 商品廣告</span>
                         <span class="tag">AI 分鏡</span>
-                        <h2 class="card-title"><a href="https://youtu.be/SF_C3_U7nvo" target="_blank" style="color: inherit; text-decoration: none;">聲寶｜靜音省電風扇 &nearrow;</a></h2>
+                        <h2 class="card-title">聲寶｜靜音省電風扇</h2>
                         <p>以 ComfyUI 與 Adobe 後製流程測試奇幻風格包裝，將傳統家電賣點轉化為具記憶點的視覺概念。</p>
-                        <a href="https://youtu.be/SF_C3_U7nvo" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">查看案例 &rarr;</a>
+                        <a href="https://youtu.be/2HTnb9K3NMk" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">查看案例 &rarr;</a>
                         <div class="meta">
                             <div class="meta-item">
                                 <label>使用工具</label>
@@ -783,46 +898,24 @@
     <!-- Section 3: AI Storyboard Script Development -->
     <section id="storyboard" style="background: #111;">
         <div class="container">
-            <div class="grid" style="grid-template-columns: 0.8fr 1.2fr; align-items: center; gap: 4rem;">
-                <div>
-                    <h2 style="margin-bottom: 1.5rem;">AI 分鏡腳本開發 / <br>Storyboard Development</h2>
-                    <p>
-                        不又產生圖片，而是把腳本、鏡頁、產品賣點與視覺參考整理成可反覆修正的分鏡開發流程。
-                    </p>
-                    <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
-                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <div style="width: 4px; height: 40px; background: var(--accent-color); margin-top: 4px;"></div>
-                            <div>
-                                <h4 style="font-size: 0.9rem; color: #fff; margin-bottom: 0.2rem;">高效具象化</h4>
-                                <p style="font-size: 0.8rem;">文字 Brief 轉 16:9 高品質分鏡圖只需數分鐘。</p>
-                            </div>
-                        </div>
-                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <div style="width: 4px; height: 40px; background: #444; margin-top: 4px;"></div>
-                            <div>
-                                <h4 style="font-size: 0.9rem; color: #fff; margin-bottom: 0.2rem;">動態預演</h4>
-                                <p style="font-size: 0.8rem;">結合 AI 影片技術，提供動態分鏡預演 (Animatic)。</p>
-                            </div>
-                        </div>
-                    </div>
+            <div style="max-width: 760px; margin: 0 auto 3rem; text-align: center;">
+                <h2 style="margin-bottom: 1rem;">AI 分鏡腳本開發 / <br>Storyboard Development</h2>
+                <p>
+                    將腳本、鏡頭、產品賣點與視覺參考，拆解成可測試的 AI 分鏡流程；同時保留最終分鏡成果與工具內部操作脈絡，讓畫面開發不只是生成圖片，而是可追蹤、可回修的提案系統。
+                </p>
+            </div>
+            <div class="storyboard-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: stretch;">
+                <div class="stage-card">
+                    <div class="stage-img"><img src="./assets/storyboard-development/storyboard-pencil-concept-grid.png" alt="分鏡圖完稿"></div>
+                    <div class="stage-step">分鏡圖完稿</div>
+                    <div class="stage-desc">整理 AI 生成與風格測試結果，形成可供提案討論的九宮格分鏡、構圖草稿與場景變化。</div>
+                    <a class="btn" onclick="openStoryboardModal('output')" style="margin-top: auto; width: fit-content;">查看分鏡成果 &rarr;</a>
                 </div>
-                <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                    <div class="card clickable-card" onclick="openModal('storyboard-modal')" style="grid-row: span 2;">
-                        <div class="card-media" style="height: 100%; aspect-ratio: auto;">
-                            <img src="./assets/projects/runway-storyboard-process.png" alt="Storyboard Process" style="width:100%; height:100%; object-fit: cover;">
-                            <div class="media-indicator">查看開發流程</div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-media">
-                            <img src="./assets/projects/sampo-spirit-storyboard_02.png" alt="Storyboard 02" style="width:100%; height:100%; object-fit: cover;">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-media">
-                            <img src="./assets/projects/sampo-spirit-storyboard_03.jpg" alt="Storyboard 03" style="width:100%; height:100%; object-fit: cover;">
-                        </div>
-                    </div>
+                <div class="stage-card">
+                    <div class="stage-img"><img src="./assets/storyboard-development/storyboard-workflow-overview.png" alt="工具流程展示"></div>
+                    <div class="stage-step">工具流程展示</div>
+                    <div class="stage-desc">保留 Runway / Workflow 內的參考圖、節點關係與生成脈絡，讓分鏡開發流程可被追蹤與複製。</div>
+                    <a class="btn" onclick="openStoryboardModal('workflow')" style="margin-top: auto; width: fit-content;">查看工作流程 &rarr;</a>
                 </div>
             </div>
         </div>
@@ -871,7 +964,7 @@
                     <div class="card-body">
                         <span class="tag">流程驗證</span>
                         <h3 class="card-title">流程驗證與試錯</h3>
-                        <p class="card-desc">針對不同 AI 工具的生成穩定性、鏡頁連續性、角色一致性與產品辨識度進行測試，評估哪些流程適合進入實際提案與製作。</p>
+                        <p class="card-desc">針對不同 AI 工具的生成穩定性、鏡頭連續性、角色一致性與產品辨識度進行測試，評估哪些流程適合進入實際提案與製作。</p>
                         <p style="font-size: 0.75rem; color: #666;">工具: Flux / Kling AI / Luma</p>
                     </div>
                 </div>
@@ -915,9 +1008,40 @@
     <div id="storyboard-modal" class="modal" onclick="closeModal('storyboard-modal')">
         <span class="modal-close" onclick="closeModal('storyboard-modal')">&times;</span>
         <div class="modal-content" onclick="event.stopPropagation()">
-            <img src="./assets/projects/runway-storyboard-process.png" alt="Process 1">
-            <img src="./assets/projects/runway-ai-workflow.jpg" alt="Workflow 1">
-            <img src="./assets/projects/runway-workflow-node-test.jpg" alt="Workflow 2">
+            <div style="max-width:900px; width:100%; display:flex; flex-direction:column; gap:2rem;">
+                <div id="storyboard-modal-output" class="storyboard-modal-section">
+                    <div class="modal-category-title">分鏡圖完稿 / Storyboard Outputs</div>
+                    <div class="modal-category-desc">展示最終分鏡成果與視覺提案素材。</div>
+                    <div class="modal-image-block">
+                        <img src="./assets/storyboard-development/storyboard-pencil-concept-grid.png" alt="分鏡圖完稿">
+                        <div class="modal-caption">九宮格分鏡與構圖草稿，呈現分鏡開發的成品成果。</div>
+                    </div>
+                    <div class="modal-image-block">
+                        <img src="./assets/storyboard-development/storyboard-scene-variations.png" alt="分鏡變化展示">
+                        <div class="modal-caption">場景變化與視覺測試結果，說明多種敘事可能性。</div>
+                    </div>
+                    <div class="modal-image-block">
+                        <img src="./assets/storyboard-development/storyboard-sketch-grid.png" alt="分鏡草圖網格">
+                        <div class="modal-caption">構圖草稿與草圖網格，展示初步視覺發想與提案基礎。</div>
+                    </div>
+                </div>
+                <div id="storyboard-modal-workflow" class="storyboard-modal-section">
+                    <div class="modal-category-title">工具流程展示 / Workflow Screenshots</div>
+                    <div class="modal-category-desc">呈現 Runway 與 Workflow 內部操作脈絡，用於追蹤生成流程與參考節點。</div>
+                    <div class="modal-image-block">
+                        <img src="./assets/storyboard-development/storyboard-workflow-overview.png" alt="工具流程展示">
+                        <div class="modal-caption">流程總覽圖，說明 AI 工作流中的主要節點與資料流。</div>
+                    </div>
+                    <div class="modal-image-block">
+                        <img src="./assets/projects/runway-ai-workflow.jpg" alt="Runway Workflow">
+                        <div class="modal-caption">Runway 內部流程示意，展示生成過程與視覺參考連結。</div>
+                    </div>
+                    <div class="modal-image-block">
+                        <img src="./assets/projects/runway-workflow-node-test.jpg" alt="Workflow 節點測試">
+                        <div class="modal-caption">工作流節點測試畫面，說明測試階段的操作與結果。</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -943,7 +1067,7 @@
                         <p class="card-desc" style="color: var(--text-primary); font-weight: 500;">成果：將原本約 2–3 天的前期整理流程，縮短至約 30 分鐘內完成初版。</p>
                         <div style="margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
                             <div style="display: flex; gap: 0.4rem;">
-                                <span class="tag">AppScript</span>
+                                <span class="tag">Apps Script</span>
                                 <span class="tag">Google Cloud</span>
                             </div>
                             <a href="https://script.google.com/macros/s/AKfycbxBEML4rX078ApigenPq-c_iqDSnejqr6vdhIz9N1Tzc_ugtgoTHnksDCK7Le2gdKhAPw/exec" target="_blank" class="btn-small" style="text-align: center;">查看應用場景 &rarr;</a>
@@ -1019,8 +1143,8 @@
                     <div class="card-body"><h3 class="card-title">人物訪談影像 &nearrow;</h3></div>
                 </a>
                 <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&si=GsSxqITdrcHYShG4" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="形象影片導演" style="width:100%; height:100%; object-fit: cover;"></div>
-                    <div class="card-body"><h3 class="card-title">形象影片導演 &nearrow;</h3></div>
+                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="品牌形象影片" style="width:100%; height:100%; object-fit: cover;"></div>
+                    <div class="card-body"><h3 class="card-title">品牌形象影片 &nearrow;</h3></div>
                 </a>
             </div>
         </div>
@@ -1030,7 +1154,7 @@
     <!-- Section 7: What I Can Help With -->
     <section id="services" style="background: #0f0f0f;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 4rem;">我能協助什麼 / Services</h2>
+            <h2 style="text-align: center; margin-bottom: 4rem;">服務 / Services</h2>
             <div class="grid capabilities-grid">
                 <div class="cap-card">
                     <span class="cap-num">01</span>
@@ -1060,7 +1184,7 @@
     <!-- Section 8: Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Connect</h2>
+            <h2>聯絡 / Connect</h2>
             <p style="max-width: 600px; margin: 0 auto 2.5rem;">如果您對於 AI 如何優化現有的廣告流程、或有商業影像需求，歡迎與我聯繫。</p>
             <div class="contact-links">
                 <a href="mailto:z0023658@gmail.com">信箱</a>
@@ -1081,7 +1205,7 @@
     </div>
 
     <!-- Mobile Contact Button -->
-    <a href="#contact" class="mobile-contact-btn" style="display: none;">聯絡<br>我</a>
+    <a href="#contact" class="mobile-contact-btn" style="display: none;">聯絡我</a>
 
     <footer>
         <div class="container">
@@ -1092,17 +1216,36 @@
     <script>
         // Modal Controls
         function openModal(id) {
+            if (id === 'storyboard-modal') {
+                const activeSection = document.querySelector('.storyboard-modal-section.active');
+                if (!activeSection) {
+                    const defaultSection = document.getElementById('storyboard-modal-output');
+                    if (defaultSection) {
+                        defaultSection.classList.add('active');
+                    }
+                }
+            }
             document.getElementById(id).style.display = 'block';
             document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal(id) {
+            if (id === 'storyboard-modal') {
+                document.querySelectorAll('.storyboard-modal-section').forEach(section => section.classList.remove('active'));
+            }
             document.getElementById(id).style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Keep legacy function names for compatibility check or direct calls if still in HTML
-        function openStoryboardModal() { openModal('storyboard-modal'); }
+        function openStoryboardModal(category) {
+            document.querySelectorAll('.storyboard-modal-section').forEach(section => section.classList.remove('active'));
+            const target = document.getElementById('storyboard-modal-' + category);
+            if (target) {
+                target.classList.add('active');
+            }
+            openModal('storyboard-modal');
+        }
+
         function closeStoryboardModal() { closeModal('storyboard-modal'); }
 
         // Side Nav Active State on Scroll
