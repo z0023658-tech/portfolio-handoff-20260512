@@ -30,3 +30,9 @@ package.json
 vite.config.ts
 tsconfig.json
 metadata.json
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
