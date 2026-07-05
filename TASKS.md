@@ -16,6 +16,25 @@
 - Codex 輔助開發
 - 商業影像與內容企劃背景
 
+## 2026-07-05 專案暫停狀態
+
+- 狀態：暫停。
+- 暫停點 commit：`c658450 Document UI redesign pause and design tokens`。
+- 本輪已完成：
+  - 記錄 AI mockup 直接進入 UI/UX 改版的風險與踩雷點。
+  - 新增 `UI_UX_LESSONS.md`。
+  - 在 `AGENTS.md` 與 `README.md` 補上重啟入口。
+  - 完成設計基礎層 MVP1-MVP3：design tokens、typography / spacing layer、component utility classes。
+- 本輪暫緩：
+  - MVP4 視覺 baseline check。
+  - 拆分 `index.html`。
+  - 進一步 UI 改版或單區塊 UI pilot。
+- 重啟前必讀：
+  - `AGENTS.md`
+  - `README.md`
+  - `UI_UX_LESSONS.md`
+  - `TASKS.md`
+
 ## 目前已完成
 
 - [x] Hero 定位已調整為「內容企劃 × AI 自動化工作流」方向。
@@ -35,9 +54,12 @@
   - `commercial`
   - `contact`
 - [x] 主要 section h2 已改為中文與英文上下兩行，移除「/」。
+- [x] 設計基礎層 MVP1-MVP3 已完成，集中管理顏色、字級、間距、圓角、陰影與常用元件 class。
+- [x] `index.html` 尚未拆檔；目前仍維持單檔靜態頁。
 
 ## 下一步待辦
 
+- [ ] MVP4：進行桌機、平板、手機的視覺 baseline check，確認設計基礎層整理後沒有肉眼可見跑版。
 - [ ] 檢查並同步 desktop nav / side nav / Hero quick links 的順序與文字。
 - [ ] 評估 Featured / Storyboard / Experiments 的命名是否要從影像導向改為內容流程 / AI 工具研究導向。
 - [ ] 將 Automation Works 作品卡片逐步改成「問題 / 工具 / 方法 / 成果」格式。
@@ -90,11 +112,12 @@
 
 ### Phase 5：視覺與 CSS 小幅調整
 
-- 狀態：待處理。
+- 狀態：部分完成。
 - 只做小幅 CSS 調整。
 - 優先改善資訊層級、閱讀性、卡片一致性。
 - 不改整體 premium dark portfolio 風格。
 - 不加入不必要動畫。
+- 已完成設計基礎層整理，但尚未做 MVP4 視覺 baseline check。
 
 ### Phase 6：GitHub Pages 測試與發布
 
@@ -140,7 +163,7 @@
 ## Done when
 
 - `TASKS.md` 持續記錄最新改版狀態。
-- 沒有修改 `index.html`。
-- `git diff` 只顯示 `TASKS.md`。
+- 重啟前可從 `AGENTS.md`、`README.md`、`UI_UX_LESSONS.md` 與本檔理解目前停靠點。
+- MVP4 視覺 baseline check 完成後，才進入下一輪 UI 改版或拆分 CSS。
 - 沒有敏感資訊。
 - 等使用者確認後再 commit。
