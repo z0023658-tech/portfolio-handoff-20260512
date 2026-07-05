@@ -5,15 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王韋捷｜AI-assisted Commercial Visual Director</title>
     <style>
-        /* CSS Reset & Variables */
+        /* CSS Reset & Design Tokens */
         :root {
-            --bg-color: #0a0a0a;
-            --surface-color: #161616;
-            --accent-color: #ffffff;
-            --text-primary: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --border-color: #2a2a2a;
-            --transition: all 0.3s ease;
+            /* Color tokens */
+            --color-bg-page: #0a0a0a;
+            --color-bg-section: #000;
+            --color-bg-section-muted: #0f0f0f;
+            --color-bg-section-raised: #111;
+            --color-surface: #161616;
+            --color-surface-hover: #1e1e1e;
+            --color-accent: #ffffff;
+            --color-accent-hover: #d0d0d0;
+            --color-text-heading: #fff;
+            --color-text-primary: #e0e0e0;
+            --color-text-secondary: #a0a0a0;
+            --color-text-muted: #666;
+            --color-text-faint: #555;
+            --color-text-inverse: #000;
+            --color-border: #2a2a2a;
+            --color-border-muted: #333;
+            --color-border-hover: #444;
+            --color-overlay-strong: rgba(0,0,0,0.95);
+            --color-overlay-medium: rgba(0,0,0,0.7);
+            --color-overlay-soft: rgba(0,0,0,0.5);
+
+            /* Typography tokens */
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-size-hero: 2.8rem;
+            --font-size-hero-mobile: 2.4rem;
+            --font-size-section-title: 1.8rem;
+            --font-size-panel-title: 1.3rem;
+            --font-size-card-title: 1.1rem;
+            --font-size-body: 1rem;
+            --font-size-body-sm: 0.9rem;
+            --font-size-ui: 0.85rem;
+            --font-size-button-sm: 0.8rem;
+            --font-size-caption: 0.75rem;
+            --font-size-meta: 0.7rem;
+            --font-size-indicator: 0.65rem;
+            --line-height-base: 1.6;
+            --line-height-heading: 1.2;
+
+            /* Spacing tokens */
+            --space-2xs: 0.3rem;
+            --space-xs: 0.4rem;
+            --space-sm: 0.8rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 2.5rem;
+            --space-3xl: 3rem;
+            --space-4xl: 4rem;
+            --space-section-y: 6rem;
+            --space-section-y-mobile: 4rem;
+            --space-container-x: 2rem;
+            --space-grid: 2rem;
+
+            /* Shape and motion tokens */
+            --radius-tag: 2px;
+            --radius-sm: 4px;
+            --radius-card: 8px;
+            --radius-panel: 12px;
+            --shadow-card-hover: 0 15px 40px rgba(0,0,0,0.6);
+            --shadow-media-hover: 0 16px 40px rgba(0,0,0,0.35);
+            --shadow-stage-hover: 0 20px 40px rgba(0,0,0,0.25);
+            --shadow-mobile-cta: 0 4px 20px rgba(0,0,0,0.4);
+            --transition-base: all 0.3s ease;
+            --transition-transform: transform 0.3s ease, box-shadow 0.3s ease;
+
+            /* Legacy aliases: keep existing selectors stable while tokens are introduced. */
+            --bg-color: var(--color-bg-page);
+            --surface-color: var(--color-surface);
+            --accent-color: var(--color-accent);
+            --text-primary: var(--color-text-primary);
+            --text-secondary: var(--color-text-secondary);
+            --border-color: var(--color-border);
+            --transition: var(--transition-base);
         }
 
         * {
@@ -27,10 +94,10 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: var(--font-family-base);
             background-color: var(--bg-color);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: var(--line-height-base);
             overflow-x: hidden;
         }
 
@@ -38,16 +105,103 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 var(--space-container-x);
         }
 
         section {
-            padding: 6rem 0;
+            padding: var(--space-section-y) 0;
         }
 
         .grid {
             display: grid;
-            gap: 2rem;
+            gap: var(--space-grid);
+        }
+
+        .grid-two {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .section-black {
+            background: var(--color-bg-section);
+        }
+
+        .section-muted {
+            background: var(--color-bg-section-muted);
+        }
+
+        .section-raised {
+            background: var(--color-bg-section-raised);
+        }
+
+        .section-heading {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-heading-compact {
+            margin-bottom: var(--space-md);
+        }
+
+        .section-heading-tight {
+            margin-bottom: var(--space-xl);
+        }
+
+        .section-heading-roomy {
+            margin-bottom: var(--space-4xl);
+        }
+
+        .section-heading-loose {
+            margin-bottom: 5rem;
+        }
+
+        .section-heading-center,
+        .text-center {
+            text-align: center;
+        }
+
+        .section-intro {
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 0 var(--space-xl);
+            text-align: left;
+        }
+
+        .section-intro-spacious {
+            margin-bottom: var(--space-4xl);
+        }
+
+        .intro-block {
+            max-width: 760px;
+            margin: 0 auto var(--space-3xl);
+            text-align: center;
+        }
+
+        .profile-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border-color);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .fit-content {
+            width: fit-content;
         }
 
         /* Placeholder Styles */
@@ -59,26 +213,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #444;
-            font-size: 0.7rem;
+            color: var(--color-border-hover);
+            font-size: var(--font-size-meta);
             text-align: center;
-            padding: 1rem;
+            padding: var(--space-md);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border-radius: var(--radius-sm);
         }
 
         /* Typography */
         h1, h2, h3 {
             font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            color: #fff;
+            line-height: var(--line-height-heading);
+            margin-bottom: var(--space-lg);
+            color: var(--color-text-heading);
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: var(--font-size-section-title);
             letter-spacing: -0.01em;
         }
 
@@ -88,7 +242,7 @@
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-md);
             color: var(--text-secondary);
         }
 
@@ -97,8 +251,8 @@
             padding: 0.2rem 0.6rem;
             background: var(--surface-color);
             color: var(--text-secondary);
-            font-size: 0.7rem;
-            border-radius: 2px;
+            font-size: var(--font-size-meta);
+            border-radius: var(--radius-tag);
             margin-right: 0.4rem;
             border: 1px solid var(--border-color);
             letter-spacing: 0.5px;
@@ -124,20 +278,20 @@
 
         .logo {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: var(--font-size-card-title);
             letter-spacing: 1px;
             color: var(--accent-color);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: var(--space-xl);
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             transition: var(--transition);
         }
 
@@ -150,7 +304,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 120px 0 6rem;
+            padding: 120px 0 var(--space-section-y);
             background: radial-gradient(circle at 70% 30%, #161616 0%, #0a0a0a 100%);
         }
 
@@ -158,12 +312,12 @@
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             align-items: center;
-            gap: 4rem;
+            gap: var(--space-4xl);
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
+            font-size: var(--font-size-hero);
+            margin-bottom: var(--space-md);
             line-height: 1.1;
             letter-spacing: -0.01em;
         }
@@ -171,68 +325,68 @@
         .hero-content .subtitle {
             font-size: 1.2rem;
             color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            border-left: 2px solid #444;
+            margin-bottom: var(--space-lg);
+            border-left: 2px solid var(--color-border-hover);
             padding-left: 1.2rem;
         }
 
         .hero-content .description {
             max-width: 500px;
-            margin-bottom: 2.5rem;
+            margin-bottom: var(--space-2xl);
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.2rem;
+            padding: var(--space-md) 2.2rem;
             background: var(--accent-color);
-            color: #000;
+            color: var(--color-text-inverse);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            border-radius: 4px;
+            font-size: var(--font-size-body-sm);
+            border-radius: var(--radius-sm);
             transition: var(--transition);
         }
 
         .btn:hover {
-            background: #d0d0d0;
+            background: var(--color-accent-hover);
             transform: translateY(-2px);
         }
 
         .hero-summary {
             background: var(--surface-color);
-            padding: 2.5rem;
-            border-radius: 12px;
+            padding: var(--space-2xl);
+            border-radius: var(--radius-panel);
             border: 1px solid var(--border-color);
         }
 
         .hero-summary h3 {
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-lg);
         }
 
         .summary-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-lg);
         }
 
         .summary-item label {
             display: block;
-            font-size: 0.7rem;
-            color: #666;
+            font-size: var(--font-size-meta);
+            color: var(--color-text-muted);
             text-transform: uppercase;
             margin-bottom: 0.3rem;
         }
 
         .summary-item div {
-            font-size: 1rem;
+            font-size: var(--font-size-body);
             color: var(--text-primary);
         }
 
         /* Featured Case Study */
         .featured-case {
-            background: #000;
+            background: var(--color-bg-section);
         }
 
         .case-container {
@@ -244,7 +398,7 @@
         .case-card {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: var(--space-4xl);
             align-items: center;
         }
 
@@ -260,27 +414,31 @@
             width: 100%;
         }
 
+        .case-media img {
+            border-radius: var(--radius-sm);
+        }
+
         .featured-case .case-media img {
             cursor: default;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition-transform);
         }
 
         .featured-case .case-media:hover img {
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+            box-shadow: var(--shadow-media-hover);
         }
 
         .case-info .meta {
-            margin-top: 2rem;
+            margin-top: var(--space-xl);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: var(--space-lg);
         }
 
         .meta-item label {
             display: block;
-            font-size: 0.7rem;
-            color: #666;
+            font-size: var(--font-size-meta);
+            color: var(--color-text-muted);
             text-transform: uppercase;
             margin-bottom: 0.4rem;
         }
@@ -288,7 +446,7 @@
         /* Generic Card Styles */
         .card {
             background: var(--surface-color);
-            border-radius: 8px;
+            border-radius: var(--radius-card);
             border: 1px solid var(--border-color);
             overflow: hidden;
             transition: var(--transition);
@@ -298,8 +456,8 @@
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: #444;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            border-color: var(--color-border-hover);
+            box-shadow: var(--shadow-card-hover);
         }
 
         .card-body {
@@ -307,15 +465,54 @@
         }
 
         .card-title {
-            font-size: 1.1rem;
+            font-size: var(--font-size-card-title);
             margin-bottom: 0.6rem;
             margin-top: 0.8rem;
         }
 
         .card-desc {
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             margin-bottom: 1.2rem;
             color: var(--text-secondary);
+        }
+
+        .card-vertical {
+            flex-direction: column;
+        }
+
+        .card-body-fill {
+            flex: 1;
+        }
+
+        .card-result {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .card-link {
+            text-decoration: none;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: var(--space-lg);
+        }
+
+        .card-footer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .tag-row {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .button-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
 
         /* Media Sub-grids */
@@ -360,26 +557,26 @@
         }
 
         .cap-card:hover {
-            background: #1e1e1e;
+            background: var(--color-surface-hover);
             border-bottom-color: var(--accent-color);
         }
 
         .cap-num {
-            font-size: 0.7rem;
-            color: #555;
-            margin-bottom: 1rem;
+            font-size: var(--font-size-meta);
+            color: var(--color-text-faint);
+            margin-bottom: var(--space-md);
             display: block;
         }
 
         .cap-title {
-            font-size: 1rem;
+            font-size: var(--font-size-body);
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: #fff;
+            margin-bottom: var(--space-md);
+            color: var(--color-text-heading);
         }
 
         .cap-desc {
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             color: var(--text-secondary);
         }
 
@@ -391,17 +588,17 @@
         }
 
         .contact-links {
-            margin-top: 3rem;
+            margin-top: var(--space-3xl);
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: var(--space-3xl);
         }
 
         .contact-links a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1rem;
-            border-bottom: 1px solid #333;
+            font-size: var(--font-size-body);
+            border-bottom: 1px solid var(--color-border-muted);
             padding-bottom: 4px;
             transition: var(--transition);
         }
@@ -415,9 +612,9 @@
         footer {
             padding: 5rem 0;
             text-align: center;
-            font-size: 0.75rem;
-            color: #555;
-            background: #000;
+            font-size: var(--font-size-caption);
+            color: var(--color-text-faint);
+            background: var(--color-bg-section);
         }
 
         /* Mobile Responsive */
@@ -428,11 +625,11 @@
         @media (max-width: 991px) {
             .hero-grid, .case-card, .automation-grid {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: var(--space-2xl);
             }
             .hero {
                 height: auto;
-                padding-bottom: 6rem;
+                padding-bottom: var(--space-section-y);
                 padding-top: 120px;
             }
             .case-card.reverse { direction: ltr; }
@@ -443,17 +640,17 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.4rem; }
-            section { padding: 4rem 0; }
+            .hero-content h1 { font-size: var(--font-size-hero-mobile); }
+            section { padding: var(--space-section-y-mobile) 0; }
             .grid { grid-template-columns: 1fr !important; }
 
             .mobile-contact-btn {
                 display: flex;
                 position: fixed;
-                bottom: 2rem;
-                right: 2rem;
-                background: #fff;
-                color: #000;
+                bottom: var(--space-xl);
+                right: var(--space-xl);
+                background: var(--color-accent);
+                color: var(--color-text-inverse);
                 width: 60px;
                 height: 60px;
                 border-radius: 50%;
@@ -461,10 +658,10 @@
                 align-items: center;
                 text-decoration: none;
                 font-weight: 600;
-                font-size: 0.8rem;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+                font-size: var(--font-size-button-sm);
+                box-shadow: var(--shadow-mobile-cta);
                 z-index: 2000;
-                border: 2px solid #000;
+                border: 2px solid var(--color-bg-section);
                 text-align: center;
                 line-height: 1.2;
             }
@@ -476,8 +673,8 @@
         }
 
         .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.8rem;
+            padding: 0.5rem var(--space-md);
+            font-size: var(--font-size-button-sm);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
             text-decoration: none;
@@ -486,7 +683,7 @@
         }
 
         .btn-small:hover {
-            border-color: #666;
+            border-color: var(--color-text-muted);
             background: #1a1a1a;
         }
 
@@ -499,8 +696,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
-            padding: 2rem;
+            background: var(--color-overlay-strong);
+            padding: var(--space-xl);
             overflow-y: auto;
         }
 
@@ -509,7 +706,7 @@
             margin: 40px auto;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: var(--space-xl);
             align-items: center;
         }
 
@@ -519,14 +716,14 @@
             height: auto;
             object-fit: contain;
             border: 1px solid var(--border-color);
-            background: #000;
+            background: var(--color-bg-section);
         }
 
         .modal-close {
             position: fixed;
-            top: 2rem;
-            right: 2rem;
-            color: #fff;
+            top: var(--space-xl);
+            right: var(--space-xl);
+            color: var(--color-text-heading);
             font-size: 2.5rem;
             cursor: pointer;
             z-index: 2001;
@@ -535,7 +732,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0,0,0,0.5);
+            background: var(--color-overlay-soft);
             border-radius: 50%;
             transition: var(--transition);
         }
@@ -552,7 +749,7 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 16 / 9;
-            background: #0a0a0a;
+            background: var(--color-bg-page);
             width: 100%;
         }
 
@@ -562,15 +759,57 @@
             object-fit: cover;
         }
 
+        .media-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .media-contain {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .card-media .media-contain {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .media-muted {
+            opacity: 0.9;
+        }
+
+        .media-main-70 {
+            height: 70%;
+        }
+
+        .card-media .media-main-70 {
+            height: 70%;
+        }
+
+        .media-bg-dark {
+            background: var(--color-bg-section-raised);
+        }
+
+        .media-bg-black {
+            background: var(--color-bg-section);
+        }
+
+        .case-media-16x9 {
+            aspect-ratio: 16 / 9;
+        }
+
         .media-indicator {
             position: absolute;
-            bottom: 1rem;
-            right: 1rem;
-            background: rgba(0,0,0,0.7);
+            bottom: var(--space-md);
+            right: var(--space-md);
+            background: var(--color-overlay-medium);
             padding: 0.4rem 0.8rem;
-            font-size: 0.65rem;
-            border-radius: 4px;
-            color: #fff;
+            font-size: var(--font-size-indicator);
+            border-radius: var(--radius-sm);
+            color: var(--color-text-heading);
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255,255,255,0.1);
             pointer-events: none;
@@ -579,7 +818,7 @@
 
         .card:hover .media-indicator {
             background: var(--accent-color);
-            color: #000;
+            color: var(--color-text-inverse);
         }
         /* Side Nav */
         .side-nav {
@@ -589,7 +828,7 @@
             transform: translateY(-50%);
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: var(--space-sm);
             z-index: 1500;
         }
         .side-nav-dot {
@@ -613,10 +852,10 @@
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0,0,0,0.8);
-            color: #fff;
+            color: var(--color-text-heading);
             padding: 0.3rem 0.8rem;
-            font-size: 0.75rem;
-            border-radius: 4px;
+            font-size: var(--font-size-caption);
+            border-radius: var(--radius-sm);
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
@@ -630,19 +869,19 @@
         /* Hero Quick Links */
         .hero-quick-links {
             display: flex;
-            gap: 1.5rem;
+            gap: var(--space-lg);
             flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-top: var(--space-md);
         }
         .hero-quick-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             border-bottom: 1px solid transparent;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: var(--space-xs);
         }
         .hero-quick-link:hover {
             color: var(--accent-color);
@@ -652,27 +891,27 @@
         .storyboard-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: var(--space-grid);
         }
 
         .stage-card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: var(--radius-card);
+            padding: var(--space-md);
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: var(--space-sm);
             transition: var(--transition);
         }
 
         .stage-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            box-shadow: var(--shadow-stage-hover);
         }
 
         .stage-step {
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
             color: #999;
             font-weight: 600;
             text-transform: uppercase;
@@ -680,13 +919,13 @@
         }
 
         .stage-title {
-            font-size: 1.1rem;
+            font-size: var(--font-size-card-title);
             font-weight: 700;
-            color: #fff;
+            color: var(--color-text-heading);
         }
 
         .stage-desc {
-            font-size: 0.9rem;
+            font-size: var(--font-size-body-sm);
             color: var(--text-secondary);
             margin-top: 0.2rem;
             flex: 1 1 auto;
@@ -696,7 +935,7 @@
             width: 100%;
             height: 260px;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: var(--radius-card);
             display: block;
         }
 
@@ -717,20 +956,20 @@
         }
 
         .modal-category-title {
-            font-size: 1.3rem;
+            font-size: var(--font-size-panel-title);
             font-weight: 700;
-            color: #fff;
+            color: var(--color-text-heading);
             margin-bottom: 0.5rem;
         }
 
         .modal-category-desc {
             color: var(--text-secondary);
             margin-bottom: 1rem;
-            line-height: 1.6;
+            line-height: var(--line-height-base);
         }
 
         .modal-image-block {
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--space-lg);
         }
 
         .modal-image-block img {
@@ -738,14 +977,51 @@
             max-width: 900px;
             height: auto;
             display: block;
-            border-radius: 8px;
+            border-radius: var(--radius-card);
             border: 1px solid var(--border-color);
         }
 
         .modal-caption {
             margin-top: 0.5rem;
             color: #999;
-            font-size: 0.85rem;
+            font-size: var(--font-size-ui);
+        }
+
+        .modal-stack {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .tool-note {
+            font-size: var(--font-size-caption);
+            color: var(--color-text-muted);
+        }
+
+        .sticker-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            height: 30%;
+            gap: 2px;
+        }
+
+        .sticker-preview-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--color-bg-section-raised);
+        }
+
+        .btn-offset {
+            margin-top: var(--space-md);
+            display: inline-block;
+        }
+
+        .btn-push {
+            margin-top: auto;
+            width: fit-content;
         }
 
         @media (max-width: 991px) {
@@ -775,16 +1051,16 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem;">
-                        <img src="./assets/profile/profile.jpg" alt="王韋捷 Profile" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-color);">
+                    <div class="profile-row">
+                        <img src="./assets/profile/profile.jpg" alt="王韋捷 Profile" class="profile-avatar">
                         <span class="tag">內容企劃 / AI 工具研究 / 工作流自動化 / 商業影像</span>
                     </div>
                     <h1>內容企劃 × AI 自動化工作流</h1>
                     <p class="description">
                         具備商業影像與內容企劃背景，近年以 Google Workspace、Codex 等工具建立輕量工具與網頁，協助降低重複作業與溝通成本。
                     </p>
-                    <div style="display: flex; flex-direction: column; gap: 2rem;">
-                        <a href="#contact" class="btn" style="width: fit-content;">洽詢合作項目</a>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn fit-content">洽詢合作項目</a>
                         <div class="hero-quick-links">
                             <a href="#featured" class="hero-quick-link">主打案例 &rarr;</a>
                             <a href="#storyboard" class="hero-quick-link">分鏡腳本開發 &rarr;</a>
@@ -838,9 +1114,9 @@
     <!-- END: Hero -->
 
     <!-- Section 7: What I Can Help With -->
-    <section id="services" style="background: #0f0f0f;">
+    <section id="services" class="section-muted">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 4rem;">專業<br>Capabilities</h2>
+            <h2 class="section-heading-roomy section-heading-center">專業<br>Capabilities</h2>
             <div class="grid capabilities-grid">
                 <div class="cap-card">
                     <span class="cap-num">01</span>
@@ -868,82 +1144,82 @@
     <!-- END: What I Can Help With -->
 
     <!-- Section 5: Workflow Automation -->
-    <section id="automation" style="background: #000;">
+    <section id="automation" class="section-black">
         <div class="container">
-            <h2 style="margin-bottom: 2rem;">自動化工具與工作流案例<br>Automation Works</h2>
-            <p style="text-align: left; color: var(--text-secondary); max-width: 800px; margin: 0 0 2rem;">
+            <h2 class="section-heading-tight">自動化工具與工作流案例<br>Automation Works</h2>
+            <p class="section-intro">
                 這裡整理我用 Google Sheet、Apps Script、GitHub Pages 與 AI 工具建立的輕量工作流，包含提案頁面、腳本生成、素材整理與內容流程測試。
             </p>
-            <p style="text-align: left; color: var(--text-secondary); max-width: 800px; margin: 0 0 4rem;">
+            <p class="section-intro section-intro-spacious">
                 每個案例都從實際工作痛點出發，將原本需要手動整理的分鏡、Brief、素材與腳本流程，轉成更容易追蹤、討論與交付的小工具。
             </p>
             <div class="grid automation-grid">
                 <!-- Auto 1: GAS -->
-                <div class="card" style="flex-direction: column;">
+                <div class="card card-vertical">
                     <div class="card-media">
-                        <img src="./assets/projects/GAS_cover.png" alt="GAS 工作流" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+                        <img src="./assets/projects/GAS_cover.png" alt="GAS 工作流" class="media-contain media-muted">
                     </div>
-                    <div class="card-body" style="flex: 1;">
+                    <div class="card-body card-body-fill">
                         <h3 class="card-title">GAS 商品分鏡提案互動式網頁</h3>
                         <p class="card-desc">解決問題：原本繁瑣的簡報整理與手動素材置換過程。</p>
-                        <p class="card-desc" style="color: var(--text-primary); font-weight: 500;">成果：將原本約 2–3 天的前期整理流程，縮短至約 30 分鐘內完成初版。</p>
-                        <div style="margin-top: auto; padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                            <div style="display: flex; gap: 0.4rem;">
+                        <p class="card-desc card-result">成果：將原本約 2–3 天的前期整理流程，縮短至約 30 分鐘內完成初版。</p>
+                        <div class="card-footer card-footer-stack">
+                            <div class="tag-row">
                                 <span class="tag">Apps Script</span>
                                 <span class="tag">Google Cloud</span>
                             </div>
-                            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                                <a href="https://script.google.com/macros/s/AKfycbwVfeM05WVkyajJl8aS-kHjbarYpnAn0VjsGW6rv6bUFJ3H3uYbeOE9jhitRb1kFB0/exec" target="_blank" class="btn-small" style="text-align: center;">廣告分鏡提案｜MIRAVAC &rarr;</a>
-                                <a href="https://script.google.com/macros/s/AKfycbxBEML4rX078ApigenPq-c_iqDSnejqr6vdhIz9N1Tzc_ugtgoTHnksDCK7Le2gdKhAPw/exec?projectId=toa100" target="_blank" class="btn-small" style="text-align: center;">廣告分鏡提案｜Cuisinart TOA100 &rarr;</a>
+                            <div class="button-row">
+                                <a href="https://script.google.com/macros/s/AKfycbwVfeM05WVkyajJl8aS-kHjbarYpnAn0VjsGW6rv6bUFJ3H3uYbeOE9jhitRb1kFB0/exec" target="_blank" class="btn-small text-center">廣告分鏡提案｜MIRAVAC &rarr;</a>
+                                <a href="https://script.google.com/macros/s/AKfycbxBEML4rX078ApigenPq-c_iqDSnejqr6vdhIz9N1Tzc_ugtgoTHnksDCK7Le2gdKhAPw/exec?projectId=toa100" target="_blank" class="btn-small text-center">廣告分鏡提案｜Cuisinart TOA100 &rarr;</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Auto 2: Miravac -->
-                <div class="card" style="flex-direction: column;">
+                <div class="card card-vertical">
                     <div class="card-media">
-                        <img src="./assets/projects/miravac-brief-automation.gif" alt="提案流程自動化" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+                        <img src="./assets/projects/miravac-brief-automation.gif" alt="提案流程自動化" class="media-contain media-muted">
                     </div>
-                    <div class="card-body" style="flex: 1;">
+                    <div class="card-body card-body-fill">
                         <h3 class="card-title">提案流程自動化</h3>
                         <p class="card-desc">解決問題：客戶原始 Brief 複雜且難以直接視覺化對焦的問題。</p>
-                        <p class="card-desc" style="color: var(--text-primary); font-weight: 500;">成果：自動化對齊需求並生成可直接用於會議討論的視覺提案稿。</p>
-                        <div style="margin-top: auto; padding-top: 1.5rem;">
+                        <p class="card-desc card-result">成果：自動化對齊需求並生成可直接用於會議討論的視覺提案稿。</p>
+                        <div class="card-footer">
                             <span class="tag">Workflow Design</span>
                             <span class="tag">AI Parser</span>
                         </div>
                     </div>
                 </div>
                 <!-- Auto 3: LINE Sticker -->
-                <div class="card" style="flex-direction: column;">
-                    <div class="card-media" style="position: relative;">
-                        <img src="./assets/projects/line-sticker-workflow.png" alt="LINE Sticker Workflow" style="width: 100%; height: 70%; object-fit: contain;">
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); height: 30%; gap: 2px;">
-                            <img src="./assets/projects/line-sticker-grid_00.png" alt="Sticker 00" style="width: 100%; height: 100%; object-fit: contain; background: #111;">
-                            <img src="./assets/projects/line-sticker-grid_01.png" alt="Sticker 01" style="width: 100%; height: 100%; object-fit: contain; background: #111;">
-                            <img src="./assets/projects/line-sticker-grid_02.png" alt="Sticker 02" style="width: 100%; height: 100%; object-fit: contain; background: #111;">
+                <div class="card card-vertical">
+                    <div class="card-media">
+                        <img src="./assets/projects/line-sticker-workflow.png" alt="LINE Sticker Workflow" class="media-contain media-main-70">
+                        <div class="sticker-preview-grid">
+                            <img src="./assets/projects/line-sticker-grid_00.png" alt="Sticker 00">
+                            <img src="./assets/projects/line-sticker-grid_01.png" alt="Sticker 01">
+                            <img src="./assets/projects/line-sticker-grid_02.png" alt="Sticker 02">
                         </div>
                     </div>
-                    <div class="card-body" style="flex: 1;">
+                    <div class="card-body card-body-fill">
                         <h3 class="card-title">LINE Sticker Workflow</h3>
                         <p class="card-desc">解決問題：手繪貼圖風格統一難度高且耗時的問題。</p>
-                        <p class="card-desc" style="color: var(--text-primary); font-weight: 500;">成果：實現單一風格角色的高度一致性產出，大幅提升量產效率。</p>
-                        <div style="margin-top: auto; padding-top: 1.5rem;">
+                        <p class="card-desc card-result">成果：實現單一風格角色的高度一致性產出，大幅提升量產效率。</p>
+                        <div class="card-footer">
                             <span class="tag">ComfyUI</span>
                             <span class="tag">Character Consistency</span>
                         </div>
                     </div>
                 </div>
                 <!-- Auto 4: Short Video Script Automation -->
-                <div class="card" style="flex-direction: column;">
+                <div class="card card-vertical">
                     <div class="card-media">
-                        <img src="./assets/misc/gas-workflow-demo.gif" alt="短影音腳本自動化 demo" style="width: 100%; height: 100%; object-fit: contain; opacity: 0.9;">
+                        <img src="./assets/misc/gas-workflow-demo.gif" alt="短影音腳本自動化 demo" class="media-contain media-muted">
                     </div>
-                    <div class="card-body" style="flex: 1;">
+                    <div class="card-body card-body-fill">
                         <h3 class="card-title">短影音腳本自動化</h3>
                         <p class="card-desc">解決問題：短影音腳本開發與測試的繁瑣流程。</p>
-                        <p class="card-desc" style="color: var(--text-primary); font-weight: 500;">成果：自動化腳本生成與視覺測試，大幅提升創作效率。</p>
-                        <div style="margin-top: auto; padding-top: 1.5rem;">
+                        <p class="card-desc card-result">成果：自動化腳本生成與視覺測試，大幅提升創作效率。</p>
+                        <div class="card-footer">
                             <span class="tag">AI Workflow</span>
                             <span class="tag">Script Automation</span>
                         </div>
@@ -957,19 +1233,19 @@
     <!-- Section 2: Featured Case Study -->
     <section id="featured" class="featured-case">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 5rem;">AI 導演實作案例<br>AI-directed Case Studies</h2>
+            <h2 class="section-heading-loose section-heading-center">AI 導演實作案例<br>AI-directed Case Studies</h2>
             <div class="case-container">
                 <!-- Case 1 -->
                 <div class="case-card">
-                    <div class="case-media" style="aspect-ratio: 16/9;">
-                        <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px;">
+                    <div class="case-media case-media-16x9">
+                        <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" class="media-cover">
                     </div>
                     <div class="case-info">
                         <span class="tag">AI 商品廣告</span>
                         <span class="tag">Workflow 設計</span>
                         <h2 class="card-title">聲寶｜DC馬達無線風扇</h2>
                         <p>以 AI Workflow 設計產品廣告的分鏡與視覺測試流程，將產品賣點轉化為可快速驗證的影像提案。</p>
-                        <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">觀看影片 &rarr;</a>
+                        <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" class="btn btn-offset">觀看影片 &rarr;</a>
                         <div class="meta">
                             <div class="meta-item">
                                 <label>使用工具</label>
@@ -985,15 +1261,15 @@
 
                 <!-- Case 2 -->
                 <div class="case-card reverse">
-                    <div class="case-media" style="aspect-ratio: 16/9;">
-                        <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" style="width:100%; height:100%; object-fit: cover; border-radius: 4px;">
+                    <div class="case-media case-media-16x9">
+                        <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" class="media-cover">
                     </div>
                     <div class="case-info">
                         <span class="tag">AI 商品廣告</span>
                         <span class="tag">AI 分鏡</span>
                         <h2 class="card-title">聲寶｜靜音省電風扇</h2>
                         <p>以 ComfyUI 與 Adobe 後製流程測試奇幻風格包裝，將傳統家電賣點轉化為具記憶點的視覺概念。</p>
-                        <a href="https://youtu.be/2HTnb9K3NMk" target="_blank" class="btn" style="margin-top: 1rem; display: inline-block;">查看案例 &rarr;</a>
+                        <a href="https://youtu.be/2HTnb9K3NMk" target="_blank" class="btn btn-offset">查看案例 &rarr;</a>
                         <div class="meta">
                             <div class="meta-item">
                                 <label>使用工具</label>
@@ -1012,26 +1288,26 @@
     <!-- END: Featured Case Study -->
 
     <!-- Section 3: AI Storyboard Script Development -->
-    <section id="storyboard" style="background: #111;">
+    <section id="storyboard" class="section-raised">
         <div class="container">
-            <div style="max-width: 760px; margin: 0 auto 3rem; text-align: center;">
-                <h2 style="margin-bottom: 1rem;">AI 分鏡腳本開發<br>Storyboard Development</h2>
+            <div class="intro-block">
+                <h2 class="section-heading-compact">AI 分鏡腳本開發<br>Storyboard Development</h2>
                 <p>
                     將腳本、鏡頭、產品賣點與視覺參考，拆解成可測試的 AI 分鏡流程；同時保留最終分鏡成果與工具內部操作脈絡，讓畫面開發不只是生成圖片，而是可追蹤、可回修的提案系統。
                 </p>
             </div>
-            <div class="storyboard-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; align-items: stretch;">
+            <div class="storyboard-grid">
                 <div class="stage-card">
                     <div class="stage-img"><img src="./assets/storyboard-development/storyboard-pencil-concept-grid.png" alt="分鏡圖完稿"></div>
                     <div class="stage-step">分鏡圖完稿</div>
                     <div class="stage-desc">整理 AI 生成與風格測試結果，形成可供提案討論的九宮格分鏡、構圖草稿與場景變化。</div>
-                    <a class="btn" onclick="openStoryboardModal('output')" style="margin-top: auto; width: fit-content;">查看分鏡成果 &rarr;</a>
+                    <a class="btn btn-push" onclick="openStoryboardModal('output')">查看分鏡成果 &rarr;</a>
                 </div>
                 <div class="stage-card">
                     <div class="stage-img"><img src="./assets/storyboard-development/storyboard-workflow-overview.png" alt="工具流程展示"></div>
                     <div class="stage-step">工具流程展示</div>
                     <div class="stage-desc">保留 Runway / Workflow 內的參考圖、節點關係與生成脈絡，讓分鏡開發流程可被追蹤與複製。</div>
-                    <a class="btn" onclick="openStoryboardModal('workflow')" style="margin-top: auto; width: fit-content;">查看工作流程 &rarr;</a>
+                    <a class="btn btn-push" onclick="openStoryboardModal('workflow')">查看工作流程 &rarr;</a>
                 </div>
             </div>
         </div>
@@ -1041,60 +1317,60 @@
     <!-- Section 4: Recent AI Experiments -->
     <section id="experiments">
         <div class="container">
-            <h2 style="margin-bottom: 3rem;">AI 實作測試<br>Recent Experiments</h2>
-            <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+            <h2 class="section-heading">AI 實作測試<br>Recent Experiments</h2>
+            <div class="grid grid-two">
                 <!-- Card 1: Multi-view -->
                 <div class="card clickable-card" onclick="openModal('multiview-modal')">
                     <div class="card-media">
-                        <video src="./assets/videos/product-multiview-test-01.mp4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: contain; background: #000;"></video>
+                        <video src="./assets/videos/product-multiview-test-01.mp4" autoplay muted loop playsinline class="media-contain media-bg-black"></video>
                         <div class="media-indicator">點擊查看全視角素材</div>
                     </div>
                     <div class="card-body">
                         <span class="tag">商品測試</span>
                         <h3 class="card-title">單一商品圖多角度 AI 測試</h3>
                         <p class="card-desc">證明 AI 能在保持產品結構下，精準控制商攝角度與光影質感變化。</p>
-                        <p style="font-size: 0.75rem; color: #666;">工具: Stable Diffusion (ControlNet)</p>
+                        <p class="tool-note">工具: Stable Diffusion (ControlNet)</p>
                     </div>
                 </div>
 
                 <!-- Card 2: AI Character Design -->
                 <div class="card clickable-card" onclick="openModal('character-modal')">
                     <div class="card-media">
-                        <img src="./assets/projects/sampo-spirit-ref_01.png" alt="AI 角色設計" style="width: 100%; height: 100%; object-fit: contain;">
+                        <img src="./assets/projects/sampo-spirit-ref_01.png" alt="AI 角色設計" class="media-contain">
                         <div class="media-indicator">點擊查看角色設定</div>
                     </div>
                     <div class="card-body">
                         <span class="tag">角色設計</span>
                         <h3 class="card-title">AI 角色設計</h3>
                         <p class="card-desc">利用 AI 進行多樣化的角色 concept 設定，快速產出多種風格與氣色組合。</p>
-                        <p style="font-size: 0.75rem; color: #666;">工具: Midjourney / Flux</p>
+                        <p class="tool-note">工具: Midjourney / Flux</p>
                     </div>
                 </div>
 
                 <!-- Card 3: AI Storyboard -->
                 <div class="card clickable-card" onclick="openModal('storyboard-modal')">
                     <div class="card-media">
-                        <img src="./assets/projects/sampo-spirit-comfyui.png" alt="AI 分鏡與流程驗證" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+                        <img src="./assets/projects/sampo-spirit-comfyui.png" alt="AI 分鏡與流程驗證" class="media-contain media-bg-black">
                         <div class="media-indicator">點擊查看流程細節</div>
                     </div>
                     <div class="card-body">
                         <span class="tag">流程驗證</span>
                         <h3 class="card-title">流程驗證與試錯</h3>
                         <p class="card-desc">針對不同 AI 工具的生成穩定性、鏡頭連續性、角色一致性與產品辨識度進行測試，評估哪些流程適合進入實際提案與製作。</p>
-                        <p style="font-size: 0.75rem; color: #666;">工具: Flux / Kling AI / Luma</p>
+                        <p class="tool-note">工具: Flux / Kling AI / Luma</p>
                     </div>
                 </div>
 
                 <!-- Card 4: ComfyUI Character Turnaround -->
                 <div class="card">
                     <div class="card-media">
-                        <img src="./assets/misc/screencrop-1778577873696.png" alt="ComfyUI 人物三視測試" style="width: 100%; height: 100%; object-fit: contain;">
+                        <img src="./assets/misc/screencrop-1778577873696.png" alt="ComfyUI 人物三視測試" class="media-contain">
                     </div>
                     <div class="card-body">
                         <span class="tag">人物測試</span>
                         <h3 class="card-title">ComfyUI 人物三視測試</h3>
                         <p class="card-desc">測試 ComfyUI 在人物角色多角度生成的一致性與細節表現。</p>
-                        <p style="font-size: 0.75rem; color: #666;">工具: ComfyUI</p>
+                        <p class="tool-note">工具: ComfyUI</p>
                     </div>
                 </div>
             </div>
@@ -1124,7 +1400,7 @@
     <div id="storyboard-modal" class="modal" onclick="closeModal('storyboard-modal')">
         <span class="modal-close" onclick="closeModal('storyboard-modal')">&times;</span>
         <div class="modal-content" onclick="event.stopPropagation()">
-            <div style="max-width:900px; width:100%; display:flex; flex-direction:column; gap:2rem;">
+            <div class="modal-stack">
                 <div id="storyboard-modal-output" class="storyboard-modal-section">
                     <div class="modal-category-title">分鏡圖完稿 / Storyboard Outputs</div>
                     <div class="modal-category-desc">展示最終分鏡成果與視覺提案素材。</div>
@@ -1164,18 +1440,18 @@
     <!-- Section 6: Selected Commercial Works -->
     <section id="commercial">
         <div class="container">
-            <h2 style="margin-bottom: 3rem;">精選商業影音<br>Selected Commercial Works</h2>
-            <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&si=mrN_0qjQ1lJJaTWi" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><img src="./assets/services/service-commercial-photo-cover.webp" alt="商品廣告製作" style="width:100%; height:100%; object-fit: cover;"></div>
+            <h2 class="section-heading">精選商業影音<br>Selected Commercial Works</h2>
+            <div class="grid grid-three">
+                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&si=mrN_0qjQ1lJJaTWi" target="_blank" class="card card-link">
+                    <div class="card-media"><img src="./assets/services/service-commercial-photo-cover.webp" alt="商品廣告製作" class="media-cover"></div>
                     <div class="card-body"><h3 class="card-title">商品廣告製作 &nearrow;</h3></div>
                 </a>
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&si=NGnPwRPLwWtmnGlh" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><img src="./assets/services/service-interview-photo-cover.webp" alt="人物訪談影像" style="width:100%; height:100%; object-fit: cover;"></div>
+                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&si=NGnPwRPLwWtmnGlh" target="_blank" class="card card-link">
+                    <div class="card-media"><img src="./assets/services/service-interview-photo-cover.webp" alt="人物訪談影像" class="media-cover"></div>
                     <div class="card-body"><h3 class="card-title">人物訪談影像 &nearrow;</h3></div>
                 </a>
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&si=GsSxqITdrcHYShG4" target="_blank" class="card" style="text-decoration: none;">
-                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="品牌形象影片" style="width:100%; height:100%; object-fit: cover;"></div>
+                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&si=GsSxqITdrcHYShG4" target="_blank" class="card card-link">
+                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="品牌形象影片" class="media-cover"></div>
                     <div class="card-body"><h3 class="card-title">品牌形象影片 &nearrow;</h3></div>
                 </a>
             </div>

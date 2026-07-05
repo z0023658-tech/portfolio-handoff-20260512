@@ -1,87 +1,53 @@
 # AGENTS.md
 
-## Project Overview
+## Repo Purpose
 
-This is a personal portfolio website for an AI visual director / commercial film director / AI image workflow creator.
+本專案是個人作品集網站，定位為「內容企劃 x AI 工具研究 x 工作流自動化」的對外展示入口。
 
-The current project is a static front-end portfolio site exported from AI Studio.
+目前是靜態前端 portfolio，重點是保持網站穩定、視覺一致、內容可讀、可部署到 Cloudflare Pages 或 GitHub Pages。
 
-The main goal is to keep the site stable, readable, and easy to deploy.
+## Must-read Files
 
-## Core Rules
-
-1. Do not rewrite the entire website unless explicitly requested.
-2. Do not convert this project to React, Next.js, Vue, Tailwind, or any other framework unless explicitly requested.
-3. Do not change the visual direction, layout structure, section order, or copywriting without approval.
-4. Do not rename, move, or delete files unless the task specifically asks for it.
-5. Do not change asset paths without checking all references in `index.html`.
-6. Do not remove existing backup files.
-7. Prefer small, incremental changes over large refactors.
-8. Before modifying files, explain what will be changed.
-9. After modifying files, summarize what changed and what should be tested.
-
-## Current Structure
-
-Expected root-level files may include:
-
-- `index.html`
 - `README.md`
 - `AGENTS.md`
-- `package.json`
-- `vite.config.ts`
-- `tsconfig.json`
-- `metadata.json`
-- `.gitignore`
-- `.env.local`
-- `assets/`
-- `backup/`
+- `TASKS.md`
+- `UI_UX_LESSONS.md`，只要任務涉及大範圍 UI / UX redesign 就必讀
+- `index.html`，只在需要修改頁面或確認 asset reference 時讀
 
-## Asset Rules
+## Project-specific Boundaries
 
-1. All website media assets should stay under `assets/`.
-2. Use lowercase English filenames when possible.
-3. Prefer hyphenated filenames.
-4. Avoid spaces, Chinese characters, and repeated file extensions.
-5. Before reorganizing assets, create a backup.
-6. If an asset is moved or renamed, update all related HTML references.
+- 只讀取與修改本專案資料夾內檔案。
+- 不讀取 parent / sibling 專案，不修改 Hub、外部 portfolio repo 或封存 portfolio。
+- 不將此專案轉成 React、Next.js、Vue、Tailwind 或其他框架，除非使用者明確要求。
+- 不改變整體 premium dark portfolio 方向、section 順序或核心文案定位，除非使用者明確要求。
+- 不任意搬移、刪除、重新命名 assets；若改 asset path，必須同步檢查 `index.html` 引用。
+- 不刪除 `backup/`。
+- 不暴露 API key、私有 URL 或環境變數。
 
-## Design Rules
+## Build / Test / Validation
 
-1. Keep the current premium dark portfolio style.
-2. Maintain responsive layout for desktop, tablet, and mobile.
-3. Do not add unnecessary animations.
-4. Prioritize readability, hierarchy, spacing, and image consistency.
-5. Keep project thumbnails visually consistent.
-6. Avoid generic AI-template visual patterns.
+- 可用指令依 `README.md` 與 `package.json` 為準：
+  - `npm install`
+  - `npm run dev`
+  - `npm run build`
+- 修改後依任務範圍檢查：
+  - desktop / tablet / mobile 版面。
+  - modal 與既有互動。
+  - asset path 是否仍為相對路徑。
+  - GitHub Pages / Cloudflare Pages 相容性。
 
-## Development Rules
+## Directory Notes
 
-1. This project should remain deployable as a static site.
-2. Do not introduce unnecessary dependencies.
-3. Do not add build complexity unless required.
-4. Check desktop, tablet, and mobile layout after changes.
-5. Keep code readable with clear section comments.
+- `index.html`：主要靜態頁面。
+- `assets/`：網站媒體素材。
+- `backup/`：歷史備份，不要任意刪除。
+- `TASKS.md`：短期網站整理任務。
+- `UI_UX_LESSONS.md`：重啟 UI / UX redesign 前的踩雷紀錄。
+- `package.json` / `vite.config.ts`：本機開發與 build 設定。
 
-## Modal / JavaScript Rules
+## Known Traps
 
-1. Do not refactor Modal logic unless explicitly requested.
-2. If refactoring is requested, first propose the new structure.
-3. Avoid breaking existing interactions.
-
-## Deployment Rules
-
-1. The site should be compatible with Cloudflare Pages or GitHub Pages.
-2. Avoid absolute local paths.
-3. Use relative paths for local assets.
-4. Do not expose API keys or private environment variables.
-
-## Preferred Workflow
-
-For every task:
-
-1. Inspect first.
-2. List findings.
-3. Propose the smallest safe change.
-4. Modify only after the task is clear.
-5. Summarize changed files.
-6. List what the user should test next.
+- 不要直接照 AI mockup 做全頁 redesign；先轉成設計規格，再一段一段改。
+- Modal / JavaScript logic 不要順手重構。
+- portfolio 圖片路徑一改就可能影響部署頁面。
+- 避免 generic AI-template 視覺；保持目前高質感深色作品集方向。
