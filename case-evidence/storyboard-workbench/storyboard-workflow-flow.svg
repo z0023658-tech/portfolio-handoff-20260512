@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="820" viewBox="80 0 1640 820" role="img" aria-labelledby="title desc">
+  <title id="title">分鏡提案工作台流程</title>
+  <desc id="desc">客戶需求經由前期資訊整理與視覺探索，進入分鏡工作台的 Draft、人工確認與 Publish，最後形成固定客戶提案頁。</desc>
+  <rect x="80" width="1640" height="820" fill="#efefec"/>
+  <g font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif" fill="#121820">
+    <text x="110" y="130" font-size="26" font-weight="700" fill="#d94b2b" letter-spacing="3">WORKFLOW SYSTEM</text>
+    <text x="110" y="205" font-size="62" font-weight="800">從需求整理，到可確認的提案頁。</text>
+    <text x="110" y="253" font-size="24" fill="#555b61">AI 協助整理與探索；是否發布，仍由人確認。</text>
+  </g>
+  <g fill="none" stroke="#bfc2c0" stroke-width="3" stroke-linecap="round">
+    <path d="M387 475 H477"/><path d="M817 475 H907"/><path d="M1247 475 H1337"/>
+  </g>
+  <g fill="#d94b2b">
+    <path d="M465 463 l24 12 -24 12z"/><path d="M895 463 l24 12 -24 12z"/><path d="M1325 463 l24 12 -24 12z"/>
+  </g>
+  <g font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif">
+    <g transform="translate(110 340)">
+      <rect width="277" height="270" rx="18" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="52" font-size="18" font-weight="800" fill="#d94b2b">01 · INPUT</text>
+      <text x="28" y="105" font-size="34" font-weight="800" fill="#121820">客戶需求</text>
+      <text x="28" y="151" font-size="21" fill="#555b61">產品資訊</text>
+      <text x="28" y="184" font-size="21" fill="#555b61">影片目標</text>
+      <text x="28" y="217" font-size="21" fill="#555b61">限制與待確認事項</text>
+    </g>
+    <g transform="translate(477 340)">
+      <rect width="340" height="270" rx="18" fill="#121820"/>
+      <text x="28" y="52" font-size="18" font-weight="800" fill="#f3a18d">02 · EXPLORE</text>
+      <text x="28" y="105" font-size="34" font-weight="800" fill="#ffffff">整理與視覺探索</text>
+      <text x="28" y="151" font-size="21" fill="#d7dde1">Google Sheet · GAS</text>
+      <text x="28" y="184" font-size="21" fill="#d7dde1">AI 前期整理</text>
+      <text x="28" y="217" font-size="21" fill="#d7dde1">ComfyUI 等工具探索方向</text>
+    </g>
+    <g transform="translate(907 340)">
+      <rect width="340" height="270" rx="18" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="52" font-size="18" font-weight="800" fill="#d94b2b">03 · DRAFT</text>
+      <text x="28" y="105" font-size="34" font-weight="800" fill="#121820">Storyboard Workbench</text>
+      <text x="28" y="151" font-size="21" fill="#555b61">整理 CUT、素材與拍攝資訊</text>
+      <text x="28" y="184" font-size="21" fill="#555b61">Draft Preview 與版本確認</text>
+      <text x="28" y="217" font-size="21" fill="#555b61">Draft 不會直接改變客戶頁</text>
+    </g>
+    <g transform="translate(1337 340)">
+      <rect width="353" height="270" rx="18" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="52" font-size="18" font-weight="800" fill="#d94b2b">04 · PUBLISH</text>
+      <text x="28" y="105" font-size="34" font-weight="800" fill="#121820">人工確認後發布</text>
+      <text x="28" y="151" font-size="21" fill="#555b61">建立 Published snapshot</text>
+      <text x="28" y="184" font-size="21" fill="#555b61">固定客戶提案頁讀取最新版本</text>
+      <text x="28" y="217" font-size="21" fill="#555b61">不是 AI 自動發布</text>
+    </g>
+  </g>
+  <g transform="translate(110 710)" font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif">
+    <line x1="0" x2="1580" stroke="#121820" stroke-width="2"/>
+    <text y="64" font-size="24" font-weight="800" fill="#121820">設計重點</text>
+    <text x="190" y="64" font-size="24" fill="#555b61">資料先有固定結構，再使用自動化；Draft、人工確認與客戶發布版本彼此分離。</text>
+  </g>
+</svg>

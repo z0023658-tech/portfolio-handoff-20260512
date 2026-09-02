@@ -16,6 +16,44 @@
 - Codex 輔助開發
 - 商業影像與內容企劃背景
 
+## 2026-07-20 目前權威狀態
+
+- Current phase：輕量 Vite、內容 contract 與新版首頁逐段實作。
+- Last completed：新版首頁已完成第一次完整桌機／平板／手機視覺健檢；修正 About 照片過度裁切、工作方法標題斷行、手機聯絡箭頭，以及素材狀態文字過於工程化的問題。
+- Current stop point：新版首頁主要 MVP 骨架已完整，並通過 1440px 桌機、820px 平板與 390px 手機的視覺及內容完整性檢查。
+- Current blocker：無。
+- Next small step：整理正式內容整合清單，先盤點商業旗艦素材、GAS 去識別化畫面、履歷任職區間與公開權限，不直接替換尚未確認內容。
+- Requires human decision：目前不需 UI 決策；精確任職區間、正式履歷檔與素材公開權限留待正式內容整合前確認。
+- Production / deploy：本輪未修改既有 `index.html`、未 commit、未 push、未 deploy；新版仍位於獨立 `redesign/` 入口。
+
+### 本輪已鎖定的內容邊界
+
+- 年資暫用「多年跨產業內容與影像實務」，不得先寫成「6–7 年」；精確年資待履歷區間確認。
+- 「每年約 15–30 案」只描述現職／近年資料。
+- 「3 人團隊」只描述現職團隊規模。
+- 正式素材、公開權限、數據口徑與最終文案是正式內容整合前的 dependencies，不是 Phase 0–3 blocker。
+- Work Navigator 不是必要閱讀門檻；預設與無 JavaScript 狀態都必須先呈現主要商業案例。
+- Hero 與前兩個 viewport 不得全部使用家電畫面，需混合商業影像、提案／流程介面，以及公共議題、人物或非家電內容。
+- CTA 層級固定為：Primary「查看精選案例」、Secondary「查看履歷／經歷」、Tertiary text link「聯絡」。
+- Post-MVP 預留 Notes、Insights、Collaboration 與 Lab，但 MVP 不建立完整頁面。
+- GAS 原始流程 GIF 含真實電話與 Email，不得直接放入新版；完成去識別化後才能替換目前的證據 placeholder。
+- GAS 首頁文案不顯示尚未確認口徑的時間比較數字；完整案例確認起訖點、樣本與計算方式後再補。
+- 警政署防詐案只標示為正式委託概念提案，不得描述成已製作、已發布或已有宣傳成效；公開素材確認前維持 placeholder。
+- 七步流程必須保持完整靜態內容；未來若增加互動，只能補充文件或案例證據，不得成為必要閱讀門檻。
+- Selected Visual Works 在 MVP 不加入篩選器或輪播；三組作品必須依序可讀，並清楚標示影像執行角色，不宣稱客戶提供的企劃或品牌策略為個人主導。
+- About／Experience 在任職日期確認前不建立猜測式時間軸；不以「3 人團隊」或內訓次數當成主要成就，改說明協作責任與方法如何落地。
+- Contact 不建立表單或資料收集功能；MVP 使用靜態說明、直接信箱與既有公開社群連結，Post-MVP 入口仍只保留在 Footer。
+- 第一次跨尺寸視覺健檢已確認無水平跑版、缺圖或前端警告；後續只針對正式素材造成的裁切與文字變化再做局部複驗。
+
+### 修正後的開發順序
+
+1. Phase 0：baseline、branch、live／origin／local 差異保存。
+2. Phase 1：灰階首頁資訊架構與 desktop／mobile responsive wireframe。
+3. 原型核准後：才進行 Vite、依賴清理、內容 schema 與 routing 重構。
+4. 正式案例與素材整合。
+5. Responsive、效能與無障礙驗證。
+6. QA、SEO 與部署準備；未取得明確確認不得 deploy。
+
 ## 2026-07-05 專案暫停狀態
 
 - 狀態：暫停。

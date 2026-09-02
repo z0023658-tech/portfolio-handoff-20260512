@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1640" height="1080" viewBox="0 0 1640 1080" role="img" aria-labelledby="title desc">
+  <title id="title">委製需求到簡報交接的人工確認流程</title>
+  <desc id="desc">外部委製需求先由 AI 整理為結構化分析，再由人透過 Meeting Brief 確認與修正；只有通過 schema validation 的資料才會交給後續簡報製作工作台。</desc>
+  <rect width="1640" height="1080" fill="#efefec"/>
+
+  <g font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif">
+    <text x="96" y="104" font-size="21" font-weight="800" fill="#d94b2b" letter-spacing="3">PRESENTATION AUTOMATION · CHECKPOINT</text>
+    <text x="96" y="178" font-size="56" font-weight="800" fill="#121820">從委製需求，到可安全交接的簡報資料。</text>
+    <text x="96" y="224" font-size="22" fill="#555b61">AI 負責整理與輔助；人保留確認權。只有確認後的結構化資料才進入後段流程。</text>
+  </g>
+
+  <g fill="none" stroke="#bfc2c0" stroke-width="3" stroke-linecap="round">
+    <path d="M424 507 H466"/>
+    <path d="M800 507 H842"/>
+    <path d="M1176 507 H1218"/>
+  </g>
+  <g fill="#d94b2b">
+    <path d="M454 495 l24 12 -24 12z"/>
+    <path d="M830 495 l24 12 -24 12z"/>
+    <path d="M1206 495 l24 12 -24 12z"/>
+  </g>
+
+  <g font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif">
+    <g transform="translate(96 310)">
+      <rect width="328" height="430" rx="16" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="48" font-size="17" font-weight="800" fill="#d94b2b" letter-spacing="1.5">01 · INPUT</text>
+      <text x="28" y="100" font-size="31" font-weight="800" fill="#121820">外部委製需求</text>
+      <line x1="28" x2="300" y1="126" y2="126" stroke="#d9dcda"/>
+      <text x="28" y="168" font-size="16" font-weight="800" fill="#555b61">影片目的</text>
+      <text x="28" y="196" font-size="20" fill="#121820">新品上市前的內容對焦</text>
+      <text x="28" y="244" font-size="16" font-weight="800" fill="#555b61">產品</text>
+      <text x="28" y="272" font-size="20" fill="#121820">NOVA DW-08 桌上型洗碗機</text>
+      <text x="28" y="320" font-size="16" font-weight="800" fill="#555b61">影片長度／必要訊息</text>
+      <text x="28" y="348" font-size="20" fill="#121820">45 秒／小空間也能輕鬆整理</text>
+      <text x="28" y="396" font-size="16" font-weight="800" fill="#555b61">製作限制</text>
+      <text x="28" y="424" font-size="20" fill="#121820">預算與拍攝條件待確認</text>
+    </g>
+
+    <g transform="translate(472 310)">
+      <rect width="328" height="430" rx="16" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="48" font-size="17" font-weight="800" fill="#d94b2b" letter-spacing="1.5">02 · AI ANALYSIS</text>
+      <text x="28" y="100" font-size="31" font-weight="800" fill="#121820">結構化整理</text>
+      <line x1="28" x2="300" y1="126" y2="126" stroke="#d9dcda"/>
+      <text x="28" y="168" font-size="16" font-weight="800" fill="#555b61">核心賣點</text>
+      <text x="28" y="196" font-size="20" fill="#121820">小空間的快速洗滌</text>
+      <text x="28" y="244" font-size="16" font-weight="800" fill="#555b61">目標受眾</text>
+      <text x="28" y="272" font-size="20" fill="#121820">租屋族與小家庭</text>
+      <text x="28" y="320" font-size="16" font-weight="800" fill="#555b61">使用情境</text>
+      <text x="28" y="348" font-size="20" fill="#121820">晚餐後的收納與清潔</text>
+      <text x="28" y="396" font-size="16" font-weight="800" fill="#555b61">待確認問題</text>
+      <text x="28" y="424" font-size="20" fill="#121820">容量與拍攝場景</text>
+    </g>
+
+    <g transform="translate(848 284)">
+      <rect width="328" height="482" rx="16" fill="#121820"/>
+      <text x="28" y="50" font-size="17" font-weight="800" fill="#f3a18d" letter-spacing="1.5">03 · HUMAN REVIEW</text>
+      <text x="28" y="103" font-size="31" font-weight="800" fill="#ffffff">Meeting Brief</text>
+      <text x="28" y="139" font-size="20" fill="#d7dde1">讓人檢視、修正與對焦。</text>
+      <line x1="28" x2="300" y1="171" y2="171" stroke="#3f4c56"/>
+      <text x="28" y="214" font-size="16" font-weight="800" fill="#f3a18d">人工確認項目</text>
+      <text x="28" y="249" font-size="20" fill="#ffffff">□ 影片目的與訊息優先序</text>
+      <text x="28" y="287" font-size="20" fill="#ffffff">□ 待確認規格與拍攝限制</text>
+      <text x="28" y="325" font-size="20" fill="#ffffff">□ AI 建議是否採用或修正</text>
+      <rect x="28" y="359" width="272" height="79" rx="10" fill="#d94b2b"/>
+      <text x="48" y="390" font-size="15" font-weight="800" fill="#ffffff" letter-spacing="1">HUMAN CHECKPOINT</text>
+      <text x="48" y="418" font-size="19" font-weight="800" fill="#ffffff">人工確認後才進入交接</text>
+    </g>
+
+    <g transform="translate(1224 310)">
+      <rect width="328" height="430" rx="16" fill="#ffffff" stroke="#bfc2c0" stroke-width="2"/>
+      <text x="28" y="48" font-size="17" font-weight="800" fill="#d94b2b" letter-spacing="1.5">04 · HANDOFF</text>
+      <text x="28" y="100" font-size="31" font-weight="800" fill="#121820">Presentation Handoff</text>
+      <text x="28" y="130" font-size="18" fill="#555b61">schema_version: 1</text>
+      <line x1="28" x2="300" y1="154" y2="154" stroke="#d9dcda"/>
+      <text x="28" y="196" font-size="19" font-weight="800" fill="#121820">project</text>
+      <text x="28" y="230" font-size="19" font-weight="800" fill="#121820">handoff</text>
+      <text x="28" y="264" font-size="19" font-weight="800" fill="#121820">confirmed_analysis</text>
+      <text x="28" y="298" font-size="19" font-weight="800" fill="#121820">meeting_brief</text>
+      <text x="28" y="332" font-size="15" fill="#555b61">source_system: project-intake-brief-gas</text>
+      <line x1="28" x2="300" y1="356" y2="356" stroke="#d9dcda"/>
+      <text x="28" y="390" font-size="16" font-weight="800" fill="#d94b2b">SCHEMA VALIDATION</text>
+      <text x="28" y="418" font-size="19" fill="#121820">缺少必要欄位即停止</text>
+    </g>
+  </g>
+
+  <g transform="translate(96 850)" font-family="Inter, Noto Sans TC, Microsoft JhengHei, sans-serif">
+    <line x1="0" x2="1456" stroke="#121820" stroke-width="2"/>
+    <text y="52" font-size="20" font-weight="800" fill="#121820">交接邊界</text>
+    <text x="158" y="52" font-size="20" fill="#555b61">AI 產出不是發布指令；Meeting Brief 經人工確認後，才以已驗證的結構化資料交給後段工作台。</text>
+    <text y="105" font-size="17" fill="#555b61">合成案例示意。欄位與交接責任依現行 Presentation Handoff v1 contract 簡化呈現。</text>
+  </g>
+</svg>

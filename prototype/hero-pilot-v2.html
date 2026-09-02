@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Hero Pilot V2｜王韋捷 Portfolio Redesign</title>
+    <style>
+        :root {
+            --page: #efefec;
+            --ink: #121820;
+            --ink-soft: #555b61;
+            --line: #bfc2c0;
+            --surface: #dedfdb;
+            --action: #d94b2b;
+            --action-hover: #b93c20;
+            --action-ink: #ffffff;
+            --focus: #1769aa;
+            --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+            --container: 1360px;
+            --gutter: clamp(1.25rem, 4vw, 3.5rem);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: clip;
+            background: var(--page);
+            color: var(--ink);
+            font-family: var(--sans);
+            line-height: 1.65;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: var(--gutter);
+            top: 0;
+            z-index: 20;
+            padding: 0.65rem 0.9rem;
+            transform: translateY(-150%);
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0.75rem);
+        }
+
+        .site-header {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner,
+        .page-section {
+            width: min(100%, var(--container));
+            margin: 0 auto;
+            padding-inline: var(--gutter);
+        }
+
+        .header-inner {
+            min-height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            font-size: 0.95rem;
+            font-weight: 750;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: clamp(0.9rem, 2.5vw, 2rem);
+        }
+
+        .site-nav a {
+            color: var(--ink-soft);
+            font-size: 0.82rem;
+            text-decoration: none;
+        }
+
+        .site-nav a:hover {
+            color: var(--ink);
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+        }
+
+        .hero-intro {
+            padding-top: clamp(3.75rem, 8vw, 8rem);
+            padding-bottom: clamp(3rem, 6vw, 6rem);
+        }
+
+        .role-line {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: clamp(2.25rem, 5vw, 4.75rem);
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .role-line p {
+            margin: 0;
+        }
+
+        .role-title {
+            font-size: 0.86rem;
+            font-weight: 750;
+        }
+
+        .role-experience {
+            color: var(--ink-soft);
+            font-size: 0.78rem;
+            text-align: right;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(17rem, 0.45fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            align-items: end;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(3.25rem, 6.4vw, 6.6rem);
+            font-weight: 780;
+            letter-spacing: -0.07em;
+            line-height: 1.03;
+            text-wrap: balance;
+        }
+
+        h1 > span {
+            display: block;
+            word-break: keep-all;
+        }
+
+        .delivery-line span {
+            display: inline;
+        }
+
+        .hero-summary {
+            min-width: 0;
+            padding-bottom: 0.45rem;
+        }
+
+        .hero-summary p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+        }
+
+        .hero-summary strong {
+            color: var(--ink);
+            font-weight: 750;
+        }
+
+        .method-note {
+            margin-top: 1rem !important;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+            font-size: 0.86rem !important;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem 1rem;
+            margin-top: 1.75rem;
+        }
+
+        .button {
+            min-height: 48px;
+            padding: 0.72rem 1.1rem;
+            border: 1px solid var(--ink);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.88rem;
+            font-weight: 750;
+            text-decoration: none;
+            transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+        }
+
+        .button-primary {
+            background: var(--action);
+            border-color: var(--action);
+            color: var(--action-ink);
+        }
+
+        .button-primary:hover {
+            background: var(--action-hover);
+            border-color: var(--action-hover);
+        }
+
+        .button-secondary:hover {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .text-link {
+            padding: 0.62rem 0;
+            color: var(--ink-soft);
+            font-size: 0.88rem;
+            text-underline-offset: 0.3em;
+        }
+
+        .lead-case {
+            padding-bottom: clamp(3rem, 7vw, 7rem);
+        }
+
+        .lead-case figure,
+        .evidence-item {
+            margin: 0;
+        }
+
+        .lead-case img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--ink);
+        }
+
+        .case-caption {
+            display: grid;
+            grid-template-columns: minmax(5rem, 0.23fr) minmax(0, 1fr) auto;
+            gap: 1.5rem;
+            align-items: baseline;
+            padding-top: 1rem;
+        }
+
+        .case-index,
+        .case-role {
+            color: var(--ink-soft);
+            font-size: 0.76rem;
+        }
+
+        .case-title {
+            font-size: clamp(1.05rem, 2vw, 1.45rem);
+            font-weight: 750;
+        }
+
+        .proof {
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .proof-item {
+            padding: clamp(1.3rem, 3vw, 2.25rem) clamp(1rem, 2.5vw, 2rem);
+            border-right: 1px solid var(--line);
+        }
+
+        .proof-item:first-child {
+            padding-left: 0;
+        }
+
+        .proof-item:last-child {
+            border-right: 0;
+        }
+
+        .proof-label,
+        .proof-detail {
+            display: block;
+        }
+
+        .proof-label {
+            max-width: 18ch;
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+            font-weight: 750;
+            line-height: 1.35;
+        }
+
+        .proof-detail {
+            margin-top: 0.55rem;
+            color: var(--ink-soft);
+            font-size: 0.8rem;
+        }
+
+        .process {
+            padding-top: clamp(4rem, 8vw, 8rem);
+            padding-bottom: clamp(4rem, 9vw, 9rem);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: minmax(5rem, 0.23fr) minmax(0, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .section-index {
+            color: var(--ink-soft);
+            font-size: 0.76rem;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: clamp(1.55rem, 3.2vw, 2.7rem);
+            font-weight: 750;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(1.25rem, 3vw, 2.5rem);
+        }
+
+        .evidence-media {
+            height: clamp(18rem, 35vw, 32rem);
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: #17191b;
+            border: 1px solid var(--ink);
+        }
+
+        .evidence-media img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+        }
+
+        .evidence-item figcaption {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            padding-top: 0.85rem;
+            color: var(--ink-soft);
+            font-size: 0.8rem;
+        }
+
+        .evidence-item strong {
+            color: var(--ink);
+            font-weight: 750;
+        }
+
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2.25rem;
+                align-items: start;
+            }
+
+            h1 {
+                font-size: clamp(3.1rem, 10vw, 5.8rem);
+            }
+
+            .hero-summary {
+                max-width: 38rem;
+            }
+
+            .case-caption {
+                grid-template-columns: 4rem 1fr;
+            }
+
+            .case-role {
+                grid-column: 2;
+            }
+
+            .evidence-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .evidence-media {
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .header-inner {
+                min-height: 62px;
+            }
+
+            .site-nav a:not(.nav-priority) {
+                display: none;
+            }
+
+            .hero-intro {
+                padding-top: 2.75rem;
+                padding-bottom: 2.75rem;
+            }
+
+            .hero-grid {
+                display: block;
+            }
+
+            .role-line {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.3rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .role-experience {
+                text-align: left;
+            }
+
+            h1 {
+                max-width: 100%;
+                min-width: 0;
+                font-size: clamp(2.65rem, 12vw, 3.5rem);
+                letter-spacing: -0.06em;
+                line-height: 1.06;
+            }
+
+            .delivery-line span {
+                display: block;
+            }
+
+            .hero-summary {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 2rem;
+            }
+
+            .hero-summary p {
+                max-width: 100%;
+                overflow-wrap: anywhere;
+            }
+
+            .hero-actions {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .text-link {
+                width: fit-content;
+            }
+
+            .case-caption,
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+
+            .case-role {
+                grid-column: auto;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-item,
+            .proof-item:first-child {
+                padding: 1.15rem 0;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .proof-item:last-child {
+                border-bottom: 0;
+            }
+
+            .proof-label {
+                max-width: none;
+            }
+
+            .evidence-item figcaption {
+                grid-template-columns: 1fr;
+                gap: 0.2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">跳到主要內容</a>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="#main" class="brand">王韋捷</a>
+            <nav class="site-nav" aria-label="主要導覽">
+                <a href="#selected-work" class="nav-priority">精選案例</a>
+                <a href="#experience">經歷</a>
+                <a href="mailto:z0023658@gmail.com">聯絡</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-section hero-intro" aria-labelledby="hero-title">
+            <div class="role-line">
+                <p class="role-title">品牌內容企劃／Creative Producer／創意專案管理</p>
+                <p class="role-experience">多年跨產業內容與影像實務</p>
+            </div>
+
+            <div class="hero-grid">
+                <h1 id="hero-title">
+                    <span>把商業需求，</span>
+                    <span class="delivery-line"><span>一路做到</span><span>內容交付。</span></span>
+                </h1>
+
+                <div class="hero-summary">
+                    <p>
+                        我負責把需求整理成<strong>企劃、腳本與提案</strong>，再串起拍攝、外包協作、修改與驗收。
+                    </p>
+                    <p class="method-note">AI 與自動化放在流程裡使用，不把工具本身當成作品。</p>
+                    <div class="hero-actions" aria-label="主要行動">
+                        <a href="#selected-work" class="button button-primary">查看精選案例</a>
+                        <a href="#experience" class="button button-secondary">查看履歷／經歷</a>
+                        <a href="mailto:z0023658@gmail.com" class="text-link">聯絡</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="selected-work" class="page-section lead-case" aria-label="精選案例預覽">
+            <figure>
+                <img
+                    src="../assets/covers/sampo-wireless-cover.png"
+                    alt="聲寶全收納無線風扇廣告主視覺，戶外人物與產品入鏡"
+                    width="2048"
+                    height="1152"
+                    fetchpriority="high"
+                >
+                <figcaption class="case-caption">
+                    <span class="case-index">CASE 01</span>
+                    <strong class="case-title">聲寶無線風扇 AI 電商廣告</strong>
+                    <span class="case-role">企劃、提案、生成與剪輯</span>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="experience" class="proof" aria-label="工作經驗重點">
+            <div class="page-section proof-grid">
+                <div class="proof-item">
+                    <span class="proof-label">近年每年約 15–30 案</span>
+                    <span class="proof-detail">主導電商廣告拍攝專案</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-label">企劃 → 腳本 → 提案 → 拍攝 → 交付</span>
+                    <span class="proof-detail">從需求整理到實際落地</span>
+                </div>
+                <div class="proof-item">
+                    <span class="proof-label">客戶溝通・外包管理・修改驗收</span>
+                    <span class="proof-detail">把多方協作收斂成可交付成果</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section process" aria-labelledby="process-title">
+            <div class="section-heading">
+                <span class="section-index">PROCESS</span>
+                <h2 id="process-title">從需求到交付，不只展示成品。</h2>
+            </div>
+
+            <div class="evidence-grid">
+                <figure class="evidence-item">
+                    <div class="evidence-media">
+                        <img
+                            src="../assets/storyboard-development/storyboard-sketch-grid.png"
+                            alt="十二格分鏡草圖，呈現腳本轉成畫面的前製規劃"
+                            width="1782"
+                            height="972"
+                            loading="lazy"
+                        >
+                    </div>
+                    <figcaption>
+                        <strong>分鏡與拍攝規劃</strong>
+                        <span>先把情境、鏡位與訊息拆清楚，再進入製作。</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="evidence-item">
+                    <div class="evidence-media">
+                        <img
+                            src="../assets/storyboard-development/storyboard-workflow-overview.png"
+                            alt="以節點串接文字與分鏡畫面的內容製作流程介面"
+                            width="1816"
+                            height="943"
+                            loading="lazy"
+                        >
+                    </div>
+                    <figcaption>
+                        <strong>流程設計與工具整合</strong>
+                        <span>讓 AI 協助整理與迭代，但保留人的判斷與驗收。</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

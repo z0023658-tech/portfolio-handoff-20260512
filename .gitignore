@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+.vite/
 *.local
 .env.local
 
@@ -26,7 +27,5 @@ dist-ssr
 
 backup/
 
-package.json
-vite.config.ts
 tsconfig.json
 metadata.json
