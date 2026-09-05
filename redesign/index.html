@@ -11,13 +11,14 @@
 </head>
 <body>
   <a href="#main" class="skip-link">跳到主要內容</a>
+  <div class="cursor-metadata" aria-hidden="true">PROJECT / BUILD</div>
 
   <header class="site-header">
     <div class="container header-inner">
       <a href="#main" class="brand">王韋捷</a>
       <nav class="site-nav" aria-label="主要導覽">
         <a href="#work" class="nav-priority">精選案例</a>
-        <a href="#process">工作方法</a>
+        <a href="#featured-cases">深入案例</a>
         <a href="#experience">經歷</a>
         <a href="#contact">聯絡</a>
       </nav>
@@ -25,588 +26,275 @@
   </header>
 
   <main id="main" data-page="home">
-    <section class="container hero-intro" data-section="hero" aria-labelledby="hero-title">
-      <div class="role-line">
-        <p class="role-title">品牌內容企劃／Creative Producer／創意專案管理</p>
-      </div>
-
-      <div class="hero-grid">
-        <h1 id="hero-title">
-          <span>把商業需求，</span>
-          <span class="delivery-line"><span>一路做到</span><span>內容交付。</span></span>
-        </h1>
-
-        <div class="hero-summary">
-          <p>從商業需求、內容企劃到影像交付，也設計能落地的 AI 工作流程。</p>
-          <div class="hero-actions" aria-label="主要行動">
-            <a href="#work" class="button button-primary">查看精選案例</a>
-            <a href="#experience" class="button button-secondary">查看經歷</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container hero-media" aria-label="案例與工作流程預覽">
-      <figure id="fan-ad-work" class="hero-lead">
-        <img
-          src="../assets/covers/sampo-wireless-cover.png"
-          alt="聲寶全收納無線風扇廣告主視覺，戶外人物與產品入鏡"
-          width="2048"
-          height="1152"
-          fetchpriority="high"
-        >
-        <figcaption class="media-caption">
-          <span class="media-index">CASE 01</span>
-          <strong class="media-title">聲寶無線風扇 AI 電商廣告</strong>
-          <span class="media-role">企劃、提案、生成與剪輯</span>
-        </figcaption>
-      </figure>
-
-      <div class="process-strip" aria-label="工作方法預覽">
-        <figure>
-          <div class="process-media">
-            <img
-              src="../assets/projects/runway-ai-workflow.jpg"
-              alt="人物、產品與場景的 AI 影像生成流程介面"
-              width="1600"
-              height="900"
-              loading="lazy"
-            >
-          </div>
-          <figcaption>
-            <strong>視覺概念與一致性測試</strong>
-            <span>在有限預算下驗證人物、商品與場景能否維持一致。</span>
-          </figcaption>
-        </figure>
-
-        <figure>
-          <div class="process-media">
-            <img
-              src="../assets/projects/runway-workflow-node-test.jpg"
-              alt="不同場景概念與生成結果的節點式測試流程"
-              width="1600"
-              height="900"
-              loading="lazy"
-            >
-          </div>
-          <figcaption>
-            <strong>場景生成與結果篩選</strong>
-            <span>工具負責加速測試，最終方向仍由企劃判斷與人工驗收。</span>
-          </figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="proof" class="quick-proof" data-section="quick-proof" aria-label="工作經驗重點">
-      <div class="container proof-grid">
-        <div class="proof-item">
-          <span class="proof-label">近年每年約 15–30 案</span>
-        </div>
-        <div class="proof-item">
-          <span class="proof-label">商業內容完整交付</span>
-        </div>
-        <div class="proof-item">
-          <span class="proof-label">客戶溝通・外包管理・修改驗收</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="work" class="container work-navigator" data-section="work-navigator" aria-labelledby="work-title">
-      <div class="section-heading">
-        <span class="section-index">WORK</span>
-        <h2 id="work-title">依照要解決的問題，找到對應案例。</h2>
-      </div>
-      <ol class="navigator-list">
-        <li>
-          <a href="#flagship-commercial">
-            <span class="navigator-number">01</span>
-            <span class="navigator-name">商業專案</span>
-            <span class="navigator-note">從企劃到影像交付</span>
-            <span class="navigator-arrow" aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li>
-          <a href="#flagship-workflow">
-            <span class="navigator-number">02</span>
-            <span class="navigator-name">流程系統</span>
-            <span class="navigator-note">分鏡與提案流程</span>
-            <span class="navigator-arrow" aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li>
-          <a href="#case-fan-ad">
-            <span class="navigator-number">03</span>
-            <span class="navigator-name">AI 解法</span>
-            <span class="navigator-note">有限預算的生成與後期</span>
-            <span class="navigator-arrow" aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li>
-          <a href="#case-anti-fraud">
-            <span class="navigator-number">04</span>
-            <span class="navigator-name">公共議題</span>
-            <span class="navigator-note">議題轉譯與視覺概念</span>
-            <span class="navigator-arrow" aria-hidden="true">↓</span>
-          </a>
-        </li>
-        <li>
-          <a href="#visual-works">
-            <span class="navigator-number">05</span>
-            <span class="navigator-name">影像作品</span>
-            <span class="navigator-note">燈光、攝影與現場判斷</span>
-            <span class="navigator-arrow" aria-hidden="true">↓</span>
-          </a>
-        </li>
-      </ol>
-    </section>
-
-    <section
-      id="flagship-commercial"
-      class="flagship-case"
-      data-section="flagship-commercial"
-      data-case-status="delivered"
-      aria-labelledby="flagship-title"
-    >
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-index">FLAGSHIP 01</span>
-          <span aria-hidden="true"></span>
-        </div>
-
-        <div class="flagship-grid">
-          <div>
-            <p class="flagship-kicker">完整商業影音專案</p>
-            <h2 id="flagship-title" class="flagship-title">三款氣炸烤箱商業影音</h2>
-            <p class="case-state">已交付｜案例影像整理中</p>
-          </div>
-
-          <div class="case-evidence-placeholder" role="img" aria-label="旗艦案例正式影像與提案素材待確認後整合">
-            <strong>案例影像整理中</strong>
+    <section class="home-hero" data-section="hero" aria-labelledby="hero-title">
+      <div class="container home-hero-layout">
+        <div class="home-hero-copy">
+          <p class="home-role">Director / Creative / AI Builder</p>
+          <h1 id="hero-title">把片段，<br>做成作品。</h1>
+          <p class="home-summary">影像、AI 與工具，都是製作的一部分。</p>
+          <div class="home-actions" aria-label="主要行動">
+            <a href="#work">查看精選案例 <span aria-hidden="true">↓</span></a>
+            <a href="#experience">查看經歷 <span aria-hidden="true">↗</span></a>
           </div>
         </div>
 
-        <div class="case-body">
-          <p class="case-summary">三款相似產品，需要以不同溝通重點與影像節奏建立差異。</p>
-
-          <dl class="case-detail">
-            <div>
-              <dt>關鍵執行</dt>
-              <dd>控制燈光反射、料理時序與多人拍攝協作。</dd>
-            </div>
-            <div>
-              <dt>我的角色</dt>
-              <dd data-case-role>企劃、腳本、提案、導演、客戶溝通與團隊管理。</dd>
-            </div>
-          </dl>
-
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="flagship-workflow"
-      class="workflow-case"
-      data-section="flagship-workflow"
-      data-case-status="delivered"
-      data-public-link-state="anonymous-demo"
-      aria-labelledby="workflow-title"
-    >
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-index">FLAGSHIP 02 · WORKFLOW</span>
-          <span aria-hidden="true"></span>
-        </div>
-
-        <div class="workflow-intro">
-          <div>
-            <p class="workflow-kicker">已投入實際工作的流程系統</p>
-            <h2 id="workflow-title" class="workflow-title">分鏡提案工作台</h2>
-          </div>
-          <div class="workflow-intro-copy">
-            <p class="workflow-lead">把分散製作資訊收斂成可確認、可交付的提案流程。</p>
-            <dl class="workflow-meta">
-              <div>
-                <dt>我的角色</dt>
-                <dd data-case-role>流程設計、工作台實作與持續改善</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-
-        <div class="workflow-story">
-          <article class="workflow-problem">
-            <span class="story-index">01 · 問題</span>
-            <h3>資料分散時，修改與版本確認就會反覆發生。</h3>
-          </article>
-        </div>
-
-        <section class="workflow-method" aria-labelledby="workflow-method-title">
-          <div class="workflow-method-copy">
-            <span class="story-index">02 · 流程／方法</span>
-            <h3 id="workflow-method-title">整理需求與視覺方向，確認後再發布。</h3>
-          </div>
-          <figure class="workflow-diagram" data-case-evidence>
-            <img
-              src="../case-evidence/storyboard-workbench/storyboard-workflow-flow.svg"
-              alt="客戶需求、分鏡製作與提案頁之間的工作流程：AI 協助整理與視覺探索，人工確認後才發布"
-              width="1640"
-              height="820"
-              loading="lazy"
-            >
-            <figcaption>左右滑動查看流程</figcaption>
+        <div class="hero-visual-field" aria-label="由影像、介面與分鏡草圖組成的製作片段">
+          <span class="field-index">FRAGMENTS / 01—03</span>
+          <figure class="field-fragment field-film">
+            <img src="../assets/covers/sampo-wireless-cover.png" alt="聲寶無線風扇 AI 電商廣告裁切畫面" width="2048" height="1152" fetchpriority="high">
+            <figcaption>FILM</figcaption>
           </figure>
-        </section>
+          <figure class="field-fragment field-build">
+            <img src="../case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="分鏡提案工作台公開展示畫面局部" width="1440" height="900" fetchpriority="high">
+            <figcaption>BUILD</figcaption>
+          </figure>
+          <figure class="field-fragment field-process">
+            <img src="../assets/storyboard-development/storyboard-sketch-grid.png" alt="分鏡製作草圖局部" width="2048" height="1152" fetchpriority="high">
+            <figcaption>PROCESS</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
 
-        <section class="workflow-showcase" aria-labelledby="workflow-workbench-title">
-          <div class="workflow-showcase-copy">
-            <span class="story-index">03 · INTERNAL WORKBENCH</span>
-            <h3 id="workflow-workbench-title">素材、CUT 與拍攝資訊在同一處整理。</h3>
+    <section id="work" class="home-selected-work" data-section="selected-work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="selected-work-heading">
+          <div>
+            <span class="selected-work-index">01</span>
+            <h2 id="work-title">Selected Work</h2>
           </div>
-          <figure class="workflow-showcase-visual">
+          <p class="work-taxonomy" aria-label="作品分類：影像、AI 視覺、工具製作">
+            <span>FILM</span><span>AI VISUAL</span><span>BUILD</span>
+          </p>
+        </div>
+
+        <div class="selected-work-grid">
+          <a class="selected-work-card" href="#flagship-workflow" data-selected-work data-primary-category="BUILD" data-cursor-meta="PROJECT / BUILD · WORKFLOW">
+            <div class="selected-work-image">
+              <img src="../case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="分鏡提案工作台公開展示畫面" width="1440" height="900" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>分鏡提案工作台</h3>
+                <p class="selected-work-category">BUILD</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Workflow</li><li>Interface</li><li>Internal Tool</li>
+              </ul>
+            </div>
+          </a>
+
+          <a class="selected-work-card" href="https://youtu.be/1Hl96FDWwF8" target="_blank" rel="noopener noreferrer" data-selected-work data-primary-category="AI VISUAL" data-cursor-meta="PROJECT / AI VISUAL · COMMERCIAL">
+            <div class="selected-work-image">
+              <img src="../assets/covers/sampo-wireless-cover.png" alt="聲寶無線風扇 AI 電商廣告畫面" width="2048" height="1152" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>聲寶無線風扇 AI 電商廣告</h3>
+                <p class="selected-work-category">AI VISUAL</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Commercial</li><li>Generative</li><li>Editing</li>
+              </ul>
+            </div>
+          </a>
+
+          <a class="selected-work-card" href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&amp;si=mrN_0qjQ1lJJaTWi" target="_blank" rel="noopener noreferrer" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / FILM · PRODUCT">
+            <div class="selected-work-image">
+              <img src="../assets/services/service-commercial-photo-cover.webp" alt="東元瞬熱飲水機商品廣告畫面" width="1672" height="941" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>東元瞬熱飲水機商品廣告</h3>
+                <p class="selected-work-category">FILM</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Product</li><li>Lighting</li><li>Camera</li>
+              </ul>
+            </div>
+          </a>
+
+          <article class="selected-work-card" data-selected-work data-primary-category="BUILD">
+            <div class="selected-work-image">
+              <img src="../case-evidence/presentation-automation/presentation-automation-selected-work.png" alt="委製需求經結構化交接後產出 DW-06 簡報的工作片段" width="1600" height="900" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>委製表單自動化 → AI 簡報製作工作台</h3>
+                <p class="selected-work-category">BUILD</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Automation</li><li>Human Review</li><li>Presentation</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="selected-work-card" data-selected-work data-primary-category="AI VISUAL">
+            <div class="selected-work-image">
+              <img src="../assets/projects/line-sticker-grid_00.png" alt="同一角色與風格的 LINE Sticker 貼圖成果排列" width="1559" height="1070" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>LINE Sticker Workflow</h3>
+                <p class="selected-work-category">AI VISUAL</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Character</li><li>Consistency</li><li>Generative</li>
+              </ul>
+            </div>
+          </article>
+
+          <a class="selected-work-card" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&amp;si=NGnPwRPLwWtmnGlh" target="_blank" rel="noopener noreferrer" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / FILM · INTERVIEW">
+            <div class="selected-work-image">
+              <img src="../assets/services/service-interview-photo-cover.webp" alt="人物訪談影像畫面" width="1672" height="941" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>人物訪談影像</h3>
+                <p class="selected-work-category">FILM</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Interview</li><li>Lighting</li><li>Camera</li>
+              </ul>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-cases" class="featured-cases" data-section="featured-cases" aria-labelledby="featured-cases-title">
+      <div class="container">
+        <header class="featured-cases-heading">
+          <span class="section-index">02 / FEATURED CASES</span>
+          <h2 id="featured-cases-title">從作品，往製作裡看。</h2>
+        </header>
+
+        <article
+          id="flagship-workflow"
+          class="featured-case"
+          data-featured-case
+          data-case-status="delivered"
+          aria-labelledby="workflow-title"
+        >
+          <header class="featured-case-intro">
+            <div>
+              <p class="featured-case-label">FEATURED CASE 01 / BUILD</p>
+              <h3 id="workflow-title">分鏡提案工作台</h3>
+            </div>
+            <div class="featured-case-copy">
+              <p>把分散的分鏡、素材與拍攝資訊，收斂成能共同確認的提案流程。</p>
+              <p class="featured-case-role" data-case-role>Workflow Design / Interface Build</p>
+            </div>
+          </header>
+
+          <figure class="featured-case-hero" data-case-evidence>
             <img
               src="../case-evidence/storyboard-workbench/01-internal-workbench-mock.png"
-              alt="使用合成資料的分鏡提案工作台：左側素材盤、中央 CUT 與拍攝表、右側狀態與檢查資訊"
+              alt="使用合成資料的分鏡提案工作台，整合素材、CUT、拍攝資訊與檢查狀態"
               width="1920"
               height="1027"
               loading="lazy"
             >
-            <figcaption>合成資料示意</figcaption>
+            <figcaption>INTERNAL WORKBENCH / SYNTHETIC DATA</figcaption>
           </figure>
-        </section>
 
-        <section class="workflow-showcase workflow-showcase-client" aria-labelledby="workflow-client-title">
-          <figure class="workflow-showcase-visual">
-            <img
-              src="../case-evidence/storyboard-workbench/02-public-proposal-mock.png"
-              alt="使用合成資料的客戶提案閱讀頁：提案標題、提案對象、專案名稱與主視覺"
-              width="1265"
-              height="712"
-              loading="lazy"
-            >
-            <figcaption>合成提案頁示意</figcaption>
-          </figure>
-          <div class="workflow-showcase-copy">
-            <span class="story-index">04 · 客戶提案成果</span>
-            <h3 id="workflow-client-title">內部資料整理後，輸出成固定提案頁。</h3>
-          </div>
-        </section>
-
-        <section id="workflow-evidence" class="workflow-evidence" aria-labelledby="workflow-evidence-title">
-          <div class="workflow-evidence-copy">
-            <span class="story-index">05 · 效能與可靠性證據</span>
-            <h3 id="workflow-evidence-title">預覽、發布與測試都有可核對紀錄。</h3>
-          </div>
-          <figure class="workflow-evidence-card" data-case-evidence>
-            <img
-              src="../case-evidence/storyboard-workbench/storyboard-workbench-reliability.svg"
-              alt="分鏡提案工作台的效能與可靠性紀錄：Draft Preview 62 至 66 秒降至約 11.5 秒、Published Preview 102.7 秒降至約 20.6 秒、107 項自動化測試通過與 smoke test 完成"
-              width="1640"
-              height="1000"
-              loading="lazy"
-            >
-            <figcaption>左右滑動查看</figcaption>
-          </figure>
-        </section>
-      </div>
-    </section>
-
-    <section id="selected-cases" class="selected-cases" data-section="selected-cases" aria-labelledby="selected-cases-title">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-index">SELECTED CASES</span>
-          <h2 id="selected-cases-title">不同限制，使用不同的內容解法。</h2>
-        </div>
-        <article
-          id="case-anti-fraud"
-          class="selected-case selected-case-proposal"
-          data-case-status="proposal-only"
-          aria-labelledby="anti-fraud-title"
-        >
-          <header class="selected-case-heading">
-            <div>
-              <span class="selected-case-number">CASE 03 · PUBLIC ISSUE</span>
-              <p class="case-status-label">正式委託之概念提案｜未進入製作階段</p>
-            </div>
-            <div>
-              <h3 id="anti-fraud-title">警政署防詐 AI 創意提案</h3>
-              <p>把防詐資訊轉成可討論的敘事與視覺概念。</p>
-            </div>
-          </header>
-
-          <div class="proposal-case-body">
-            <div class="proposal-media-placeholder" data-case-evidence role="img" aria-label="警政署防詐概念提案素材待公開權限確認後置入">
-              <strong>概念提案</strong>
-            </div>
-
-            <dl class="selected-case-facts">
-              <div>
-                <dt>提案方式</dt>
-                <dd>整理訊息層級、敘事概念與 AI 視覺方向。</dd>
+          <div class="featured-case-compare" data-case-comparison>
+            <figure>
+              <div class="featured-compare-image featured-compare-internal">
+                <img
+                  src="../case-evidence/storyboard-workbench/01-internal-workbench-mock.png"
+                  alt="內部工作台的 CUT 與拍攝資訊區域"
+                  width="1920"
+                  height="1027"
+                  loading="lazy"
+                >
               </div>
-              <div>
-                <dt>我的角色</dt>
-                <dd data-case-role>議題轉譯、敘事概念、創意提案與 AI 視覺開發。</dd>
+              <figcaption><span>01</span>內部整理</figcaption>
+            </figure>
+            <span class="featured-case-arrow" aria-hidden="true">→</span>
+            <figure>
+              <div class="featured-compare-image">
+                <img
+                  src="../case-evidence/storyboard-workbench/02-public-proposal-mock.png"
+                  alt="使用合成資料的客戶提案閱讀頁"
+                  width="1265"
+                  height="712"
+                  loading="lazy"
+                >
+              </div>
+              <figcaption><span>02</span>客戶提案</figcaption>
+            </figure>
+          </div>
+
+          <div class="featured-case-results" aria-label="已驗證結果">
+            <p>已驗證結果</p>
+            <dl>
+              <div data-result-item>
+                <dt>Draft Preview</dt>
+                <dd>62–66s <span>→</span> 約 11.5s</dd>
+              </div>
+              <div data-result-item>
+                <dt>Published Preview</dt>
+                <dd>102.7s <span>→</span> 約 20.6s</dd>
+              </div>
+              <div data-result-item>
+                <dt>Automated checks</dt>
+                <dd>107 項通過</dd>
               </div>
             </dl>
           </div>
         </article>
 
-        <article
-          id="case-fan-ad"
-          class="selected-case selected-case-delivered"
-          data-case-status="delivered"
-          aria-labelledby="fan-case-title"
-        >
-          <header class="selected-case-heading">
-            <div>
-              <span class="selected-case-number">CASE 04 · BUDGET CONSTRAINT</span>
-              <p class="case-status-label">正式客戶專案｜已交付</p>
-            </div>
-            <div>
-              <h3 id="fan-case-title">聲寶全收納無線風扇 AI 電商廣告</h3>
-              <p>有限預算下，以 AI 生成與後期完成外景使用情境。</p>
-            </div>
-          </header>
-
-          <figure class="delivered-case-media" data-case-evidence>
-            <img
-              src="../assets/covers/sampo-wireless-cover.png"
-              alt="聲寶全收納無線風扇廣告主視覺，人物在戶外手持產品"
-              width="2048"
-              height="1152"
-              loading="lazy"
-            >
-            <figcaption>
-              <span>正式交付案例</span>
-              <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" rel="noopener noreferrer">觀看影片 ↗</a>
-            </figcaption>
-          </figure>
-
-          <div class="delivered-case-proof delivered-case-proof-compact">
-            <dl class="selected-case-facts selected-case-facts-compact">
-              <div>
-                <dt>主要挑戰</dt>
-                <dd>維持商品、角色與場景的一致性。</dd>
-              </div>
-              <div>
-                <dt>我的角色</dt>
-                <dd data-case-role>企劃、提案、生成與剪輯，由本人獨立完成。</dd>
-              </div>
-            </dl>
-          </div>
+        <article class="featured-case-next" data-featured-case-next data-case-state="planned" aria-labelledby="next-case-title">
+          <p>FEATURED CASE 02 / NEXT</p>
+          <h3 id="next-case-title">委製表單自動化 → AI 簡報製作工作台</h3>
+          <span>案例與 evidence 整理後補入</span>
         </article>
       </div>
     </section>
 
-    <section id="process" class="process-section" data-section="process" aria-labelledby="process-title">
-      <div class="container process-layout">
-        <div class="process-intro">
-          <span class="section-index">PROCESS</span>
-          <h2 id="process-title">把模糊需求，收斂成可以驗收的內容。</h2>
-          <p>七個階段，從需求一路走到交付與改善。</p>
-        </div>
-
-        <ol class="process-list">
-          <li data-process-step>
-            <span class="process-number">01</span>
-            <div class="process-step-heading">
-              <h3>需求釐清</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>釐清目標、限制與驗收條件。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">02</span>
-            <div class="process-step-heading">
-              <h3>企劃與腳本</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>把方向轉成腳本與畫面需求。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">03</span>
-            <div class="process-step-heading">
-              <h3>提案</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>收斂選項與確認執行方向。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">04</span>
-            <div class="process-step-heading">
-              <h3>資源與排程</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>安排人力、外包、素材與時程。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">05</span>
-            <div class="process-step-heading">
-              <h3>拍攝／製作</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>依確認方向完成拍攝與製作。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">06</span>
-            <div class="process-step-heading">
-              <h3>回饋與驗收</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>集中修改、版本與驗收結果。</p>
-            </div>
-          </li>
-
-          <li data-process-step>
-            <span class="process-number">07</span>
-            <div class="process-step-heading">
-              <h3>流程改善</h3>
-            </div>
-            <div class="process-step-copy">
-              <p data-process-summary>找出重複與易錯環節，持續改善。</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="visual-works" class="visual-works" data-section="visual-works" aria-labelledby="visual-works-title">
-      <div class="container">
-        <div class="visual-works-heading">
-          <div>
-            <span class="section-index">SELECTED VISUAL WORKS</span>
-            <h2 id="visual-works-title">看畫面，也看我在現場負責什麼。</h2>
-          </div>
-          <div class="visual-works-intro">
-            <p>我主要負責燈光、攝影、商品細節與現場畫面判斷。</p>
-          </div>
-        </div>
-
-        <div class="visual-works-grid">
-          <article class="visual-work visual-work-product" data-visual-work>
-            <a class="visual-work-media" href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&amp;si=mrN_0qjQ1lJJaTWi" target="_blank" rel="noopener noreferrer" aria-label="在 YouTube 查看商品廣告與商品細節作品">
-              <img src="../assets/services/service-commercial-photo-cover.webp" alt="東元瞬熱飲水機商品廣告畫面，暖色居家場景中的白色飲水機" width="1672" height="941" loading="lazy">
-            </a>
-            <div class="visual-work-caption">
-              <span class="visual-work-number">01</span>
-              <div>
-                <h3>商品廣告與商品細節</h3>
-                <p data-visual-role>負責：燈光設計、攝影、商品細節呈現</p>
-              </div>
-              <a class="visual-work-link" href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&amp;si=mrN_0qjQ1lJJaTWi" target="_blank" rel="noopener noreferrer">查看作品 <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="visual-work visual-work-interview" data-visual-work>
-            <a class="visual-work-media" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&amp;si=NGnPwRPLwWtmnGlh" target="_blank" rel="noopener noreferrer" aria-label="在 YouTube 查看人物訪談與現場影像作品">
-              <img src="../assets/services/service-interview-photo-cover.webp" alt="人物訪談節目畫面，主持人與來賓坐在明亮棚景中" width="1672" height="941" loading="lazy">
-            </a>
-            <div class="visual-work-caption">
-              <span class="visual-work-number">02</span>
-              <div>
-                <h3>人物訪談與現場影像</h3>
-                <p data-visual-role>負責：人物燈光、攝影、現場畫面判斷</p>
-              </div>
-              <a class="visual-work-link" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&amp;si=NGnPwRPLwWtmnGlh" target="_blank" rel="noopener noreferrer">查看作品 <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-
-          <article class="visual-work visual-work-public" data-visual-work>
-            <a class="visual-work-media" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&amp;si=GsSxqITdrcHYShG4" target="_blank" rel="noopener noreferrer" aria-label="在 YouTube 查看公共議題與品牌情境影像作品">
-              <img src="../assets/services/service-brand-film-cover.webp" alt="新北加倍券宣傳影像，人物在戶外手持彩色票券" width="1672" height="941" loading="lazy">
-            </a>
-            <div class="visual-work-caption">
-              <span class="visual-work-number">03</span>
-              <div>
-                <h3>公共議題與品牌情境</h3>
-                <p data-visual-role>負責：燈光、攝影、空間與情境畫面執行</p>
-              </div>
-              <a class="visual-work-link" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&amp;si=GsSxqITdrcHYShG4" target="_blank" rel="noopener noreferrer">查看作品 <span aria-hidden="true">↗</span></a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="about-experience" data-section="about-experience" aria-labelledby="about-title">
-      <div class="container about-layout">
-        <figure class="about-portrait">
+    <section id="experience" class="home-about" data-section="about" aria-labelledby="about-title">
+      <div class="container home-about-layout">
+        <figure class="home-about-portrait">
           <img src="../assets/profile/profile.jpg" alt="王韋捷戴著黑色帽子與眼鏡的生活照" width="1024" height="1024" loading="lazy">
-          <figcaption>王韋捷／內容企劃與創意專案管理</figcaption>
+          <figcaption>王韋捷 / Director · Creative · AI Builder</figcaption>
         </figure>
 
-        <div class="about-content">
-          <div class="about-intro">
-            <span class="section-index">ABOUT / EXPERIENCE</span>
-            <h2 id="about-title">從內容與影像交付現場出發。</h2>
-            <div class="about-lead">
-              <p>多年跨產業內容與影像實務，讓我熟悉商業需求、創意表達與製作限制。</p>
-              <p>我也把 AI 與自動化整理成可實際使用的工作方法。</p>
-            </div>
-          </div>
+        <div class="home-about-content">
+          <span class="section-index">03 / ABOUT</span>
+          <h2 id="about-title">在影像現場與製作流程之間工作。</h2>
+          <p class="home-about-lead">多年跨產業內容與影像實務，負責把商業需求轉成能被製作、確認與交付的作品；也持續將 AI 與自動化放進真實工作流程。</p>
 
-          <dl class="experience-summary" aria-label="經歷重點">
+          <dl class="home-about-summary" aria-label="經歷與能力重點">
             <div data-experience-item>
-              <dt><span>01</span>商業內容落地</dt>
-              <dd>企劃、腳本、提案、拍攝製作與驗收。</dd>
+              <dt>影像</dt>
+              <dd>企劃、導演、攝影與交付</dd>
             </div>
             <div data-experience-item>
-              <dt><span>02</span>跨角色協作</dt>
-              <dd>整理客戶、團隊與外包之間的資訊與時程。</dd>
+              <dt>AI Visual</dt>
+              <dd>視覺開發、生成與後期</dd>
             </div>
             <div data-experience-item>
-              <dt><span>03</span>流程設計</dt>
-              <dd>把重複工作整理成團隊可使用的流程。</dd>
+              <dt>Build</dt>
+              <dd>工作流設計與工具實作</dd>
             </div>
           </dl>
 
-          <div class="about-contact">
-            <p>完整履歷可另外提供。</p>
-            <a href="mailto:z0023658@gmail.com">索取完整履歷 <span aria-hidden="true">→</span></a>
-          </div>
+          <a class="home-about-resume" href="mailto:z0023658@gmail.com?subject=%E7%B4%A2%E5%8F%96%E7%8E%8B%E9%9F%8B%E6%8D%B7%E5%AE%8C%E6%95%B4%E5%B1%A5%E6%AD%B7">索取完整履歷 <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact-section" data-section="contact" aria-labelledby="contact-title">
-      <div class="container contact-layout">
-        <div class="contact-heading">
-          <span class="section-index">CONTACT</span>
-          <h2 id="contact-title">如果你需要能一起想，也能把內容做完的人，歡迎來聊。</h2>
+    <section id="contact" class="home-contact" data-section="contact" aria-labelledby="contact-title">
+      <div class="container home-contact-layout">
+        <div>
+          <span class="section-index">04 / CONTACT</span>
+          <h2 id="contact-title">有合適的工作，歡迎來聊。</h2>
+          <p>職務邀請 / 影像製作 / 工作流合作</p>
         </div>
-
-        <div class="contact-content">
-          <p class="contact-lead">職務邀請、內容專案或流程合作，歡迎來信。</p>
-
-          <dl class="contact-topics" aria-label="適合聯絡的方向">
-            <div>
-              <dt>職務／長期合作</dt>
-              <dd>內容企劃、Creative Producer</dd>
-            </div>
-            <div>
-              <dt>專案合作</dt>
-              <dd>影像製作、AI 流程改善</dd>
-            </div>
-          </dl>
-
-          <div class="contact-actions">
-            <a class="contact-email" href="mailto:z0023658@gmail.com">
-              <span>來信聯絡</span>
-              <strong>z0023658@gmail.com</strong>
-              <span aria-hidden="true">↗</span>
-            </a>
-            <a class="contact-social" href="https://www.instagram.com/z0023658/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
-          </div>
+        <div class="home-contact-actions">
+          <a href="mailto:z0023658@gmail.com">z0023658@gmail.com <span aria-hidden="true">↗</span></a>
+          <a href="https://www.instagram.com/z0023658/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>

@@ -1,5 +1,8 @@
 import path from 'path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
+
+const configDir = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   base: './',
@@ -10,8 +13,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        legacy: path.resolve(__dirname, 'index.html'),
-        redesign: path.resolve(__dirname, 'redesign/index.html'),
+        legacy: path.resolve(configDir, 'index.html'),
+        redesign: path.resolve(configDir, 'redesign/index.html'),
       },
     },
   },
