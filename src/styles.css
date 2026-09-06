@@ -3101,6 +3101,179 @@ h2 {
   margin-top: 0.7rem;
 }
 
+.case-presentation-page {
+  background: #121211;
+  color: #ece9e0;
+}
+
+.case-presentation-page .container {
+  width: 100%;
+  max-width: var(--container);
+}
+
+.case-presentation-page .site-header,
+.case-presentation-page .site-footer {
+  background: #121211;
+}
+
+.case-presentation-hero {
+  padding-block: clamp(2rem, 5vw, 4rem) clamp(5rem, 10vw, 9rem);
+}
+
+.case-presentation-hero-copy {
+  max-width: 70rem;
+  margin: clamp(3rem, 7vw, 6rem) 0 clamp(2rem, 4vw, 3.5rem);
+}
+
+.case-presentation-page h1 {
+  max-width: 15ch;
+  margin: 0.95rem 0 1.35rem;
+  font-size: clamp(3.1rem, 7.2vw, 7.5rem);
+  letter-spacing: -0.075em;
+  line-height: 0.94;
+}
+
+.case-presentation-mobile-kicker,
+.case-presentation-title-mobile {
+  display: none;
+}
+
+.case-presentation-hero-copy > p:last-child {
+  max-width: 34rem;
+  margin: 0;
+  color: #d1cec4;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.case-presentation-hero-visual,
+.case-presentation-handoff-visual,
+.case-presentation-contact-sheet {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(236, 233, 224, 0.24);
+  background: #252521;
+}
+
+.case-presentation-hero-visual img,
+.case-presentation-handoff-visual img,
+.case-presentation-contact-sheet img {
+  display: block;
+  width: 100%;
+}
+
+.case-presentation-hero-visual img {
+  min-height: clamp(23rem, 51vw, 44rem);
+  object-fit: cover;
+}
+
+.case-presentation-hero-visual figcaption,
+.case-presentation-handoff-visual figcaption,
+.case-presentation-contact-sheet figcaption {
+  padding: 0.7rem 0.9rem;
+  color: #aaa79c;
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+}
+
+.case-presentation-section {
+  padding-block: clamp(5rem, 11vw, 10rem);
+  border-top: 1px solid rgba(236, 233, 224, 0.21);
+}
+
+.case-presentation-handoff {
+  background: #191917;
+}
+
+.case-presentation-handoff-layout {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.78fr) minmax(23rem, 1.22fr);
+  gap: clamp(2.5rem, 7vw, 8rem);
+  align-items: center;
+}
+
+.case-presentation-heading {
+  max-width: 43rem;
+}
+
+.case-presentation-heading h2 {
+  margin: 0.85rem 0 0;
+  font-size: clamp(2.35rem, 5.1vw, 5.25rem);
+  letter-spacing: -0.065em;
+  line-height: 1;
+}
+
+.case-presentation-heading > p:last-child {
+  max-width: 28rem;
+  margin: 1.25rem 0 0;
+  color: #bdb9ae;
+  line-height: 1.65;
+}
+
+.case-presentation-handoff-visual img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.case-presentation-output .case-presentation-heading {
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.case-presentation-contact-sheet {
+  max-width: 68rem;
+  margin-left: auto;
+  background: #f5f5f7;
+}
+
+.case-presentation-contact-sheet img {
+  aspect-ratio: 8 / 9;
+  object-fit: cover;
+  object-position: top;
+}
+
+.case-presentation-meta {
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+  border-top: 1px solid rgba(236, 233, 224, 0.21);
+}
+
+.case-presentation-meta-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 2.5rem;
+}
+
+.case-presentation-verified > p,
+.case-presentation-role-meta > p {
+  margin: 0;
+  color: #817e75;
+  font-size: 0.64rem;
+  letter-spacing: 0.12em;
+}
+
+.case-presentation-verified ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.2rem;
+  padding: 0;
+  margin: 0.7rem 0 0;
+  color: #d6d2c8;
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  list-style: none;
+}
+
+.case-presentation-verified li::before {
+  content: "•";
+  margin-right: 0.45rem;
+  color: #c8b38b;
+}
+
+.case-presentation-role-meta .case-detail-stack {
+  margin-top: 0.7rem;
+}
+
 .featured-case-detail-link {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding-bottom: 0.35rem;
@@ -3128,6 +3301,7 @@ h2 {
   .case-detail-compare-grid,
   .case-detail-role,
   .case-film-visual-layout,
+  .case-presentation-handoff-layout,
   .case-detail-evidence-item {
     grid-template-columns: 1fr;
   }
@@ -3156,6 +3330,37 @@ h2 {
 
   .case-film-visual-copy {
     padding-top: 0;
+  }
+
+  .case-presentation-hero {
+    padding-bottom: 4rem;
+  }
+
+  .case-presentation-hero-copy {
+    margin-top: 2.75rem;
+  }
+
+  .case-presentation-page h1 {
+    font-size: clamp(2.85rem, 13.5vw, 4.5rem);
+  }
+
+  .case-presentation-mobile-kicker,
+  .case-presentation-title-mobile {
+    display: inline;
+  }
+
+  .case-presentation-title-full {
+    display: none;
+  }
+
+  .case-presentation-hero-visual img {
+    min-height: 0;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .case-presentation-contact-sheet {
+    margin-left: 0;
   }
 }
 

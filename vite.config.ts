@@ -17,6 +17,7 @@ export default defineConfig({
         redesign: path.resolve(configDir, 'redesign/index.html'),
         storyboardWorkbench: path.resolve(configDir, 'redesign/cases/storyboard-workbench/index.html'),
         sampoWirelessCommercial: path.resolve(configDir, 'redesign/cases/sampo-wireless-commercial/index.html'),
+        presentationAutomation: path.resolve(configDir, 'redesign/cases/presentation-automation/index.html'),
       },
     },
   },
