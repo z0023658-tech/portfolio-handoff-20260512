@@ -15,6 +15,7 @@ export default defineConfig({
       input: {
         legacy: path.resolve(configDir, 'index.html'),
         redesign: path.resolve(configDir, 'redesign/index.html'),
+        storyboardWorkbench: path.resolve(configDir, 'redesign/cases/storyboard-workbench/index.html'),
       },
     },
   },
