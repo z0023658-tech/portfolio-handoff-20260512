@@ -1,1582 +1,314 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王韋捷｜AI-assisted Commercial Visual Director</title>
-    <style>
-        /* CSS Reset & Design Tokens */
-        :root {
-            /* Color tokens */
-            --color-bg-page: #0a0a0a;
-            --color-bg-section: #000;
-            --color-bg-section-muted: #0f0f0f;
-            --color-bg-section-raised: #111;
-            --color-surface: #161616;
-            --color-surface-hover: #1e1e1e;
-            --color-accent: #ffffff;
-            --color-accent-hover: #d0d0d0;
-            --color-text-heading: #fff;
-            --color-text-primary: #e0e0e0;
-            --color-text-secondary: #a0a0a0;
-            --color-text-muted: #666;
-            --color-text-faint: #555;
-            --color-text-inverse: #000;
-            --color-border: #2a2a2a;
-            --color-border-muted: #333;
-            --color-border-hover: #444;
-            --color-overlay-strong: rgba(0,0,0,0.95);
-            --color-overlay-medium: rgba(0,0,0,0.7);
-            --color-overlay-soft: rgba(0,0,0,0.5);
-
-            /* Typography tokens */
-            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --font-size-hero: 2.8rem;
-            --font-size-hero-mobile: 2.4rem;
-            --font-size-section-title: 1.8rem;
-            --font-size-panel-title: 1.3rem;
-            --font-size-card-title: 1.1rem;
-            --font-size-body: 1rem;
-            --font-size-body-sm: 0.9rem;
-            --font-size-ui: 0.85rem;
-            --font-size-button-sm: 0.8rem;
-            --font-size-caption: 0.75rem;
-            --font-size-meta: 0.7rem;
-            --font-size-indicator: 0.65rem;
-            --line-height-base: 1.6;
-            --line-height-heading: 1.2;
-
-            /* Spacing tokens */
-            --space-2xs: 0.3rem;
-            --space-xs: 0.4rem;
-            --space-sm: 0.8rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 2.5rem;
-            --space-3xl: 3rem;
-            --space-4xl: 4rem;
-            --space-section-y: 6rem;
-            --space-section-y-mobile: 4rem;
-            --space-container-x: 2rem;
-            --space-grid: 2rem;
-
-            /* Shape and motion tokens */
-            --radius-tag: 2px;
-            --radius-sm: 4px;
-            --radius-card: 8px;
-            --radius-panel: 12px;
-            --shadow-card-hover: 0 15px 40px rgba(0,0,0,0.6);
-            --shadow-media-hover: 0 16px 40px rgba(0,0,0,0.35);
-            --shadow-stage-hover: 0 20px 40px rgba(0,0,0,0.25);
-            --shadow-mobile-cta: 0 4px 20px rgba(0,0,0,0.4);
-            --transition-base: all 0.3s ease;
-            --transition-transform: transform 0.3s ease, box-shadow 0.3s ease;
-
-            /* Legacy aliases: keep existing selectors stable while tokens are introduced. */
-            --bg-color: var(--color-bg-page);
-            --surface-color: var(--color-surface);
-            --accent-color: var(--color-accent);
-            --text-primary: var(--color-text-primary);
-            --text-secondary: var(--color-text-secondary);
-            --border-color: var(--color-border);
-            --transition: var(--transition-base);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family-base);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: var(--line-height-base);
-            overflow-x: hidden;
-        }
-
-        /* Layout Helpers */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-container-x);
-        }
-
-        section {
-            padding: var(--space-section-y) 0;
-        }
-
-        .grid {
-            display: grid;
-            gap: var(--space-grid);
-        }
-
-        .grid-two {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid-three {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .section-black {
-            background: var(--color-bg-section);
-        }
-
-        .section-muted {
-            background: var(--color-bg-section-muted);
-        }
-
-        .section-raised {
-            background: var(--color-bg-section-raised);
-        }
-
-        .section-heading {
-            margin-bottom: var(--space-3xl);
-        }
-
-        .section-heading-compact {
-            margin-bottom: var(--space-md);
-        }
-
-        .section-heading-tight {
-            margin-bottom: var(--space-xl);
-        }
-
-        .section-heading-roomy {
-            margin-bottom: var(--space-4xl);
-        }
-
-        .section-heading-loose {
-            margin-bottom: 5rem;
-        }
-
-        .section-heading-center,
-        .text-center {
-            text-align: center;
-        }
-
-        .section-intro {
-            color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 0 var(--space-xl);
-            text-align: left;
-        }
-
-        .section-intro-spacious {
-            margin-bottom: var(--space-4xl);
-        }
-
-        .intro-block {
-            max-width: 760px;
-            margin: 0 auto var(--space-3xl);
-            text-align: center;
-        }
-
-        .profile-row {
-            display: flex;
-            align-items: center;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-xl);
-        }
-
-        .profile-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--border-color);
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-xl);
-        }
-
-        .fit-content {
-            width: fit-content;
-        }
-
-        /* Placeholder Styles */
-        .placeholder {
-            background: linear-gradient(135deg, #1f1f1f 0%, #111111 100%);
-            width: 100%;
-            height: 100%;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-border-hover);
-            font-size: var(--font-size-meta);
-            text-align: center;
-            padding: var(--space-md);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-sm);
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 600;
-            line-height: var(--line-height-heading);
-            margin-bottom: var(--space-lg);
-            color: var(--color-text-heading);
-        }
-
-        h2 {
-            font-size: var(--font-size-section-title);
-            letter-spacing: -0.01em;
-        }
-
-        section > .container > h2,
-        section > .container > .grid > div:first-child > h2 {
-            text-align: center;
-        }
-
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            background: var(--surface-color);
-            color: var(--text-secondary);
-            font-size: var(--font-size-meta);
-            border-radius: var(--radius-tag);
-            margin-right: 0.4rem;
-            border: 1px solid var(--border-color);
-            letter-spacing: 0.5px;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: var(--font-size-card-title);
-            letter-spacing: 1px;
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: var(--space-xl);
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: var(--font-size-ui);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 0 var(--space-section-y);
-            background: radial-gradient(circle at 70% 30%, #161616 0%, #0a0a0a 100%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: var(--space-4xl);
-        }
-
-        .hero-content h1 {
-            font-size: var(--font-size-hero);
-            margin-bottom: var(--space-md);
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            margin-bottom: var(--space-lg);
-            border-left: 2px solid var(--color-border-hover);
-            padding-left: 1.2rem;
-        }
-
-        .hero-content .description {
-            max-width: 500px;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: var(--space-md) 2.2rem;
-            background: var(--accent-color);
-            color: var(--color-text-inverse);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: var(--font-size-body-sm);
-            border-radius: var(--radius-sm);
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: var(--color-accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .hero-summary {
-            background: var(--surface-color);
-            padding: var(--space-2xl);
-            border-radius: var(--radius-panel);
-            border: 1px solid var(--border-color);
-        }
-
-        .hero-summary h3 {
-            font-size: var(--font-size-ui);
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: var(--space-lg);
-        }
-
-        .summary-item {
-            margin-bottom: var(--space-lg);
-        }
-
-        .summary-item label {
-            display: block;
-            font-size: var(--font-size-meta);
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-        }
-
-        .summary-item div {
-            font-size: var(--font-size-body);
-            color: var(--text-primary);
-        }
-
-        /* Featured Case Study */
-        .featured-case {
-            background: var(--color-bg-section);
-        }
-
-        .case-container {
-            display: flex;
-            flex-direction: column;
-            gap: 8rem;
-        }
-
-        .case-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4xl);
-            align-items: center;
-        }
-
-        .case-card.reverse {
-            direction: rtl;
-        }
-        .case-card.reverse .case-info {
-            direction: ltr;
-        }
-
-        .case-media {
-            aspect-ratio: 16/9;
-            width: 100%;
-        }
-
-        .case-media img {
-            border-radius: var(--radius-sm);
-        }
-
-        .featured-case .case-media img {
-            cursor: default;
-            transition: var(--transition-transform);
-        }
-
-        .featured-case .case-media:hover img {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-media-hover);
-        }
-
-        .case-info .meta {
-            margin-top: var(--space-xl);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-        }
-
-        .meta-item label {
-            display: block;
-            font-size: var(--font-size-meta);
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            margin-bottom: 0.4rem;
-        }
-
-        /* Generic Card Styles */
-        .card {
-            background: var(--surface-color);
-            border-radius: var(--radius-card);
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--color-border-hover);
-            box-shadow: var(--shadow-card-hover);
-        }
-
-        .card-body {
-            padding: 1.8rem;
-        }
-
-        .card-title {
-            font-size: var(--font-size-card-title);
-            margin-bottom: 0.6rem;
-            margin-top: 0.8rem;
-        }
-
-        .card-desc {
-            font-size: var(--font-size-ui);
-            margin-bottom: 1.2rem;
-            color: var(--text-secondary);
-        }
-
-        .card-vertical {
-            flex-direction: column;
-        }
-
-        .card-body-fill {
-            flex: 1;
-        }
-
-        .card-result {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        .card-link {
-            text-decoration: none;
-        }
-
-        .card-footer {
-            margin-top: auto;
-            padding-top: var(--space-lg);
-        }
-
-        .card-footer-stack {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-md);
-        }
-
-        .tag-row {
-            display: flex;
-            gap: var(--space-xs);
-        }
-
-        .button-row {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        /* Media Sub-grids */
-        .sub-grid {
-            display: grid;
-            gap: 4px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .sub-grid-3 { grid-template-columns: repeat(3, 1fr); }
-        .sub-grid-5 { 
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-        }
-        .col-span-2 { grid-column: span 2; }
-
-        .video-mini-grid {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            gap: 4px;
-        }
-        .video-mini-grid .main-video { height: 70%; }
-        .video-mini-grid .thumbs { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            height: 30%;
-            gap: 4px;
-        }
-
-        /* Capabilities (What I Can Help With) */
-        .capabilities-grid {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        .cap-card {
-            padding: 2.2rem;
-            background: var(--surface-color);
-            border-bottom: 2px solid transparent;
-            transition: var(--transition);
-        }
-
-        .cap-card:hover {
-            background: var(--color-surface-hover);
-            border-bottom-color: var(--accent-color);
-        }
-
-        .cap-num {
-            font-size: var(--font-size-meta);
-            color: var(--color-text-faint);
-            margin-bottom: var(--space-md);
-            display: block;
-        }
-
-        .cap-title {
-            font-size: var(--font-size-body);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            color: var(--color-text-heading);
-        }
-
-        .cap-desc {
-            font-size: var(--font-size-ui);
-            color: var(--text-secondary);
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-            background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
-        }
-
-        .contact-links {
-            margin-top: var(--space-3xl);
-            display: flex;
-            justify-content: center;
-            gap: var(--space-3xl);
-        }
-
-        .contact-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-size: var(--font-size-body);
-            border-bottom: 1px solid var(--color-border-muted);
-            padding-bottom: 4px;
-            transition: var(--transition);
-        }
-
-        .contact-links a:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        /* Footer */
-        footer {
-            padding: 5rem 0;
-            text-align: center;
-            font-size: var(--font-size-caption);
-            color: var(--color-text-faint);
-            background: var(--color-bg-section);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 1200px) {
-            .side-nav { display: none; }
-        }
-
-        @media (max-width: 991px) {
-            .hero-grid, .case-card, .automation-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-2xl);
-            }
-            .hero {
-                height: auto;
-                padding-bottom: var(--space-section-y);
-                padding-top: 120px;
-            }
-            .case-card.reverse { direction: ltr; }
-            .capabilities-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: var(--font-size-hero-mobile); }
-            section { padding: var(--space-section-y-mobile) 0; }
-            .grid { grid-template-columns: 1fr !important; }
-
-            .mobile-contact-btn {
-                display: flex;
-                position: fixed;
-                bottom: var(--space-xl);
-                right: var(--space-xl);
-                background: var(--color-accent);
-                color: var(--color-text-inverse);
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                justify-content: center;
-                align-items: center;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: var(--font-size-button-sm);
-                box-shadow: var(--shadow-mobile-cta);
-                z-index: 2000;
-                border: 2px solid var(--color-bg-section);
-                text-align: center;
-                line-height: 1.2;
-            }
-        }
-        /* Workflow Automation */
-        .automation-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: auto;
-        }
-
-        .btn-small {
-            padding: 0.5rem var(--space-md);
-            font-size: var(--font-size-button-sm);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            text-decoration: none;
-            display: inline-block;
-            transition: var(--transition);
-        }
-
-        .btn-small:hover {
-            border-color: var(--color-text-muted);
-            background: #1a1a1a;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--color-overlay-strong);
-            padding: var(--space-xl);
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            max-width: 1200px;
-            margin: 40px auto;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-
-        .modal-content img, .modal-content video {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            object-fit: contain;
-            border: 1px solid var(--border-color);
-            background: var(--color-bg-section);
-        }
-
-        .modal-close {
-            position: fixed;
-            top: var(--space-xl);
-            right: var(--space-xl);
-            color: var(--color-text-heading);
-            font-size: 2.5rem;
-            cursor: pointer;
-            z-index: 2001;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-overlay-soft);
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .clickable-card {
-            cursor: pointer;
-        }
-
-        .card-media {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-            background: var(--color-bg-page);
-            width: 100%;
-        }
-
-        .card-media img, .card-media video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .media-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .media-contain {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .card-media .media-contain {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .media-muted {
-            opacity: 0.9;
-        }
-
-        .media-main-70 {
-            height: 70%;
-        }
-
-        .card-media .media-main-70 {
-            height: 70%;
-        }
-
-        .media-bg-dark {
-            background: var(--color-bg-section-raised);
-        }
-
-        .media-bg-black {
-            background: var(--color-bg-section);
-        }
-
-        .case-media-16x9 {
-            aspect-ratio: 16 / 9;
-        }
-
-        .media-indicator {
-            position: absolute;
-            bottom: var(--space-md);
-            right: var(--space-md);
-            background: var(--color-overlay-medium);
-            padding: 0.4rem 0.8rem;
-            font-size: var(--font-size-indicator);
-            border-radius: var(--radius-sm);
-            color: var(--color-text-heading);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.1);
-            pointer-events: none;
-            transition: var(--transition);
-        }
-
-        .card:hover .media-indicator {
-            background: var(--accent-color);
-            color: var(--color-text-inverse);
-        }
-        /* Side Nav */
-        .side-nav {
-            position: fixed;
-            right: 2rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-            z-index: 1500;
-        }
-        .side-nav-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-        }
-        .side-nav-dot:hover, .side-nav-dot.active {
-            background: var(--accent-color);
-            transform: scale(1.3);
-        }
-        .side-nav-dot::before {
-            content: attr(data-label);
-            position: absolute;
-            right: 1.8rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.8);
-            color: var(--color-text-heading);
-            padding: 0.3rem 0.8rem;
-            font-size: var(--font-size-caption);
-            border-radius: var(--radius-sm);
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-        }
-        .side-nav-dot:hover::before {
-            opacity: 1;
-            right: 2.2rem;
-        }
-
-        /* Hero Quick Links */
-        .hero-quick-links {
-            display: flex;
-            gap: var(--space-lg);
-            flex-wrap: wrap;
-            margin-top: var(--space-md);
-        }
-        .hero-quick-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: var(--font-size-ui);
-            border-bottom: 1px solid transparent;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-        }
-        .hero-quick-link:hover {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-        /* Storyboard category cards */
-        .storyboard-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-grid);
-        }
-
-        .stage-card {
-            background: var(--surface-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-card);
-            padding: var(--space-md);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-            transition: var(--transition);
-        }
-
-        .stage-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-stage-hover);
-        }
-
-        .stage-step {
-            font-size: var(--font-size-ui);
-            color: #999;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .stage-title {
-            font-size: var(--font-size-card-title);
-            font-weight: 700;
-            color: var(--color-text-heading);
-        }
-
-        .stage-desc {
-            font-size: var(--font-size-body-sm);
-            color: var(--text-secondary);
-            margin-top: 0.2rem;
-            flex: 1 1 auto;
-        }
-
-        .stage-img {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-            border-radius: var(--radius-card);
-            display: block;
-        }
-
-        .stage-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .storyboard-modal-section {
-            display: none;
-            width: 100%;
-        }
-
-        .storyboard-modal-section.active {
-            display: block;
-        }
-
-        .modal-category-title {
-            font-size: var(--font-size-panel-title);
-            font-weight: 700;
-            color: var(--color-text-heading);
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-category-desc {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: var(--line-height-base);
-        }
-
-        .modal-image-block {
-            margin-bottom: var(--space-lg);
-        }
-
-        .modal-image-block img {
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            display: block;
-            border-radius: var(--radius-card);
-            border: 1px solid var(--border-color);
-        }
-
-        .modal-caption {
-            margin-top: 0.5rem;
-            color: #999;
-            font-size: var(--font-size-ui);
-        }
-
-        .modal-stack {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-xl);
-        }
-
-        .tool-note {
-            font-size: var(--font-size-caption);
-            color: var(--color-text-muted);
-        }
-
-        .sticker-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            height: 30%;
-            gap: 2px;
-        }
-
-        .sticker-preview-grid img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            background: var(--color-bg-section-raised);
-        }
-
-        .btn-offset {
-            margin-top: var(--space-md);
-            display: inline-block;
-        }
-
-        .btn-push {
-            margin-top: auto;
-            width: fit-content;
-        }
-
-        @media (max-width: 991px) {
-            .storyboard-grid { grid-template-columns: 1fr; }
-            .stage-img { height: 200px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="王韋捷的品牌內容企劃、創意專案管理與 AI 輔助工作流程作品集。">
+  <title>王韋捷｜品牌內容企劃與創意專案管理</title>
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/main.js"></script>
 </head>
 <body>
+  <a href="#main" class="skip-link">跳到主要內容</a>
+  <div class="cursor-metadata" aria-hidden="true">PROJECT / BUILD</div>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">王韋捷｜商業影像 × AI Workflow</div>
-            <div class="nav-links">
-                <a href="#hero">首頁</a>
-                <a href="#featured">主打案例</a>
-                <a href="#experiments">AI 實驗</a>
-                <a href="#automation">流程自動化</a>
-                <a href="#contact">聯絡我</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Section 1: Hero -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="profile-row">
-                        <img src="./assets/profile/profile.jpg" alt="王韋捷 Profile" class="profile-avatar">
-                        <span class="tag">內容企劃 / AI 工具研究 / 工作流自動化 / 商業影像</span>
-                    </div>
-                    <h1>內容企劃 × AI 自動化工作流</h1>
-                    <p class="description">
-                        具備商業影像與內容企劃背景，近年以 Google Workspace、Codex 等工具建立輕量工具與網頁，協助降低重複作業與溝通成本。
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#contact" class="btn fit-content">洽詢合作項目</a>
-                        <div class="hero-quick-links">
-                            <a href="#featured" class="hero-quick-link">主打案例 &rarr;</a>
-                            <a href="#storyboard" class="hero-quick-link">分鏡腳本開發 &rarr;</a>
-                            <a href="#experiments" class="hero-quick-link">AI 實驗 &rarr;</a>
-                            <a href="#automation" class="hero-quick-link">工作流自動化 &rarr;</a>
-                            <a href="#commercial" class="hero-quick-link">精選商業影音 &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-summary">
-                    <h3>核心技能 / Capabilities</h3>
-                    <div class="summary-item">
-                        <label>AI 技術工作流</label>
-                        <div>
-                            <span class="tag">ComfyUI</span>
-                            <span class="tag">Stable Diffusion</span>
-                            <span class="tag">Runway</span>
-                            <span class="tag">Vibe Coding</span>
-                        </div>
-                    </div>
-                    <div class="summary-item">
-                        <label>視覺提案與開發</label>
-                        <div>
-                            <span class="tag">廣告分鏡</span>
-                            <span class="tag">藝術指導</span>
-                            <span class="tag">影像風格測試</span>
-                        </div>
-                    </div>
-                    <div class="summary-item">
-                        <label>流程自動化</label>
-                        <div>
-                            <span class="tag">Google Apps Script</span>
-                            <span class="tag">Google Sheet</span>
-                            <span class="tag">Workflow Automation</span>
-                            <span class="tag">提案資料整理</span>
-                        </div>
-                    </div>
-                    <div class="summary-item">
-                        <label>專案與營運思考</label>
-                        <div>
-                            <span class="tag">團隊協作</span>
-                            <span class="tag">客戶溝通</span>
-                            <span class="tag">社群經營研究</span>
-                            <span class="tag">攝影棚規劃</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: Hero -->
-
-    <!-- Section 7: What I Can Help With -->
-    <section id="services" class="section-muted">
-        <div class="container">
-            <h2 class="section-heading-roomy section-heading-center">專業<br>Capabilities</h2>
-            <div class="grid capabilities-grid">
-                <div class="cap-card">
-                    <span class="cap-num">01</span>
-                    <div class="cap-title">內容企劃與需求整理</div>
-                    <div class="cap-desc">能將商品賣點、溝通目標、腳本方向與素材需求拆解成清楚的企劃架構，協助團隊更快對齊內容方向。</div>
-                </div>
-                <div class="cap-card">
-                    <span class="cap-num">02</span>
-                    <div class="cap-title">AI 工具研究與流程測試</div>
-                    <div class="cap-desc">持續測試 Runway、ComfyUI、Stable Diffusion 等工具，評估生成穩定性、可控性與適合導入實務流程的使用方式。</div>
-                </div>
-                <div class="cap-card">
-                    <span class="cap-num">03</span>
-                    <div class="cap-title">Google Workspace 自動化</div>
-                    <div class="cap-desc">使用 Google Sheet、Google Apps Script 與資料整理流程，將重複性的提案、腳本、素材與表單作業轉成可維護的工作流。</div>
-                </div>
-                <div class="cap-card">
-                    <span class="cap-num">04</span>
-                    <div class="cap-title">輕量網頁與小工具建構</div>
-                    <div class="cap-desc">透過 GitHub Pages、HTML/CSS/JS 與 Codex 輔助開發，建立可展示、可交付、可快速迭代的互動頁面與工作小工具。</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: What I Can Help With -->
-
-    <!-- Section 5: Workflow Automation -->
-    <section id="automation" class="section-black">
-        <div class="container">
-            <h2 class="section-heading-tight">自動化工具與工作流案例<br>Automation Works</h2>
-            <p class="section-intro">
-                這裡整理我用 Google Sheet、Apps Script、GitHub Pages 與 AI 工具建立的輕量工作流，包含提案頁面、腳本生成、素材整理與內容流程測試。
-            </p>
-            <p class="section-intro section-intro-spacious">
-                每個案例都從實際工作痛點出發，將原本需要手動整理的分鏡、Brief、素材與腳本流程，轉成更容易追蹤、討論與交付的小工具。
-            </p>
-            <div class="grid automation-grid">
-                <!-- Auto 1: GAS -->
-                <div class="card card-vertical">
-                    <div class="card-media">
-                        <img src="./assets/projects/GAS_cover.png" alt="GAS 工作流" class="media-contain media-muted">
-                    </div>
-                    <div class="card-body card-body-fill">
-                        <h3 class="card-title">GAS 商品分鏡提案互動式網頁</h3>
-                        <p class="card-desc">解決問題：原本繁瑣的簡報整理與手動素材置換過程。</p>
-                        <p class="card-desc card-result">成果：將原本約 2–3 天的前期整理流程，縮短至約 30 分鐘內完成初版。</p>
-                        <div class="card-footer card-footer-stack">
-                            <div class="tag-row">
-                                <span class="tag">Apps Script</span>
-                                <span class="tag">Google Cloud</span>
-                            </div>
-                            <div class="button-row">
-                                <a href="https://script.google.com/macros/s/AKfycbwVfeM05WVkyajJl8aS-kHjbarYpnAn0VjsGW6rv6bUFJ3H3uYbeOE9jhitRb1kFB0/exec" target="_blank" class="btn-small text-center">廣告分鏡提案｜MIRAVAC &rarr;</a>
-                                <a href="https://script.google.com/macros/s/AKfycbxBEML4rX078ApigenPq-c_iqDSnejqr6vdhIz9N1Tzc_ugtgoTHnksDCK7Le2gdKhAPw/exec?projectId=toa100" target="_blank" class="btn-small text-center">廣告分鏡提案｜Cuisinart TOA100 &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Auto 2: Miravac -->
-                <div class="card card-vertical">
-                    <div class="card-media">
-                        <img src="./assets/projects/miravac-brief-automation.gif" alt="提案流程自動化" class="media-contain media-muted">
-                    </div>
-                    <div class="card-body card-body-fill">
-                        <h3 class="card-title">提案流程自動化</h3>
-                        <p class="card-desc">解決問題：客戶原始 Brief 複雜且難以直接視覺化對焦的問題。</p>
-                        <p class="card-desc card-result">成果：自動化對齊需求並生成可直接用於會議討論的視覺提案稿。</p>
-                        <div class="card-footer">
-                            <span class="tag">Workflow Design</span>
-                            <span class="tag">AI Parser</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Auto 3: LINE Sticker -->
-                <div class="card card-vertical">
-                    <div class="card-media">
-                        <img src="./assets/projects/line-sticker-workflow.png" alt="LINE Sticker Workflow" class="media-contain media-main-70">
-                        <div class="sticker-preview-grid">
-                            <img src="./assets/projects/line-sticker-grid_00.png" alt="Sticker 00">
-                            <img src="./assets/projects/line-sticker-grid_01.png" alt="Sticker 01">
-                            <img src="./assets/projects/line-sticker-grid_02.png" alt="Sticker 02">
-                        </div>
-                    </div>
-                    <div class="card-body card-body-fill">
-                        <h3 class="card-title">LINE Sticker Workflow</h3>
-                        <p class="card-desc">解決問題：手繪貼圖風格統一難度高且耗時的問題。</p>
-                        <p class="card-desc card-result">成果：實現單一風格角色的高度一致性產出，大幅提升量產效率。</p>
-                        <div class="card-footer">
-                            <span class="tag">ComfyUI</span>
-                            <span class="tag">Character Consistency</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Auto 4: Short Video Script Automation -->
-                <div class="card card-vertical">
-                    <div class="card-media">
-                        <img src="./assets/misc/gas-workflow-demo.gif" alt="短影音腳本自動化 demo" class="media-contain media-muted">
-                    </div>
-                    <div class="card-body card-body-fill">
-                        <h3 class="card-title">短影音腳本自動化</h3>
-                        <p class="card-desc">解決問題：短影音腳本開發與測試的繁瑣流程。</p>
-                        <p class="card-desc card-result">成果：自動化腳本生成與視覺測試，大幅提升創作效率。</p>
-                        <div class="card-footer">
-                            <span class="tag">AI Workflow</span>
-                            <span class="tag">Script Automation</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: Workflow Automation -->
-
-    <!-- Section 2: Featured Case Study -->
-    <section id="featured" class="featured-case">
-        <div class="container">
-            <h2 class="section-heading-loose section-heading-center">AI 導演實作案例<br>AI-directed Case Studies</h2>
-            <div class="case-container">
-                <!-- Case 1 -->
-                <div class="case-card">
-                    <div class="case-media case-media-16x9">
-                        <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶｜DC馬達無線風扇" class="media-cover">
-                    </div>
-                    <div class="case-info">
-                        <span class="tag">AI 商品廣告</span>
-                        <span class="tag">Workflow 設計</span>
-                        <h2 class="card-title">聲寶｜DC馬達無線風扇</h2>
-                        <p>以 AI Workflow 設計產品廣告的分鏡與視覺測試流程，將產品賣點轉化為可快速驗證的影像提案。</p>
-                        <a href="https://youtu.be/1Hl96FDWwF8" target="_blank" class="btn btn-offset">觀看影片 &rarr;</a>
-                        <div class="meta">
-                            <div class="meta-item">
-                                <label>使用工具</label>
-                                <p>Runway / AI Workflow 設計</p>
-                            </div>
-                            <div class="meta-item">
-                                <label>我的角色</label>
-                                <p>Workflow 設計、AI 視覺測試、提案優化</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Case 2 -->
-                <div class="case-card reverse">
-                    <div class="case-media case-media-16x9">
-                        <img src="./assets/covers/sampo-spirit-cover.png" alt="聲寶｜靜音省電風扇" class="media-cover">
-                    </div>
-                    <div class="case-info">
-                        <span class="tag">AI 商品廣告</span>
-                        <span class="tag">AI 分鏡</span>
-                        <h2 class="card-title">聲寶｜靜音省電風扇</h2>
-                        <p>以 ComfyUI 與 Adobe 後製流程測試奇幻風格包裝，將傳統家電賣點轉化為具記憶點的視覺概念。</p>
-                        <a href="https://youtu.be/2HTnb9K3NMk" target="_blank" class="btn btn-offset">查看案例 &rarr;</a>
-                        <div class="meta">
-                            <div class="meta-item">
-                                <label>使用工具</label>
-                                <p>ComfyUI / Adobe Creative Cloud</p>
-                            </div>
-                            <div class="meta-item">
-                                <label>我的角色</label>
-                                <p>概念開發、AI 影像生成、視覺風格測試</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: Featured Case Study -->
-
-    <!-- Section 3: AI Storyboard Script Development -->
-    <section id="storyboard" class="section-raised">
-        <div class="container">
-            <div class="intro-block">
-                <h2 class="section-heading-compact">AI 分鏡腳本開發<br>Storyboard Development</h2>
-                <p>
-                    將腳本、鏡頭、產品賣點與視覺參考，拆解成可測試的 AI 分鏡流程；同時保留最終分鏡成果與工具內部操作脈絡，讓畫面開發不只是生成圖片，而是可追蹤、可回修的提案系統。
-                </p>
-            </div>
-            <div class="storyboard-grid">
-                <div class="stage-card">
-                    <div class="stage-img"><img src="./assets/storyboard-development/storyboard-pencil-concept-grid.png" alt="分鏡圖完稿"></div>
-                    <div class="stage-step">分鏡圖完稿</div>
-                    <div class="stage-desc">整理 AI 生成與風格測試結果，形成可供提案討論的九宮格分鏡、構圖草稿與場景變化。</div>
-                    <a class="btn btn-push" onclick="openStoryboardModal('output')">查看分鏡成果 &rarr;</a>
-                </div>
-                <div class="stage-card">
-                    <div class="stage-img"><img src="./assets/storyboard-development/storyboard-workflow-overview.png" alt="工具流程展示"></div>
-                    <div class="stage-step">工具流程展示</div>
-                    <div class="stage-desc">保留 Runway / Workflow 內的參考圖、節點關係與生成脈絡，讓分鏡開發流程可被追蹤與複製。</div>
-                    <a class="btn btn-push" onclick="openStoryboardModal('workflow')">查看工作流程 &rarr;</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: AI Storyboard Script Development -->
-
-    <!-- Section 4: Recent AI Experiments -->
-    <section id="experiments">
-        <div class="container">
-            <h2 class="section-heading">AI 實作測試<br>Recent Experiments</h2>
-            <div class="grid grid-two">
-                <!-- Card 1: Multi-view -->
-                <div class="card clickable-card" onclick="openModal('multiview-modal')">
-                    <div class="card-media">
-                        <video src="./assets/videos/product-multiview-test-01.mp4" autoplay muted loop playsinline class="media-contain media-bg-black"></video>
-                        <div class="media-indicator">點擊查看全視角素材</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="tag">商品測試</span>
-                        <h3 class="card-title">單一商品圖多角度 AI 測試</h3>
-                        <p class="card-desc">證明 AI 能在保持產品結構下，精準控制商攝角度與光影質感變化。</p>
-                        <p class="tool-note">工具: Stable Diffusion (ControlNet)</p>
-                    </div>
-                </div>
-
-                <!-- Card 2: AI Character Design -->
-                <div class="card clickable-card" onclick="openModal('character-modal')">
-                    <div class="card-media">
-                        <img src="./assets/projects/sampo-spirit-ref_01.png" alt="AI 角色設計" class="media-contain">
-                        <div class="media-indicator">點擊查看角色設定</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="tag">角色設計</span>
-                        <h3 class="card-title">AI 角色設計</h3>
-                        <p class="card-desc">利用 AI 進行多樣化的角色 concept 設定，快速產出多種風格與氣色組合。</p>
-                        <p class="tool-note">工具: Midjourney / Flux</p>
-                    </div>
-                </div>
-
-                <!-- Card 3: AI Storyboard -->
-                <div class="card clickable-card" onclick="openModal('storyboard-modal')">
-                    <div class="card-media">
-                        <img src="./assets/projects/sampo-spirit-comfyui.png" alt="AI 分鏡與流程驗證" class="media-contain media-bg-black">
-                        <div class="media-indicator">點擊查看流程細節</div>
-                    </div>
-                    <div class="card-body">
-                        <span class="tag">流程驗證</span>
-                        <h3 class="card-title">流程驗證與試錯</h3>
-                        <p class="card-desc">針對不同 AI 工具的生成穩定性、鏡頭連續性、角色一致性與產品辨識度進行測試，評估哪些流程適合進入實際提案與製作。</p>
-                        <p class="tool-note">工具: Flux / Kling AI / Luma</p>
-                    </div>
-                </div>
-
-                <!-- Card 4: ComfyUI Character Turnaround -->
-                <div class="card">
-                    <div class="card-media">
-                        <img src="./assets/misc/screencrop-1778577873696.png" alt="ComfyUI 人物三視測試" class="media-contain">
-                    </div>
-                    <div class="card-body">
-                        <span class="tag">人物測試</span>
-                        <h3 class="card-title">ComfyUI 人物三視測試</h3>
-                        <p class="card-desc">測試 ComfyUI 在人物角色多角度生成的一致性與細節表現。</p>
-                        <p class="tool-note">工具: ComfyUI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END: Recent AI Experiments -->
-
-    <!-- Modals for Experiments -->
-    <div id="multiview-modal" class="modal" onclick="closeModal('multiview-modal')">
-        <span class="modal-close" onclick="closeModal('multiview-modal')">&times;</span>
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <video src="./assets/videos/product-multiview-test-01.mp4" controls autoplay muted loop playsinline></video>
-            <video src="./assets/videos/product-multiview-test-02.mp4" controls muted loop playsinline></video>
-            <video src="./assets/videos/product-multiview-test-03.mp4" controls muted loop playsinline></video>
-        </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#main" class="brand">王韋捷</a>
+      <nav class="site-nav" aria-label="主要導覽">
+        <a href="#work" class="nav-priority">精選案例</a>
+        <a href="#featured-cases">深入案例</a>
+        <a href="#experience">經歷</a>
+        <a href="#contact">聯絡</a>
+      </nav>
     </div>
+  </header>
 
-    <div id="character-modal" class="modal" onclick="closeModal('character-modal')">
-        <span class="modal-close" onclick="closeModal('character-modal')">&times;</span>
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <img src="./assets/projects/sampo-spirit-ref_01.png" alt="Character 1">
-            <img src="./assets/projects/sampo-spirit-ref_02.png" alt="Character 2">
-            <img src="./assets/projects/sampo-spirit-ref_03.png" alt="Character 3">
+  <main id="main" data-page="home">
+    <section class="home-hero" data-section="hero" aria-labelledby="hero-title">
+      <div class="container home-hero-layout">
+        <div class="home-hero-copy">
+          <p class="home-role">Director / Creative / AI Builder</p>
+          <h1 id="hero-title">把片段，<br>做成作品。</h1>
+          <p class="home-summary">影像、AI 與工具，都是製作的一部分。</p>
+          <div class="home-actions" aria-label="主要行動">
+            <a href="#work">查看精選案例 <span aria-hidden="true">↓</span></a>
+            <a href="#experience">查看經歷 <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-    </div>
 
-    <div id="storyboard-modal" class="modal" onclick="closeModal('storyboard-modal')">
-        <span class="modal-close" onclick="closeModal('storyboard-modal')">&times;</span>
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-stack">
-                <div id="storyboard-modal-output" class="storyboard-modal-section">
-                    <div class="modal-category-title">分鏡圖完稿 / Storyboard Outputs</div>
-                    <div class="modal-category-desc">展示最終分鏡成果與視覺提案素材。</div>
-                    <div class="modal-image-block">
-                        <img src="./assets/storyboard-development/storyboard-pencil-concept-grid.png" alt="分鏡圖完稿">
-                        <div class="modal-caption">九宮格分鏡與構圖草稿，呈現分鏡開發的成品成果。</div>
-                    </div>
-                    <div class="modal-image-block">
-                        <img src="./assets/storyboard-development/storyboard-scene-variations.png" alt="分鏡變化展示">
-                        <div class="modal-caption">場景變化與視覺測試結果，說明多種敘事可能性。</div>
-                    </div>
-                    <div class="modal-image-block">
-                        <img src="./assets/storyboard-development/storyboard-sketch-grid.png" alt="分鏡草圖網格">
-                        <div class="modal-caption">構圖草稿與草圖網格，展示初步視覺發想與提案基礎。</div>
-                    </div>
-                </div>
-                <div id="storyboard-modal-workflow" class="storyboard-modal-section">
-                    <div class="modal-category-title">工具流程展示 / Workflow Screenshots</div>
-                    <div class="modal-category-desc">呈現 Runway 與 Workflow 內部操作脈絡，用於追蹤生成流程與參考節點。</div>
-                    <div class="modal-image-block">
-                        <img src="./assets/storyboard-development/storyboard-workflow-overview.png" alt="工具流程展示">
-                        <div class="modal-caption">流程總覽圖，說明 AI 工作流中的主要節點與資料流。</div>
-                    </div>
-                    <div class="modal-image-block">
-                        <img src="./assets/projects/runway-ai-workflow.jpg" alt="Runway Workflow">
-                        <div class="modal-caption">Runway 內部流程示意，展示生成過程與視覺參考連結。</div>
-                    </div>
-                    <div class="modal-image-block">
-                        <img src="./assets/projects/runway-workflow-node-test.jpg" alt="Workflow 節點測試">
-                        <div class="modal-caption">工作流節點測試畫面，說明測試階段的操作與結果。</div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-visual-field" aria-label="由影像、介面與分鏡草圖組成的製作片段">
+          <span class="field-index">FRAGMENTS / 01—03</span>
+          <figure class="field-fragment field-film">
+            <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶無線風扇 AI 電商廣告裁切畫面" width="2048" height="1152" fetchpriority="high">
+            <figcaption>FILM</figcaption>
+          </figure>
+          <figure class="field-fragment field-build">
+            <img src="./case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="分鏡提案工作台公開展示畫面局部" width="1440" height="900" fetchpriority="high">
+            <figcaption>BUILD</figcaption>
+          </figure>
+          <figure class="field-fragment field-process">
+            <img src="./assets/storyboard-development/storyboard-sketch-grid.png" alt="分鏡製作草圖局部" width="2048" height="1152" fetchpriority="high">
+            <figcaption>PROCESS</figcaption>
+          </figure>
         </div>
-    </div>
-
-    <!-- Section 6: Selected Commercial Works -->
-    <section id="commercial">
-        <div class="container">
-            <h2 class="section-heading">精選商業影音<br>Selected Commercial Works</h2>
-            <div class="grid grid-three">
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&si=mrN_0qjQ1lJJaTWi" target="_blank" class="card card-link">
-                    <div class="card-media"><img src="./assets/services/service-commercial-photo-cover.webp" alt="商品廣告製作" class="media-cover"></div>
-                    <div class="card-body"><h3 class="card-title">商品廣告製作 &nearrow;</h3></div>
-                </a>
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&si=NGnPwRPLwWtmnGlh" target="_blank" class="card card-link">
-                    <div class="card-media"><img src="./assets/services/service-interview-photo-cover.webp" alt="人物訪談影像" class="media-cover"></div>
-                    <div class="card-body"><h3 class="card-title">人物訪談影像 &nearrow;</h3></div>
-                </a>
-                <a href="https://youtube.com/playlist?list=PLPJy-5tpOuwVmQd55XSbNddhfiCSY-6Sx&si=GsSxqITdrcHYShG4" target="_blank" class="card card-link">
-                    <div class="card-media"><img src="./assets/services/service-brand-film-cover.webp" alt="品牌形象影片" class="media-cover"></div>
-                    <div class="card-body"><h3 class="card-title">品牌形象影片 &nearrow;</h3></div>
-                </a>
-            </div>
-        </div>
+      </div>
     </section>
-    <!-- END: Selected Commercial Works -->
 
-    <!-- Section 8: Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>聯絡<br>Connect</h2>
-            <div class="contact-links">
-                <a href="mailto:z0023658@gmail.com">信箱</a>
-                <a href="https://www.instagram.com/z0023658/" target="_blank">社群</a>
+    <section id="work" class="home-selected-work" data-section="selected-work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="selected-work-heading">
+          <div>
+            <span class="selected-work-index">01</span>
+            <h2 id="work-title">Selected Work</h2>
+          </div>
+          <p class="work-taxonomy" aria-label="作品分類：影像、AI 視覺、工具製作">
+            <span>FILM</span><span>AI VISUAL</span><span>BUILD</span>
+          </p>
+        </div>
+
+        <div class="selected-work-grid">
+          <a class="selected-work-card" href="./redesign/cases/storyboard-workbench/" data-selected-work data-primary-category="BUILD" data-cursor-meta="PROJECT / BUILD · WORKFLOW">
+            <div class="selected-work-image">
+              <img src="./case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="分鏡提案工作台公開展示畫面" width="1440" height="900" loading="lazy">
             </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>分鏡提案工作台</h3>
+                <p class="selected-work-category">BUILD</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Workflow</li><li>Interface</li><li>Internal Tool</li>
+              </ul>
+            </div>
+          </a>
+
+          <a class="selected-work-card" href="./redesign/cases/sampo-wireless-commercial/" data-selected-work data-primary-category="AI VISUAL" data-cursor-meta="PROJECT / AI VISUAL · COMMERCIAL">
+            <div class="selected-work-image">
+              <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶無線風扇 AI 電商廣告畫面" width="2048" height="1152" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>聲寶無線風扇 AI 電商廣告</h3>
+                <p class="selected-work-category">AI VISUAL</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Commercial</li><li>Generative</li><li>Editing</li>
+              </ul>
+            </div>
+          </a>
+
+          <a class="selected-work-card" href="https://youtube.com/playlist?list=PLPJy-5tpOuwU5zeAlkXOQRtqaKhZlcbeH&amp;si=mrN_0qjQ1lJJaTWi" target="_blank" rel="noopener noreferrer" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / FILM · PRODUCT">
+            <div class="selected-work-image">
+              <img src="./assets/services/service-commercial-photo-cover.webp" alt="東元瞬熱飲水機商品廣告畫面" width="1672" height="941" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>東元瞬熱飲水機商品廣告</h3>
+                <p class="selected-work-category">FILM</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Product</li><li>Lighting</li><li>Camera</li>
+              </ul>
+            </div>
+          </a>
+
+          <a class="selected-work-card" href="./redesign/cases/presentation-automation/" data-selected-work data-primary-category="BUILD" data-cursor-meta="PROJECT / BUILD · PRESENTATION">
+            <div class="selected-work-image">
+              <img src="./case-evidence/presentation-automation/presentation-automation-selected-work.png" alt="委製需求經結構化交接後產出 DW-06 簡報的工作片段" width="1600" height="900" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>委製表單自動化 → AI 簡報製作工作台</h3>
+                <p class="selected-work-category">BUILD</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Automation</li><li>Human Review</li><li>Presentation</li>
+              </ul>
+            </div>
+          </a>
+
+          <article class="selected-work-card" data-selected-work data-primary-category="AI VISUAL">
+            <div class="selected-work-image">
+              <img src="./assets/projects/line-sticker-grid_00.png" alt="同一角色與風格的 LINE Sticker 貼圖成果排列" width="1559" height="1070" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>LINE Sticker Workflow</h3>
+                <p class="selected-work-category">AI VISUAL</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Character</li><li>Consistency</li><li>Generative</li>
+              </ul>
+            </div>
+          </article>
+
+          <a class="selected-work-card" href="https://youtube.com/playlist?list=PLPJy-5tpOuwVK7AxdGOsxVkXpjolvhTmZ&amp;si=NGnPwRPLwWtmnGlh" target="_blank" rel="noopener noreferrer" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / FILM · INTERVIEW">
+            <div class="selected-work-image">
+              <img src="./assets/services/service-interview-photo-cover.webp" alt="人物訪談影像畫面" width="1672" height="941" loading="lazy">
+            </div>
+            <div class="selected-work-meta">
+              <div>
+                <h3>人物訪談影像</h3>
+                <p class="selected-work-category">FILM</p>
+              </div>
+              <ul class="selected-work-tags" aria-label="作品標籤">
+                <li>Interview</li><li>Lighting</li><li>Camera</li>
+              </ul>
+            </div>
+          </a>
         </div>
+      </div>
     </section>
-    <!-- END: Contact -->
 
-    <div class="side-nav">
-        <a href="#hero" class="side-nav-dot active" data-label="首頁"></a>
-        <a href="#featured" class="side-nav-dot" data-label="主打案例"></a>
-        <a href="#storyboard" class="side-nav-dot" data-label="分鏡腳本"></a>
-        <a href="#experiments" class="side-nav-dot" data-label="AI 實驗"></a>
-        <a href="#automation" class="side-nav-dot" data-label="流程自動化"></a>
-        <a href="#commercial" class="side-nav-dot" data-label="商業影音"></a>
-        <a href="#contact" class="side-nav-dot" data-label="聯絡我"></a>
-    </div>
+    <section id="featured-cases" class="featured-cases" data-section="featured-cases" aria-labelledby="featured-cases-title">
+      <div class="container">
+        <header class="featured-cases-heading">
+          <span class="section-index">02 / FEATURED CASES</span>
+          <h2 id="featured-cases-title">從作品，往製作裡看。</h2>
+        </header>
 
-    <!-- Mobile Contact Button -->
-    <a href="#contact" class="mobile-contact-btn" style="display: none;">聯絡我</a>
+        <article
+          id="flagship-workflow"
+          class="featured-case"
+          data-featured-case
+          data-case-status="delivered"
+          aria-labelledby="workflow-title"
+        >
+          <header class="featured-case-intro">
+            <div>
+              <p class="featured-case-label">FEATURED CASE 01 / BUILD</p>
+              <h3 id="workflow-title">分鏡提案工作台</h3>
+            </div>
+            <div class="featured-case-copy">
+              <p>把分散的分鏡、素材與拍攝資訊，收斂成能共同確認的提案流程。</p>
+              <p class="featured-case-role" data-case-role>Workflow Design / Interface Build</p>
+            </div>
+          </header>
 
-    <footer>
-        <div class="container">
-            &copy; 2026 王韋捷 | AI-assisted Commercial Visual Director. 保留所有權利。
+          <figure class="featured-case-hero" data-case-evidence>
+            <img
+              src="./case-evidence/storyboard-workbench/01-internal-workbench-mock.png"
+              alt="使用合成資料的分鏡提案工作台，整合素材、CUT、拍攝資訊與檢查狀態"
+              width="1920"
+              height="1027"
+              loading="lazy"
+            >
+            <figcaption>INTERNAL WORKBENCH / SYNTHETIC DATA</figcaption>
+          </figure>
+
+          <div class="featured-case-compare" data-case-comparison>
+            <figure>
+              <div class="featured-compare-image featured-compare-internal">
+                <img
+                  src="./case-evidence/storyboard-workbench/01-internal-workbench-mock.png"
+                  alt="內部工作台的 CUT 與拍攝資訊區域"
+                  width="1920"
+                  height="1027"
+                  loading="lazy"
+                >
+              </div>
+              <figcaption><span>01</span>內部整理</figcaption>
+            </figure>
+            <span class="featured-case-arrow" aria-hidden="true">→</span>
+            <figure>
+              <div class="featured-compare-image">
+                <img
+                  src="./case-evidence/storyboard-workbench/02-public-proposal-mock.png"
+                  alt="使用合成資料的客戶提案閱讀頁"
+                  width="1265"
+                  height="712"
+                  loading="lazy"
+                >
+              </div>
+              <figcaption><span>02</span>客戶提案</figcaption>
+            </figure>
+          </div>
+
+          <div class="featured-case-results" aria-label="已驗證結果">
+            <p>已驗證結果</p>
+            <dl>
+              <div data-result-item>
+                <dt>Draft Preview</dt>
+                <dd>62–66s <span>→</span> 約 11.5s</dd>
+              </div>
+              <div data-result-item>
+                <dt>Published Preview</dt>
+                <dd>102.7s <span>→</span> 約 20.6s</dd>
+              </div>
+              <div data-result-item>
+                <dt>Automated checks</dt>
+                <dd>107 項通過</dd>
+              </div>
+            </dl>
+          </div>
+
+          <a class="featured-case-detail-link" href="./redesign/cases/storyboard-workbench/">查看案例詳情 <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="featured-case-next" data-featured-case-teaser data-case-state="delivered" aria-labelledby="next-case-title">
+          <p>FEATURED CASE 02 / BUILD</p>
+          <h3 id="next-case-title">委製表單自動化 → AI 簡報製作工作台</h3>
+          <span>把委製需求整理成能直接對焦的簡報。</span>
+          <a class="featured-case-detail-link" href="./redesign/cases/presentation-automation/">查看案例詳情 <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="home-about" data-section="about" aria-labelledby="about-title">
+      <div class="container home-about-layout">
+        <figure class="home-about-portrait">
+          <img src="./assets/profile/profile.jpg" alt="王韋捷戴著黑色帽子與眼鏡的生活照" width="1024" height="1024" loading="lazy">
+          <figcaption>王韋捷 / Director · Creative · AI Builder</figcaption>
+        </figure>
+
+        <div class="home-about-content">
+          <span class="section-index">03 / ABOUT</span>
+          <h2 id="about-title">在影像現場與製作流程之間工作。</h2>
+          <p class="home-about-lead">多年跨產業內容與影像實務，負責把商業需求轉成能被製作、確認與交付的作品；也持續將 AI 與自動化放進真實工作流程。</p>
+
+          <dl class="home-about-summary" aria-label="經歷與能力重點">
+            <div data-experience-item>
+              <dt>影像</dt>
+              <dd>企劃、導演、攝影與交付</dd>
+            </div>
+            <div data-experience-item>
+              <dt>AI Visual</dt>
+              <dd>視覺開發、生成與後期</dd>
+            </div>
+            <div data-experience-item>
+              <dt>Build</dt>
+              <dd>工作流設計與工具實作</dd>
+            </div>
+          </dl>
+
+          <a class="home-about-resume" href="mailto:z0023658@gmail.com?subject=%E7%B4%A2%E5%8F%96%E7%8E%8B%E9%9F%8B%E6%8D%B7%E5%AE%8C%E6%95%B4%E5%B1%A5%E6%AD%B7">索取完整履歷 <span aria-hidden="true">↗</span></a>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script>
-        // Modal Controls
-        function openModal(id) {
-            if (id === 'storyboard-modal') {
-                const activeSection = document.querySelector('.storyboard-modal-section.active');
-                if (!activeSection) {
-                    const defaultSection = document.getElementById('storyboard-modal-output');
-                    if (defaultSection) {
-                        defaultSection.classList.add('active');
-                    }
-                }
-            }
-            document.getElementById(id).style.display = 'block';
-            document.body.style.overflow = 'hidden'; 
-        }
+    <section id="contact" class="home-contact" data-section="contact" aria-labelledby="contact-title">
+      <div class="container home-contact-layout">
+        <div>
+          <span class="section-index">04 / CONTACT</span>
+          <h2 id="contact-title">有合適的工作，歡迎來聊。</h2>
+          <p>職務邀請 / 影像製作 / 工作流合作</p>
+        </div>
+        <div class="home-contact-actions">
+          <a href="mailto:z0023658@gmail.com">z0023658@gmail.com <span aria-hidden="true">↗</span></a>
+          <a href="https://www.instagram.com/z0023658/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        function closeModal(id) {
-            if (id === 'storyboard-modal') {
-                document.querySelectorAll('.storyboard-modal-section').forEach(section => section.classList.remove('active'));
-            }
-            document.getElementById(id).style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        function openStoryboardModal(category) {
-            document.querySelectorAll('.storyboard-modal-section').forEach(section => section.classList.remove('active'));
-            const target = document.getElementById('storyboard-modal-' + category);
-            if (target) {
-                target.classList.add('active');
-            }
-            openModal('storyboard-modal');
-        }
-
-        function closeStoryboardModal() { closeModal('storyboard-modal'); }
-
-        // Side Nav Active State on Scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const dots = document.querySelectorAll('.side-nav-dot');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('href') === `#${current}`) {
-                    dot.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scroll for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                
-                // Skip if the href is just "#" or empty
-                if (targetId === '#' || !targetId) return;
-
-                e.preventDefault();
-                try {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                } catch (err) {
-                    console.warn('Invalid selector:', targetId);
-                }
-            });
-        });
-
-        // Simple interactive hover effect log (for prototype testing)
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                // Card hover logic can be extended here
-            });
-        });
-    </script>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>王韋捷</strong><br>
+        <a href="mailto:z0023658@gmail.com">z0023658@gmail.com</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

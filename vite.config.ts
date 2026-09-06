@@ -13,8 +13,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        legacy: path.resolve(configDir, 'index.html'),
-        redesign: path.resolve(configDir, 'redesign/index.html'),
+        homepage: path.resolve(configDir, 'index.html'),
         storyboardWorkbench: path.resolve(configDir, 'redesign/cases/storyboard-workbench/index.html'),
         sampoWirelessCommercial: path.resolve(configDir, 'redesign/cases/sampo-wireless-commercial/index.html'),
         presentationAutomation: path.resolve(configDir, 'redesign/cases/presentation-automation/index.html'),

@@ -28,6 +28,12 @@ const selectedWorkCategories = new Set([
   'BUILD',
 ]);
 
+const caseDetailRoutes = [
+  './redesign/cases/storyboard-workbench/',
+  './redesign/cases/sampo-wireless-commercial/',
+  './redesign/cases/presentation-automation/',
+];
+
 /**
  * 內容 contract 是一組最低必要欄位規則。
  * 它只做開發期檢查，不負責產生或隱藏頁面內容。
@@ -113,8 +119,24 @@ export function validateHomepageContent(root = document) {
       }
     }
 
-    if (!featuredCasesSection.querySelector('[data-featured-case-next][data-case-state="planned"]')) {
-      issues.push('Featured cases is missing the planned second-case entry');
+    const featuredCaseTeasers = featuredCasesSection.querySelectorAll('[data-featured-case-teaser][data-case-state="delivered"]');
+
+    if (featuredCaseTeasers.length !== 1) {
+      issues.push(`Featured cases must contain 1 delivered teaser, found: ${featuredCaseTeasers.length}`);
+    }
+
+    if (featuredCaseTeasers.length === 1 && !featuredCaseTeasers[0].querySelector('a[href="./redesign/cases/presentation-automation/"]')) {
+      issues.push('Featured case teaser is missing the presentation automation detail route');
+    }
+  }
+
+  const homepageLinks = new Set(
+    [...root.querySelectorAll('a[href]')].map((link) => link.getAttribute('href')),
+  );
+
+  for (const route of caseDetailRoutes) {
+    if (!homepageLinks.has(route)) {
+      issues.push(`Homepage is missing case detail route: ${route}`);
     }
   }
 
