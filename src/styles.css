@@ -1619,10 +1619,6 @@ h2 {
     min-height: 62px;
   }
 
-  .site-nav a:not(.nav-priority) {
-    display: none;
-  }
-
   .hero-intro {
     padding-top: 2.75rem;
     padding-bottom: 2.75rem;
@@ -1899,7 +1895,10 @@ h2 {
 }
 
 .site-header .site-nav a {
-  color: #aaa79c;
+  color: #c6c2b8;
+  font-size: 0.86rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
 }
 
 .site-header .site-nav a:hover,
@@ -1927,13 +1926,24 @@ h2 {
 }
 
 .home-role,
-.selected-work-index,
 .work-taxonomy,
 .selected-work-category {
   color: #aaa79c;
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.home-role {
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.work-taxonomy,
+.selected-work-category {
+  color: #8f8c83;
+  font-size: 0.64rem;
+  letter-spacing: 0.09em;
 }
 
 .home-role,
@@ -2116,7 +2126,6 @@ h2 {
 .selected-work-heading h2 {
   margin-top: 0.45rem;
   color: #ece9e0;
-  font-size: clamp(2rem, 3.2vw, 3.15rem);
 }
 
 .work-taxonomy {
@@ -2342,18 +2351,18 @@ h2 {
 
 .featured-cases .section-index,
 .home-about .section-index,
-.home-contact .section-index {
-  color: #aaa79c;
-  font-size: 0.64rem;
-  letter-spacing: 0.14em;
+.home-contact .section-index,
+.selected-work-index {
+  color: #c8b38b;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  line-height: 1;
 }
 
 .featured-cases-heading h2 {
   max-width: 12ch;
   margin: 0;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
 }
 
 .featured-case {
@@ -2374,15 +2383,27 @@ h2 {
 .featured-case-results > p,
 .featured-case-next > p {
   margin: 0;
+  text-transform: uppercase;
+}
+
+.featured-case-label,
+.featured-case-next > p {
+  color: #817e75;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+.featured-case-role,
+.featured-case-results > p {
   color: #aaa79c;
   font-size: 0.64rem;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .featured-case-intro h3 {
   margin: 0.65rem 0 0;
-  font-size: clamp(2.1rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 5.5vw, 5.25rem);
   line-height: 1.03;
   letter-spacing: -0.055em;
 }
@@ -2519,7 +2540,8 @@ h2 {
 
 .featured-case-next h3 {
   margin: 0;
-  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 700;
   line-height: 1.4;
 }
 
@@ -2564,9 +2586,6 @@ h2 {
 .home-about-content h2 {
   max-width: 12ch;
   margin: 1.35rem 0 1.7rem;
-  font-size: clamp(2.4rem, 5vw, 4.8rem);
-  line-height: 1.05;
-  letter-spacing: -0.055em;
 }
 
 .home-about-lead {
@@ -2630,9 +2649,17 @@ h2 {
 .home-contact h2 {
   max-width: 12ch;
   margin: 1.4rem 0 1.2rem;
-  font-size: clamp(3rem, 7vw, 7rem);
-  line-height: 0.98;
-  letter-spacing: -0.065em;
+}
+
+.selected-work-heading h2,
+.featured-cases-heading h2,
+.home-about-content h2,
+.home-contact h2 {
+  color: #ece9e0;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 760;
+  letter-spacing: -0.05em;
+  line-height: 1.04;
 }
 
 .home-contact p {
@@ -2720,9 +2747,22 @@ h2 {
 .case-detail-role-label,
 .case-detail-evidence-note {
   margin: 0;
-  color: #aaa79c;
+}
+
+.case-detail-eyebrow {
+  color: #c8b38b;
   font-size: 0.68rem;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.case-detail-section-label,
+.case-detail-role-label {
+  color: #817e75;
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
@@ -2910,6 +2950,7 @@ h2 {
 .case-detail-evidence-note {
   margin-top: 1rem;
   color: #817e75;
+  font-size: 0.64rem;
   letter-spacing: 0.05em;
   text-transform: none;
 }
@@ -3386,6 +3427,20 @@ h2 {
 }
 
 @media (max-width: 620px) {
+  .header-inner {
+    gap: 0.75rem;
+  }
+
+  .site-header .site-nav {
+    gap: clamp(0.5rem, 2.4vw, 0.75rem);
+  }
+
+  .site-header .site-nav a {
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
   .featured-cases-heading {
     margin-bottom: 3.5rem;
   }

@@ -10,21 +10,18 @@
 
 後續優化依同一條主線、依序通過下列 Gate：
 
-1. Hierarchy
-2. Naming & Copy
+1. Hierarchy — Completed
+2. Naming & Copy — Current
 3. Case Detail
 4. Artwork / Cover
 
 ## Current Stop Point
 
-- 正式網站結構與現況已完成盤點。
-- 已完成第一輪 UX／內容問題整理。
-- 尚未開始修改正式網站。
-- 下一步為 Hierarchy Audit。
+- Gate 1 Hierarchy 已完成 audit、spec、CSS implementation 與 responsive QA。
+- 下一階段為 Gate 2 Naming & Copy。
 
 ## 已確認的主要問題
 
-- 全站 Section、Case 與 metadata 的 hierarchy 不一致。
 - 部分作品名稱偏內部工作語言。
 - 抽象或解釋性文案過多。
 - 部分 Case Detail 偏工程報告／驗證報告。
@@ -35,9 +32,9 @@
 
 ## Next Step
 
-進行全站 Hierarchy Audit，盤點 Header、Hero、Selected Work、Featured Cases、About、Contact 與三個 Case Detail 的 title／label／metadata／supporting copy 層級。
+進行全站 Naming & Copy Audit，盤點首頁與三個 Case Detail 的命名、分類、短文案與 CTA。
 
-本階段只定義 hierarchy；不改作品命名、Case 結構或 artwork。
+本階段只整理可決策的文案建議；不修改正式網站、Case 結構或 artwork。
 
 ## 歷史紀錄
 
