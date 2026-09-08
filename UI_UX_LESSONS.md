@@ -68,3 +68,22 @@ Recommended first restart scope:
 - Improve one section only.
 - Test text wrapping before expanding.
 - Commit only after the section is approved.
+
+## Hierarchy Before Content Refinement
+
+在大量調整文案、Case 結構或圖片前，先建立並確認全站資訊與視覺 hierarchy。後續內容需適應既定 hierarchy，而不是每次內容變動都重新設計 hierarchy。
+
+## Consistency Does Not Mean Identical Case Templates
+
+不同作品類型可使用不同展示方式。Film、AI Visual、Build 的最佳證據不同，因此 Case Detail 不需要完全相同。
+
+真正需要一致的是：
+
+- title hierarchy
+- section hierarchy
+- metadata hierarchy
+- typography logic
+- spacing rhythm
+- navigation behavior
+
+不需要一致的是每頁的章節數量、數據、Before／After 或技術說明。
