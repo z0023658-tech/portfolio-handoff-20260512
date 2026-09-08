@@ -12,35 +12,42 @@
 
 1. Hierarchy — Completed
 2. Naming & Copy — Completed
-3. Case Detail — Next
-4. Artwork / Cover
+3. Case Detail — Completed
+4. Artwork / Cover / Screenshot Art Direction — Next
 
 ## Current Stop Point
 
 - Gate 1 Hierarchy 已完成 audit、spec、CSS implementation 與 responsive QA。
-- Gate 2 Naming & Copy 已完成：
-  - Hero 與主要 visitor-facing copy 收斂
-  - taxonomy 中文化
-  - 六個作品名稱外部化
-  - Global Section naming 統一
-  - Featured Cases、About、Contact copy 收斂
-  - Case Detail visitor-facing naming 同步
-  - responsive rendered QA
-- 下一階段為 Gate 3 — Case Detail 去報告化。
+- Gate 2 Naming & Copy 已完成 visitor-facing naming、copy 與 responsive rendered QA 收斂。
+- Gate 3 Case Detail 已完成：
+  - Homepage Featured Case 移除 engineering metrics 與重複 evidence
+  - Storyboard 收斂為 Hero → 製作方式 → Role／Tools
+  - SAMPO 移除重複 CTA，保留精簡 Visual Direction
+  - Presentation 收斂為 Input → Output → Editable PPTX／Role
+  - internal QA／automated-check／benchmark report language 已移除
+  - 1440／820／390 rendered QA completed
+- 下一階段為 Gate 4 — Artwork / Cover / Screenshot Art Direction。
 - 非 blocker：Mobile 390px navigation 目前可讀且無 overflow，但正式發布前 final polish 應再檢查 tap target 與極窄 viewport。
 
 ## 已確認的主要問題
 
-- 部分 Case Detail 偏工程報告／驗證報告。
-- Selected Work cover 缺乏共同 art direction，且有裁切問題。
+- Case 與 Homepage screenshot 尚未完成共同 art direction 與最終裁切。
+- Selected Work cover 缺乏共同 art direction，且有裁切與一致性問題。
 - Internal／external link 的點擊行為辨識不足。
 - Mobile navigation 的 tap target 與極窄 viewport 尚待 final polish。
 
 ## Next Step
 
-進行 Gate 3 — Case Detail 去報告化。
+進行 Gate 4 — Artwork / Cover / Screenshot Art Direction。
 
-本階段聚焦三個 Case Detail 的內容與結構收斂；不處理 artwork 或 cover。
+主要待處理：
+
+- Homepage Internal／Client comparison crop
+- Storyboard UI screenshot crop／composition／readability
+- SAMPO Visual Direction frames／stills
+- Presentation screenshot／contact-sheet presentation
+- Selected Work cover consistency
+- Hero fragments artwork／crop
 
 ## 歷史紀錄
 

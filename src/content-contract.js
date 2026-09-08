@@ -112,16 +112,8 @@ export function validateHomepageContent(root = document) {
     }
 
     if (featuredCase) {
-      if (!featuredCase.querySelector('[data-case-evidence] img')) {
-        issues.push('Featured case is missing its primary workbench visual');
-      }
-
       if (featuredCase.querySelectorAll('[data-case-comparison] img').length !== 2) {
         issues.push('Featured case must include a two-image outcome comparison');
-      }
-
-      if (featuredCase.querySelectorAll('[data-result-item]').length !== 3) {
-        issues.push('Featured case must include 3 verified result items');
       }
     }
 
