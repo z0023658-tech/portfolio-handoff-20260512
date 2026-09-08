@@ -11,30 +11,36 @@
 後續優化依同一條主線、依序通過下列 Gate：
 
 1. Hierarchy — Completed
-2. Naming & Copy — Current
-3. Case Detail
+2. Naming & Copy — Completed
+3. Case Detail — Next
 4. Artwork / Cover
 
 ## Current Stop Point
 
 - Gate 1 Hierarchy 已完成 audit、spec、CSS implementation 與 responsive QA。
-- 下一階段為 Gate 2 Naming & Copy。
+- Gate 2 Naming & Copy 已完成：
+  - Hero 與主要 visitor-facing copy 收斂
+  - taxonomy 中文化
+  - 六個作品名稱外部化
+  - Global Section naming 統一
+  - Featured Cases、About、Contact copy 收斂
+  - Case Detail visitor-facing naming 同步
+  - responsive rendered QA
+- 下一階段為 Gate 3 — Case Detail 去報告化。
+- 非 blocker：Mobile 390px navigation 目前可讀且無 overflow，但正式發布前 final polish 應再檢查 tap target 與極窄 viewport。
 
 ## 已確認的主要問題
 
-- 部分作品名稱偏內部工作語言。
-- 抽象或解釋性文案過多。
 - 部分 Case Detail 偏工程報告／驗證報告。
 - Selected Work cover 缺乏共同 art direction，且有裁切問題。
 - Internal／external link 的點擊行為辨識不足。
-- About／Contact 的資訊與層級需要收斂。
-- Navigation 視覺存在感偏弱。
+- Mobile navigation 的 tap target 與極窄 viewport 尚待 final polish。
 
 ## Next Step
 
-進行全站 Naming & Copy Audit，盤點首頁與三個 Case Detail 的命名、分類、短文案與 CTA。
+進行 Gate 3 — Case Detail 去報告化。
 
-本階段只整理可決策的文案建議；不修改正式網站、Case 結構或 artwork。
+本階段聚焦三個 Case Detail 的內容與結構收斂；不處理 artwork 或 cover。
 
 ## 歷史紀錄
 

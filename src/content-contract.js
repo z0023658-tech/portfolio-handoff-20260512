@@ -28,6 +28,12 @@ const selectedWorkCategories = new Set([
   'BUILD',
 ]);
 
+const selectedWorkCategoryLabels = new Map([
+  ['FILM', '實拍影像製作'],
+  ['AI VISUAL', 'AI 視覺製作'],
+  ['BUILD', '工具與工作流程'],
+]);
+
 const caseDetailRoutes = [
   './redesign/cases/storyboard-workbench/',
   './redesign/cases/sampo-wireless-commercial/',
@@ -82,7 +88,7 @@ export function validateHomepageContent(root = document) {
         issues.push('Every selected work entry must include an image, title, category, and tag');
       }
 
-      if (!selectedWorkCategories.has(category) || visibleCategory !== category) {
+      if (!selectedWorkCategories.has(category) || visibleCategory !== selectedWorkCategoryLabels.get(category)) {
         issues.push(`Unsupported or mismatched selected work category: ${category || '(empty)'}`);
       } else {
         representedCategories.add(category);
