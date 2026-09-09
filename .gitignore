@@ -29,3 +29,7 @@ backup/
 
 tsconfig.json
 metadata.json
+
+# External candidate materials
+_inbox/*
+!_inbox/README.md
