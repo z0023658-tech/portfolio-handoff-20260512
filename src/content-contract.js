@@ -2,7 +2,6 @@ const requiredSections = [
   'hero',
   'selected-work',
   'featured-cases',
-  'about',
   'contact',
 ];
 
@@ -13,31 +12,6 @@ const retiredHomepageSections = [
   'process',
   'visual-works',
   'about-experience',
-];
-
-const allowedCaseStatuses = new Set([
-  'delivered',
-  'proposal-only',
-  'in-development',
-  'archive',
-]);
-
-const selectedWorkCategories = new Set([
-  'FILM',
-  'AI VISUAL',
-  'BUILD',
-]);
-
-const selectedWorkCategoryLabels = new Map([
-  ['FILM', '實拍影像製作'],
-  ['AI VISUAL', 'AI 視覺製作'],
-  ['BUILD', '工具與工作流程'],
-]);
-
-const caseDetailRoutes = [
-  './redesign/cases/storyboard-workbench/',
-  './redesign/cases/sampo-wireless-commercial/',
-  './redesign/cases/presentation-automation/',
 ];
 
 /**
@@ -59,17 +33,6 @@ export function validateHomepageContent(root = document) {
     }
   }
 
-  for (const caseElement of root.querySelectorAll('[data-case-status]')) {
-    const status = caseElement.dataset.caseStatus;
-    if (!allowedCaseStatuses.has(status)) {
-      issues.push(`Unsupported case status: ${status || '(empty)'}`);
-    }
-
-    if (!caseElement.querySelector('[data-case-role]')) {
-      issues.push(`Case is missing a visible role: ${caseElement.id || '(no id)'}`);
-    }
-  }
-
   const selectedWorkSection = root.querySelector('[data-section="selected-work"]');
   if (selectedWorkSection) {
     const workCards = selectedWorkSection.querySelectorAll('[data-selected-work]');
@@ -78,80 +41,19 @@ export function validateHomepageContent(root = document) {
       issues.push(`Selected work must contain 6 visible entries, found: ${workCards.length}`);
     }
 
-    const representedCategories = new Set();
-
     for (const workCard of workCards) {
-      const category = workCard.dataset.primaryCategory;
-      const visibleCategory = workCard.querySelector('.selected-work-category')?.textContent.trim();
-
-      if (!workCard.querySelector('img') || !workCard.querySelector('h3') || !visibleCategory || !workCard.querySelector('.selected-work-tags li')) {
-        issues.push('Every selected work entry must include an image, title, category, and tag');
-      }
-
-      if (!selectedWorkCategories.has(category) || visibleCategory !== selectedWorkCategoryLabels.get(category)) {
-        issues.push(`Unsupported or mismatched selected work category: ${category || '(empty)'}`);
-      } else {
-        representedCategories.add(category);
-      }
-    }
-
-    for (const category of selectedWorkCategories) {
-      if (!representedCategories.has(category)) {
-        issues.push(`Selected work is missing category: ${category}`);
+      if (!workCard.querySelector('img') || !workCard.querySelector('h3')) {
+        issues.push('Every selected work entry must include an image and title');
       }
     }
   }
 
   const featuredCasesSection = root.querySelector('[data-section="featured-cases"]');
   if (featuredCasesSection) {
-    const featuredCases = featuredCasesSection.querySelectorAll('[data-featured-case]');
-    const featuredCase = featuredCases[0];
+    const featuredCases = featuredCasesSection.querySelectorAll('.featured-case');
 
-    if (featuredCases.length !== 1) {
-      issues.push(`Featured cases must contain 1 completed case, found: ${featuredCases.length}`);
-    }
-
-    if (featuredCase) {
-      if (featuredCase.querySelectorAll('[data-case-comparison] img').length !== 2) {
-        issues.push('Featured case must include a two-image outcome comparison');
-      }
-    }
-
-    const featuredCaseTeasers = featuredCasesSection.querySelectorAll('[data-featured-case-teaser][data-case-state="delivered"]');
-
-    if (featuredCaseTeasers.length !== 1) {
-      issues.push(`Featured cases must contain 1 delivered teaser, found: ${featuredCaseTeasers.length}`);
-    }
-
-    if (featuredCaseTeasers.length === 1 && !featuredCaseTeasers[0].querySelector('a[href="./redesign/cases/presentation-automation/"]')) {
-      issues.push('Featured case teaser is missing the presentation automation detail route');
-    }
-  }
-
-  const homepageLinks = new Set(
-    [...root.querySelectorAll('a[href]')].map((link) => link.getAttribute('href')),
-  );
-
-  for (const route of caseDetailRoutes) {
-    if (!homepageLinks.has(route)) {
-      issues.push(`Homepage is missing case detail route: ${route}`);
-    }
-  }
-
-  const aboutSection = root.querySelector('[data-section="about"]');
-  if (aboutSection) {
-    const experienceItems = aboutSection.querySelectorAll('[data-experience-item]');
-
-    if (experienceItems.length !== 3) {
-      issues.push(`Experience must contain 3 visible capability areas, found: ${experienceItems.length}`);
-    }
-
-    if (!aboutSection.querySelector('img') || !aboutSection.querySelector('a[href^="mailto:"]')) {
-      issues.push('About must include a portrait and resume contact entry');
-    }
-
-    if (/6\s*[–-]\s*7\s*年/.test(aboutSection.textContent)) {
-      issues.push('Experience contains an unverified exact year claim');
+    if (featuredCases.length !== 3) {
+      issues.push(`Featured cases must contain 3 entries, found: ${featuredCases.length}`);
     }
   }
 

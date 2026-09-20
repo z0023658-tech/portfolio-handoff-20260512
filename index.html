@@ -10,15 +10,12 @@
 </head>
 <body>
   <a href="#main" class="skip-link">跳到主要內容</a>
-  <div class="cursor-metadata" aria-hidden="true">PROJECT / 工具與工作流程</div>
-
   <header class="site-header">
     <div class="container header-inner">
       <a href="#main" class="brand">王韋捷</a>
       <nav class="site-nav" aria-label="主要導覽">
         <a href="#work" class="nav-priority">精選作品</a>
-        <a href="#featured-cases">案例解析</a>
-        <a href="#experience">經歷</a>
+        <a href="#featured-cases">深入案例</a>
         <a href="#contact">聯絡</a>
       </nav>
     </div>
@@ -28,29 +25,13 @@
     <section class="home-hero" data-section="hero" aria-labelledby="hero-title">
       <div class="container home-hero-layout">
         <div class="home-hero-copy">
-          <p class="home-role">導演／內容企劃／AI 工具製作</p>
-          <h1 id="hero-title">商業影像、AI 視覺與製&#8288;作&#8288;工&#8288;具。</h1>
-          <div class="home-actions" aria-label="主要行動">
-            <a href="#work">查看精選作品 <span aria-hidden="true">↓</span></a>
-            <a href="#experience">查看經歷 <span aria-hidden="true">↗</span></a>
-          </div>
+          <h1 id="hero-title">王韋捷 Profile</h1>
+          <p class="home-summary">多年跨產業內容與影像實務經驗，近年持續將 AI 與自動化導入真實工作流程。</p>
         </div>
 
-        <div class="hero-visual-field" aria-label="由影像、介面與分鏡草圖組成的製作片段">
-          <span class="field-index">製作片段</span>
-          <figure class="field-fragment field-film">
-            <img src="./assets/covers/sampo-wireless-cover.png" alt="聲寶無線風扇 AI 電商廣告裁切畫面" width="2048" height="1152" fetchpriority="high">
-            <figcaption>AI 視覺製作</figcaption>
-          </figure>
-          <figure class="field-fragment field-build">
-            <img src="./case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="分鏡提案工作台公開展示畫面局部" width="1440" height="900" fetchpriority="high">
-            <figcaption>工具與工作流程</figcaption>
-          </figure>
-          <figure class="field-fragment field-process">
-            <img src="./assets/storyboard-development/storyboard-sketch-grid.png" alt="分鏡製作草圖局部" width="2048" height="1152" fetchpriority="high">
-            <figcaption>製作過程</figcaption>
-          </figure>
-        </div>
+        <figure class="home-hero-portrait">
+          <img src="./assets/profile/profile.jpg" alt="王韋捷戴著黑色帽子與眼鏡的生活照" width="1024" height="1024" fetchpriority="high">
+        </figure>
       </div>
     </section>
 
@@ -61,101 +42,52 @@
             <span class="selected-work-index">01</span>
             <h2 id="work-title">精選作品</h2>
           </div>
-          <p class="work-taxonomy" aria-label="作品分類：影像、AI 視覺、工具製作">
-            <span>實拍影像製作</span><span>AI 視覺製作</span><span>工具與工作流程</span>
-          </p>
         </div>
 
         <div class="selected-work-grid">
-          <a class="selected-work-card" href="./redesign/cases/storyboard-workbench/" data-selected-work data-primary-category="BUILD" data-cursor-meta="PROJECT / 工具與工作流程 · WORKFLOW">
-            <div class="selected-work-image">
-              <img src="./case-evidence/storyboard-workbench/03-current-workbench.png" alt="分鏡提案製作工具工作台畫面" width="2136" height="1197" loading="lazy">
-            </div>
-            <div class="selected-work-meta">
-              <div>
-                <h3>分鏡提案製&#8288;作&#8288;工&#8288;具</h3>
-                <p class="selected-work-category">工具與工作流程</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Workflow</li><li>Interface</li><li>Internal Tool</li>
-              </ul>
-            </div>
-          </a>
-
-          <a class="selected-work-card" href="./redesign/cases/sampo-wireless-commercial/" data-selected-work data-primary-category="AI VISUAL" data-cursor-meta="PROJECT / AI 視覺製作 · COMMERCIAL">
-            <div class="selected-work-image">
-              <img src="./assets/projects/ai-advertising/ai-ad-09.jpg" alt="AI 廣告作品畫面" width="1920" height="1080" loading="lazy">
-            </div>
-            <div class="selected-work-meta">
-              <div>
-                <h3>AI 廣告</h3>
-                <p class="selected-work-category">AI 視覺製作</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Commercial</li><li>Generative</li><li>Editing</li>
-              </ul>
-            </div>
-          </a>
-
-          <a class="selected-work-card" href="./redesign/cases/commercial-film/" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / 實拍影像製作 · PRODUCT">
+          <article class="selected-work-card" data-selected-work>
             <div class="selected-work-image">
               <img src="./assets/projects/commercial-film/commercial-02-toshiba-oven-hero.png" alt="商品廣告影像畫面" width="1881" height="1053" loading="lazy">
             </div>
             <div class="selected-work-meta">
-              <div>
-                <h3>商品廣告影&#8288;像</h3>
-                <p class="selected-work-category">實拍影像製作</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Product</li><li>Lighting</li><li>Camera</li>
-              </ul>
+              <h3>商品廣告影像</h3>
             </div>
-          </a>
+          </article>
 
-          <a class="selected-work-card" href="./redesign/cases/interview-content/" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / 實拍影像製作 · INTERVIEW">
-            <div class="selected-work-image">
-              <img src="./assets/projects/interview-content/interview-01-studio-conversation.png" alt="人物訪談與內容型影片畫面" width="1728" height="969" loading="lazy">
-            </div>
-            <div class="selected-work-meta">
-              <div>
-                <h3>人物訪談／內容型影片</h3>
-                <p class="selected-work-category">實拍影像製作</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Interview</li><li>Lighting</li><li>Camera</li>
-              </ul>
-            </div>
-          </a>
-
-          <a class="selected-work-card" href="./redesign/cases/brand-film/" data-selected-work data-primary-category="FILM" data-cursor-meta="PROJECT / 實拍影像製作 · BRAND FILM">
+          <article class="selected-work-card" data-selected-work>
             <div class="selected-work-image">
               <img src="./assets/projects/brand-film/brand-film-03-campaign-host.png" alt="品牌形象影片畫面" width="1881" height="1060" loading="lazy">
             </div>
-            <div class="selected-work-meta">
-              <div>
-                <h3>品牌形象影片</h3>
-                <p class="selected-work-category">實拍影像製作</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Brand Film</li>
-              </ul>
-            </div>
-          </a>
+            <div class="selected-work-meta"><h3>品牌形象影片</h3></div>
+          </article>
 
-          <a class="selected-work-card" href="./redesign/cases/presentation-automation/" data-selected-work data-primary-category="BUILD" data-cursor-meta="PROJECT / 工具與工作流程 · PRESENTATION">
+          <article class="selected-work-card" data-selected-work>
+            <div class="selected-work-image">
+              <img src="./assets/projects/interview-content/interview-01-studio-conversation.png" alt="人物訪談與內容影片畫面" width="1728" height="969" loading="lazy">
+            </div>
+            <div class="selected-work-meta"><h3>人物訪談／內容影片</h3></div>
+          </article>
+
+          <article class="selected-work-card" data-selected-work>
+            <div class="selected-work-image">
+              <img src="./assets/projects/ai-advertising/ai-ad-09.jpg" alt="生成式 AI 視覺畫面" width="1920" height="1080" loading="lazy">
+            </div>
+            <div class="selected-work-meta"><h3>生成式 AI 視覺</h3></div>
+          </article>
+
+          <article class="selected-work-card" data-selected-work>
+            <div class="selected-work-image">
+              <img src="./case-evidence/storyboard-workbench/03-current-workbench.png" alt="分鏡提案工作台畫面" width="2136" height="1197" loading="lazy">
+            </div>
+            <div class="selected-work-meta"><h3>分鏡與前期視覺開發</h3></div>
+          </article>
+
+          <article class="selected-work-card" data-selected-work>
             <div class="selected-work-image">
               <img src="./case-evidence/presentation-automation/presentation-automation-selected-work.png" alt="委製需求經結構化交接後產出 DW-06 簡報的工作片段" width="1600" height="900" loading="lazy">
             </div>
-            <div class="selected-work-meta">
-              <div>
-                <h3>委製需求與 AI 簡報自動化</h3>
-                <p class="selected-work-category">工具與工作流程</p>
-              </div>
-              <ul class="selected-work-tags" aria-label="作品標籤">
-                <li>Automation</li><li>Human Review</li><li>Presentation</li>
-              </ul>
-            </div>
-          </a>
+            <div class="selected-work-meta"><h3>AI 製作流程與自動化</h3></div>
+          </article>
         </div>
       </div>
     </section>
@@ -164,103 +96,36 @@
       <div class="container">
         <header class="featured-cases-heading">
           <span class="section-index">02</span>
-          <h2 id="featured-cases-title">案例解析</h2>
+          <h2 id="featured-cases-title">深入案例</h2>
         </header>
 
         <article
-          id="flagship-workflow"
-          class="featured-case"
-          data-featured-case
-          data-case-status="delivered"
-          aria-labelledby="workflow-title"
+          class="featured-case featured-case-pending"
+          hidden
+          aria-labelledby="oven-case-title"
         >
-          <header class="featured-case-intro">
-            <div>
-              <p class="featured-case-label">工具與工作流程</p>
-              <h3 id="workflow-title">分鏡提案製&#8288;作&#8288;工&#8288;具</h3>
-            </div>
-            <div class="featured-case-copy">
-              <p>把分鏡、素材與拍攝資訊整理在同一個工具裡，並直接產生客戶提案頁。</p>
-              <p class="featured-case-role" data-case-role>工作流程設計／介面製作</p>
-            </div>
-          </header>
-
-          <div class="featured-case-compare" data-case-comparison>
-            <figure>
-              <div class="featured-compare-image featured-compare-internal">
-                <img
-                  src="./case-evidence/storyboard-workbench/01-internal-workbench-mock.png"
-                  alt="內部工作台的 CUT 與拍攝資訊區域"
-                  width="1920"
-                  height="1027"
-                  loading="lazy"
-                >
-              </div>
-              <figcaption><span>01</span>內部整理</figcaption>
-            </figure>
-            <span class="featured-case-arrow" aria-hidden="true">→</span>
-            <figure>
-              <div class="featured-compare-image">
-                <img
-                  src="./case-evidence/storyboard-workbench/02-public-proposal-mock.png"
-                  alt="使用合成資料的客戶提案閱讀頁"
-                  width="1265"
-                  height="712"
-                  loading="lazy"
-                >
-              </div>
-              <figcaption><span>02</span>客戶提案</figcaption>
-            </figure>
-          </div>
-
-          <a class="featured-case-detail-link" href="./redesign/cases/storyboard-workbench/">查看完整案例 <span aria-hidden="true">↗</span></a>
+          <h3 id="oven-case-title">烤箱實拍影片</h3>
+          <p>Pending Case</p>
         </article>
 
-        <article class="featured-case-next" data-featured-case-teaser data-case-state="delivered" aria-labelledby="next-case-title">
-          <p>工具與工作流程</p>
-          <h3 id="next-case-title">委製需求與 AI 簡報自動化</h3>
-          <span>將委製需求整理成可直接討論的簡報。</span>
-          <a class="featured-case-detail-link" href="./redesign/cases/presentation-automation/">查看完整案例 <span aria-hidden="true">↗</span></a>
+        <article class="featured-case featured-case-pending" aria-labelledby="sampo-case-title" hidden>
+          <h3 id="sampo-case-title">SAMPO 無線吸塵器商品廣告</h3>
+          <p>Pending Case</p>
         </article>
-      </div>
-    </section>
 
-    <section id="experience" class="home-about" data-section="about" aria-labelledby="about-title">
-      <div class="container home-about-layout">
-        <figure class="home-about-portrait">
-          <img src="./assets/profile/profile.jpg" alt="王韋捷戴著黑色帽子與眼鏡的生活照" width="1024" height="1024" loading="lazy">
-          <figcaption>王韋捷</figcaption>
-        </figure>
-
-        <div class="home-about-content">
-          <span class="section-index">03</span>
-          <h2 id="about-title">關於我</h2>
-          <p class="home-about-lead">我主要做企劃、導演與影像製作，也會為實際工作需求製作 AI 與自動化工具。</p>
-
-          <dl class="home-about-summary" aria-label="經歷與能力重點">
-            <div data-experience-item>
-              <dt>實拍影像製作</dt>
-              <dd>企劃、導演、拍攝與後期製作</dd>
-            </div>
-            <div data-experience-item>
-              <dt>AI 視覺製作</dt>
-              <dd>視覺開發、生成與後期</dd>
-            </div>
-            <div data-experience-item>
-              <dt>工具與工作流程</dt>
-              <dd>工作流程設計與工具製作</dd>
-            </div>
-          </dl>
-
-          <a class="home-about-resume" href="mailto:z0023658@gmail.com?subject=%E7%B4%A2%E5%8F%96%E7%8E%8B%E9%9F%8B%E6%8D%B7%E5%AE%8C%E6%95%B4%E5%B1%A5%E6%AD%B7">來信索取完整履歷 <span aria-hidden="true">↗</span></a>
-        </div>
+        <article class="featured-case" aria-labelledby="storyboard-case-title">
+          <img src="./case-evidence/storyboard-workbench/03-current-workbench.png" alt="分鏡提案工作台畫面" width="2136" height="1197" loading="lazy">
+          <h3 id="storyboard-case-title">分鏡提案工作台</h3>
+          <p>把分鏡、素材與拍攝資訊整理在同一個工具裡，並直接產生客戶提案頁。</p>
+          <a class="featured-case-detail-link" href="./redesign/cases/storyboard-workbench/">查看案例 <span aria-hidden="true">↗</span></a>
+        </article>
       </div>
     </section>
 
     <section id="contact" class="home-contact" data-section="contact" aria-labelledby="contact-title">
       <div class="container home-contact-layout">
         <div>
-          <span class="section-index">04</span>
+          <span class="section-index">03</span>
           <h2 id="contact-title">聯絡</h2>
         </div>
         <div class="home-contact-actions">
@@ -271,13 +136,5 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <strong>王韋捷</strong><br>
-        <a href="mailto:z0023658@gmail.com">z0023658@gmail.com</a>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
