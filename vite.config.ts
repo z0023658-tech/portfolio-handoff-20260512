@@ -20,6 +20,7 @@ export default defineConfig({
         commercialFilm: path.resolve(configDir, 'redesign/cases/commercial-film/index.html'),
         interviewContent: path.resolve(configDir, 'redesign/cases/interview-content/index.html'),
         brandFilm: path.resolve(configDir, 'redesign/cases/brand-film/index.html'),
+        generativeAiVisual: path.resolve(configDir, 'redesign/galleries/generative-ai-visual/index.html'),
       },
     },
   },
