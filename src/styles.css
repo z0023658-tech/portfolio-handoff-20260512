@@ -2740,6 +2740,164 @@ h2 {
   font-size: clamp(0.95rem, 1.35vw, 1.08rem);
 }
 
+.storyboard-case {
+  max-width: none;
+  padding: 0;
+}
+
+.storyboard-case-heading {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.storyboard-case-heading h3 {
+  margin: 0;
+  color: #ece9e0;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.25;
+}
+
+.storyboard-case-heading p {
+  max-width: 32rem;
+  margin: 0.7rem 0 0;
+  color: #c6c2b8;
+  font-size: clamp(0.95rem, 1.35vw, 1.08rem);
+}
+
+.storyboard-case-media {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.storyboard-case-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.storyboard-case-proposal-trigger {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0 0 0.35rem;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  border: 0;
+  border-bottom: 1px solid rgba(236, 233, 224, 0.32);
+  background: transparent;
+  color: #aaa79c;
+  font: inherit;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.storyboard-case-proposal-trigger:hover,
+.storyboard-case-proposal-trigger:focus-visible {
+  color: #c8b38b;
+}
+
+.proposal-overlay {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  border: 0;
+  background: #171715;
+  color: #ece9e0;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.proposal-overlay::backdrop {
+  background: #171715;
+}
+
+.proposal-overlay[open] {
+  display: grid;
+  place-items: center;
+  opacity: 1;
+}
+
+.proposal-overlay.is-closing {
+  opacity: 0;
+}
+
+@starting-style {
+  .proposal-overlay[open] {
+    opacity: 0;
+  }
+}
+
+.proposal-overlay-panel {
+  width: min(82vw, 70rem);
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.proposal-overlay-header {
+  min-height: 3.25rem;
+  padding-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.proposal-overlay-header h2 {
+  margin: 0;
+  color: #ece9e0;
+  font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+  line-height: 1.25;
+}
+
+.proposal-overlay-close {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #ece9e0;
+  font: inherit;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.proposal-overlay-content {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.proposal-overlay-image-frame {
+  position: relative;
+  width: 100%;
+  height: min(100%, 931px);
+  margin: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.proposal-overlay-image-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+html.proposal-overlay-open,
+body.proposal-overlay-open {
+  overflow: hidden;
+}
+
 .featured-case-pending > p {
   color: #8f8c83;
   font-size: 0.72rem;
@@ -3640,6 +3798,14 @@ h2 {
   .home-about-portrait {
     width: min(72vw, 30rem);
   }
+
+  .proposal-overlay-panel {
+    width: min(88vw, 70rem);
+  }
+
+  .storyboard-case-media {
+    width: 100%;
+  }
 }
 
 @media (max-width: 620px) {
@@ -3678,6 +3844,14 @@ h2 {
 
   .featured-case-next {
     margin-top: 4rem;
+  }
+
+  .proposal-overlay {
+    padding: 0.75rem;
+  }
+
+  .proposal-overlay-panel {
+    width: 100%;
   }
 
   .home-about-portrait {

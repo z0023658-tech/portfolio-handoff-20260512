@@ -113,11 +113,14 @@
           <p>Pending Case</p>
         </article>
 
-        <article class="featured-case" aria-labelledby="storyboard-case-title">
-          <img src="./assets/projects/storyboard-workbench/storyboard-workbench-cover.png" alt="分鏡提案工作台畫面" width="2136" height="1197" loading="lazy">
-          <h3 id="storyboard-case-title">分鏡提案工作台</h3>
-          <p>Vibe Coding 開發的分鏡製作工具。</p>
-          <a class="featured-case-detail-link" href="./redesign/cases/storyboard-workbench/">查看案例 <span aria-hidden="true">↗</span></a>
+        <article class="featured-case storyboard-case" aria-labelledby="storyboard-case-title">
+          <header class="storyboard-case-heading">
+            <h3 id="storyboard-case-title">分鏡提案工作台</h3>
+            <p>Vibe Coding 開發的分鏡製作工具。</p>
+          </header>
+
+          <figure class="storyboard-case-media"><img src="./assets/projects/storyboard-workbench/storyboard-workbench-cover.png" alt="分鏡提案工作台的完整工作台畫面" width="2136" height="1197" loading="lazy"></figure>
+          <button class="storyboard-case-proposal-trigger" type="button" aria-haspopup="dialog" aria-controls="storyboard-client-proposal">查看 Client Proposal <span aria-hidden="true">↗</span></button>
         </article>
       </div>
     </section>
@@ -135,6 +138,20 @@
       </div>
     </section>
   </main>
+
+  <dialog id="storyboard-client-proposal" class="proposal-overlay" aria-labelledby="proposal-overlay-title">
+    <section class="proposal-overlay-panel">
+      <header class="proposal-overlay-header">
+        <h2 id="proposal-overlay-title">Client Proposal</h2>
+        <button class="proposal-overlay-close" type="button" aria-label="關閉 Client Proposal">×</button>
+      </header>
+      <div class="proposal-overlay-content">
+        <figure class="proposal-overlay-image-frame">
+          <img src="./assets/projects/storyboard-workbench/storyboard-workbench-client-proposal.png" alt="包含提案規格、音樂建議與分鏡總覽的客戶提案" width="585" height="931">
+        </figure>
+      </div>
+    </section>
+  </dialog>
 
 </body>
 </html>

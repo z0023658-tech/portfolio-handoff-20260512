@@ -27,3 +27,41 @@ if (cursorMetadata && window.matchMedia('(hover: hover) and (pointer: fine)').ma
     });
   }
 }
+
+const proposalDialog = document.querySelector('.proposal-overlay');
+const proposalTrigger = document.querySelector('.storyboard-case-proposal-trigger');
+const proposalCloseButton = document.querySelector('.proposal-overlay-close');
+
+if (proposalDialog && proposalTrigger && proposalCloseButton) {
+  const closeProposalDialog = () => {
+    if (!proposalDialog.open || proposalDialog.classList.contains('is-closing')) {
+      return;
+    }
+
+    proposalDialog.classList.add('is-closing');
+    window.setTimeout(() => proposalDialog.close(), 200);
+  };
+
+  proposalTrigger.addEventListener('click', () => {
+    proposalDialog.showModal();
+    document.documentElement.classList.add('proposal-overlay-open');
+    document.body.classList.add('proposal-overlay-open');
+    proposalCloseButton.focus();
+  });
+
+  proposalCloseButton.addEventListener('click', closeProposalDialog);
+
+  proposalDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeProposalDialog();
+  });
+
+  proposalDialog.addEventListener('click', closeProposalDialog);
+
+  proposalDialog.addEventListener('close', () => {
+    proposalDialog.classList.remove('is-closing');
+    document.documentElement.classList.remove('proposal-overlay-open');
+    document.body.classList.remove('proposal-overlay-open');
+    proposalTrigger.focus();
+  });
+}
