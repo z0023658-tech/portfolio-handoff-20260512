@@ -2523,7 +2523,6 @@ h2 {
 .featured-case {
   max-width: 48rem;
   padding-block: clamp(1.5rem, 4vw, 3rem);
-  border-top: 1px solid rgba(236, 233, 224, 0.21);
 }
 
 .featured-case > img {
