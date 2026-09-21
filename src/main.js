@@ -28,40 +28,46 @@ if (cursorMetadata && window.matchMedia('(hover: hover) and (pointer: fine)').ma
   }
 }
 
-const proposalDialog = document.querySelector('.proposal-overlay');
-const proposalTrigger = document.querySelector('.storyboard-case-proposal-trigger');
-const proposalCloseButton = document.querySelector('.proposal-overlay-close');
+const caseOverlayTriggers = document.querySelectorAll('[data-case-overlay-trigger]');
 
-if (proposalDialog && proposalTrigger && proposalCloseButton) {
-  const closeProposalDialog = () => {
-    if (!proposalDialog.open || proposalDialog.classList.contains('is-closing')) {
+for (const trigger of caseOverlayTriggers) {
+  const dialogId = trigger.getAttribute('aria-controls');
+  const dialog = dialogId ? document.getElementById(dialogId) : null;
+  const closeButton = dialog?.querySelector('[data-case-overlay-close]');
+
+  if (!(dialog instanceof HTMLDialogElement) || !(closeButton instanceof HTMLButtonElement)) {
+    continue;
+  }
+
+  const closeDialog = () => {
+    if (!dialog.open || dialog.classList.contains('is-closing')) {
       return;
     }
 
-    proposalDialog.classList.add('is-closing');
-    window.setTimeout(() => proposalDialog.close(), 200);
+    dialog.classList.add('is-closing');
+    window.setTimeout(() => dialog.close(), 200);
   };
 
-  proposalTrigger.addEventListener('click', () => {
-    proposalDialog.showModal();
+  trigger.addEventListener('click', () => {
+    dialog.showModal();
     document.documentElement.classList.add('proposal-overlay-open');
     document.body.classList.add('proposal-overlay-open');
-    proposalCloseButton.focus();
+    closeButton.focus();
   });
 
-  proposalCloseButton.addEventListener('click', closeProposalDialog);
+  closeButton.addEventListener('click', closeDialog);
 
-  proposalDialog.addEventListener('cancel', (event) => {
+  dialog.addEventListener('cancel', (event) => {
     event.preventDefault();
-    closeProposalDialog();
+    closeDialog();
   });
 
-  proposalDialog.addEventListener('click', closeProposalDialog);
+  dialog.addEventListener('click', closeDialog);
 
-  proposalDialog.addEventListener('close', () => {
-    proposalDialog.classList.remove('is-closing');
+  dialog.addEventListener('close', () => {
+    dialog.classList.remove('is-closing');
     document.documentElement.classList.remove('proposal-overlay-open');
     document.body.classList.remove('proposal-overlay-open');
-    proposalTrigger.focus();
+    trigger.focus();
   });
 }

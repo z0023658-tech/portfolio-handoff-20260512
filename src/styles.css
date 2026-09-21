@@ -2745,22 +2745,29 @@ h2 {
   padding: 0;
 }
 
-.storyboard-case-heading {
+.storyboard-case-heading,
+.meeting-brief-case-heading {
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.storyboard-case-heading h3 {
+.storyboard-case-heading h3,
+.meeting-brief-case-heading h3 {
   margin: 0;
   color: #ece9e0;
   font-size: clamp(1.35rem, 2.4vw, 2rem);
   line-height: 1.25;
 }
 
-.storyboard-case-heading p {
+.storyboard-case-heading p,
+.meeting-brief-case-heading p {
   max-width: 32rem;
   margin: 0.7rem 0 0;
   color: #c6c2b8;
   font-size: clamp(0.95rem, 1.35vw, 1.08rem);
+}
+
+.meeting-brief-case-heading p {
+  max-width: 36rem;
 }
 
 .storyboard-case-media {
@@ -2791,8 +2798,69 @@ h2 {
 }
 
 .storyboard-case-proposal-trigger:hover,
-.storyboard-case-proposal-trigger:focus-visible {
+.storyboard-case-proposal-trigger:focus-visible,
+.meeting-brief-case-trigger:hover,
+.meeting-brief-case-trigger:focus-visible {
   color: #c8b38b;
+}
+
+.meeting-brief-case {
+  max-width: none;
+  margin-top: clamp(5rem, 9vw, 8rem);
+  padding: 0;
+}
+
+.meeting-brief-pipeline {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.meeting-brief-pipeline li {
+  display: inline-flex;
+  align-items: center;
+  color: #c6c2b8;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+.meeting-brief-pipeline li + li::before {
+  margin-right: 0.5rem;
+  color: #c8b38b;
+  content: "→";
+}
+
+.meeting-brief-case-media {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.meeting-brief-case-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.meeting-brief-case-trigger {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0 0 0.35rem;
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  border: 0;
+  border-bottom: 1px solid rgba(236, 233, 224, 0.32);
+  background: transparent;
+  color: #aaa79c;
+  font: inherit;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: pointer;
 }
 
 .proposal-overlay {
@@ -2854,6 +2922,11 @@ h2 {
   line-height: 1.25;
 }
 
+.meeting-brief-overlay .proposal-overlay-header {
+  min-height: 2.75rem;
+  padding-bottom: 0.55rem;
+}
+
 .proposal-overlay-close {
   width: 2.5rem;
   height: 2.5rem;
@@ -2891,6 +2964,21 @@ h2 {
   height: 100%;
   display: block;
   object-fit: contain;
+}
+
+.meeting-brief-overlay-content {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-content: center;
+  gap: clamp(0.5rem, 1.2vw, 1rem);
+  overflow: hidden;
+}
+
+.meeting-brief-overlay-content img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 html.proposal-overlay-open,
@@ -3803,8 +3891,13 @@ body.proposal-overlay-open {
     width: min(88vw, 70rem);
   }
 
-  .storyboard-case-media {
+  .storyboard-case-media,
+  .meeting-brief-case-media {
     width: 100%;
+  }
+
+  .meeting-brief-overlay-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -3852,6 +3945,13 @@ body.proposal-overlay-open {
 
   .proposal-overlay-panel {
     width: 100%;
+  }
+
+  .meeting-brief-overlay-content {
+    grid-template-columns: 1fr;
+    align-content: start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .home-about-portrait {

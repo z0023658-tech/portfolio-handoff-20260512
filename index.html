@@ -120,7 +120,24 @@
           </header>
 
           <figure class="storyboard-case-media"><img src="./assets/projects/storyboard-workbench/storyboard-workbench-cover.png" alt="分鏡提案工作台的完整工作台畫面" width="2136" height="1197" loading="lazy"></figure>
-          <button class="storyboard-case-proposal-trigger" type="button" aria-haspopup="dialog" aria-controls="storyboard-client-proposal">查看 Client Proposal <span aria-hidden="true">↗</span></button>
+          <button class="storyboard-case-proposal-trigger" type="button" aria-haspopup="dialog" aria-controls="storyboard-client-proposal" data-case-overlay-trigger>查看 Client Proposal <span aria-hidden="true">↗</span></button>
+        </article>
+
+        <article class="featured-case meeting-brief-case" aria-labelledby="meeting-brief-case-title">
+          <header class="meeting-brief-case-heading">
+            <h3 id="meeting-brief-case-title">半自動化工具建構</h3>
+            <p>將結構化專案需求轉成可編輯的 Meeting Brief，供第一次客戶會議對焦。</p>
+          </header>
+
+          <ol class="meeting-brief-pipeline" aria-label="Meeting Brief 製作流程">
+            <li>專案需求</li>
+            <li>AI 結構化</li>
+            <li>Brief 建構</li>
+            <li>Meeting Brief</li>
+          </ol>
+
+          <figure class="meeting-brief-case-media"><img src="./assets/projects/presentation-automation/meeting-brief-01.png" alt="TOA-112 Meeting Brief 第一頁" width="1920" height="1080" loading="lazy"></figure>
+          <button class="meeting-brief-case-trigger" type="button" aria-haspopup="dialog" aria-controls="meeting-brief-overlay" data-case-overlay-trigger>查看 Meeting Brief <span aria-hidden="true">↗</span></button>
         </article>
       </div>
     </section>
@@ -139,16 +156,33 @@
     </section>
   </main>
 
-  <dialog id="storyboard-client-proposal" class="proposal-overlay" aria-labelledby="proposal-overlay-title">
+  <dialog id="storyboard-client-proposal" class="proposal-overlay" aria-labelledby="proposal-overlay-title" data-case-overlay>
     <section class="proposal-overlay-panel">
       <header class="proposal-overlay-header">
         <h2 id="proposal-overlay-title">Client Proposal</h2>
-        <button class="proposal-overlay-close" type="button" aria-label="關閉 Client Proposal">×</button>
+        <button class="proposal-overlay-close" type="button" aria-label="關閉 Client Proposal" data-case-overlay-close>×</button>
       </header>
       <div class="proposal-overlay-content">
         <figure class="proposal-overlay-image-frame">
           <img src="./assets/projects/storyboard-workbench/storyboard-workbench-client-proposal.png" alt="包含提案規格、音樂建議與分鏡總覽的客戶提案" width="585" height="931">
         </figure>
+      </div>
+    </section>
+  </dialog>
+
+  <dialog id="meeting-brief-overlay" class="proposal-overlay meeting-brief-overlay" aria-labelledby="meeting-brief-overlay-title" data-case-overlay>
+    <section class="proposal-overlay-panel">
+      <header class="proposal-overlay-header">
+        <h2 id="meeting-brief-overlay-title">Meeting Brief</h2>
+        <button class="proposal-overlay-close" type="button" aria-label="關閉 Meeting Brief" data-case-overlay-close>×</button>
+      </header>
+      <div class="meeting-brief-overlay-content">
+        <img src="./assets/projects/presentation-automation/meeting-brief-01.png" alt="Meeting Brief 第 1 頁" width="1920" height="1080">
+        <img src="./assets/projects/presentation-automation/meeting-brief-02.png" alt="Meeting Brief 第 2 頁" width="1920" height="1080">
+        <img src="./assets/projects/presentation-automation/meeting-brief-03.png" alt="Meeting Brief 第 3 頁" width="1920" height="1080">
+        <img src="./assets/projects/presentation-automation/meeting-brief-04.png" alt="Meeting Brief 第 4 頁" width="1920" height="1080">
+        <img src="./assets/projects/presentation-automation/meeting-brief-05.png" alt="Meeting Brief 第 5 頁" width="1920" height="1080">
+        <img src="./assets/projects/presentation-automation/meeting-brief-06.png" alt="Meeting Brief 第 6 頁" width="1920" height="1080">
       </div>
     </section>
   </dialog>

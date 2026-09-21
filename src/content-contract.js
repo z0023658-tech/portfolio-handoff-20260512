@@ -52,8 +52,8 @@ export function validateHomepageContent(root = document) {
   if (featuredCasesSection) {
     const featuredCases = featuredCasesSection.querySelectorAll('.featured-case');
 
-    if (featuredCases.length !== 3) {
-      issues.push(`Featured cases must contain 3 entries, found: ${featuredCases.length}`);
+    if (featuredCases.length !== 4) {
+      issues.push(`Featured cases must contain 4 entries, found: ${featuredCases.length}`);
     }
   }
 
