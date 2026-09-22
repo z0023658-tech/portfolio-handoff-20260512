@@ -1,3 +1,5 @@
+import { initializeCaseOverlays } from './overlay-dialog.js';
+
 const gallery = document.querySelector('[data-ai-visual-gallery]');
 
 if (gallery) {
@@ -8,7 +10,7 @@ if (gallery) {
   let requestedSource = activePreview.src;
 
   const showPreview = (thumbnail) => {
-    const source = thumbnail.dataset.aiVisualSrc;
+    const source = thumbnail.querySelector('img')?.src ?? thumbnail.dataset.aiVisualSrc;
     const alt = thumbnail.dataset.aiVisualAlt;
     const resolvedSource = source ? new URL(source, window.location.href).href : '';
 
@@ -55,3 +57,5 @@ if (gallery) {
     if (event.pointerType === 'mouse') showPreview(selectedThumbnail);
   });
 }
+
+initializeCaseOverlays();

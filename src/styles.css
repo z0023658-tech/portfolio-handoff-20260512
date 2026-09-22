@@ -184,7 +184,9 @@
 }
 
 .ai-visual-development-heading h2,
-.ai-visual-workflow-section h2 {
+.ai-visual-workflow-section h2,
+.ai-visual-full-commercial-section h2,
+.vinda-snoopy-short-ads-section h2 {
   margin: 0;
   color: #ece9e0;
   font-size: clamp(1.5rem, 2.5vw, 2.25rem);
@@ -287,8 +289,102 @@
 .ai-visual-workflow img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.ai-visual-full-commercial-section,
+.vinda-snoopy-short-ads-section {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.ai-visual-full-commercial-section h2,
+.vinda-snoopy-short-ads-section h2 {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.ai-visual-full-commercial-grid,
+.vinda-snoopy-ad-grid {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+.ai-visual-full-commercial-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vinda-snoopy-ad-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ai-visual-full-commercial-grid figure {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  background: #252521;
+}
+
+.ai-visual-full-commercial-grid img,
+.vinda-snoopy-ad-card img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.vinda-snoopy-ad-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: #252521;
+  cursor: pointer;
+}
+
+.vinda-snoopy-ad-card:focus-visible {
+  outline: 2px solid #c8b38b;
+  outline-offset: 4px;
+}
+
+.vinda-snoopy-video-overlay-content {
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.vinda-snoopy-video-overlay-content video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+.ai-visual-workflow,
+.ai-visual-full-commercial-grid > *,
+.vinda-snoopy-ad-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.ai-visual-workflow-section h2,
+.ai-visual-full-commercial-section h2,
+.vinda-snoopy-short-ads-section h2 {
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 @media (max-width: 860px) {
@@ -309,6 +405,14 @@
 
   .ai-visual-thumbnail {
     aspect-ratio: 16 / 9;
+  }
+
+  .vinda-snoopy-ad-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ai-visual-full-commercial-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -338,6 +442,11 @@
 
   .ai-visual-workflow-section {
     padding-top: clamp(5rem, 20vw, 7rem);
+  }
+
+  .ai-visual-full-commercial-grid,
+  .vinda-snoopy-ad-grid {
+    grid-template-columns: 1fr;
   }
 }
 
