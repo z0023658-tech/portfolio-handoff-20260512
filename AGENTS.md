@@ -57,6 +57,7 @@
   - `npm install`
   - `npm run dev`
   - `npm run build`
+- 若本輪涉及 UI、CSS、RWD、browser interaction 或 render QA，可在既有專案驗證流程中依 AI 全域系統的中央能力路由檢查已採用能力；目前 Chrome DevTools MCP 可作為 Frontend Render QA。此窄幅能力發現例外不允許閱讀其他 parent／sibling 專案內容，詳細規則仍以 MCP 資產庫正式 README 為準。
 - 修改後依任務範圍檢查：
   - desktop / tablet / mobile 版面。
   - modal 與既有互動。
