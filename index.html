@@ -99,13 +99,15 @@
           <h2 id="featured-cases-title">深入案例</h2>
         </header>
 
-        <article
-          class="featured-case featured-case-pending"
-          hidden
-          aria-labelledby="oven-case-title"
-        >
-          <h3 id="oven-case-title">烤箱實拍影片</h3>
-          <p>Pending Case</p>
+        <article class="featured-case toa-112-case" aria-labelledby="toa-112-case-title">
+          <header class="toa-112-case-heading">
+            <h3 id="toa-112-case-title">實拍製作</h3>
+            <p class="toa-112-case-project">TOA-112 26L 數位探針氣炸烤箱</p>
+            <p class="toa-112-case-description">從前期規劃、場景與料理設計，到實際拍攝與後期完成的產品影片。</p>
+          </header>
+
+          <figure class="toa-112-case-media"><img src="./assets/projects/toa-112/toa-112-hero.png" alt="TOA-112 26L 數位探針氣炸烤箱產品影片畫面" width="1818" height="1024" loading="lazy"></figure>
+          <button class="toa-112-case-film-trigger" type="button" aria-haspopup="dialog" aria-controls="toa-112-film-overlay" data-case-overlay-trigger>觀看成片 <span aria-hidden="true">↗</span></button>
         </article>
 
         <article class="featured-case featured-case-pending" aria-labelledby="sampo-case-title" hidden>
@@ -183,6 +185,20 @@
         <img src="./assets/projects/presentation-automation/meeting-brief-04.png" alt="Meeting Brief 第 4 頁" width="1920" height="1080">
         <img src="./assets/projects/presentation-automation/meeting-brief-05.png" alt="Meeting Brief 第 5 頁" width="1920" height="1080">
         <img src="./assets/projects/presentation-automation/meeting-brief-06.png" alt="Meeting Brief 第 6 頁" width="1920" height="1080">
+      </div>
+    </section>
+  </dialog>
+
+  <dialog id="toa-112-film-overlay" class="proposal-overlay toa-112-film-overlay" aria-labelledby="toa-112-film-overlay-title" data-case-overlay data-case-overlay-video>
+    <section class="proposal-overlay-panel">
+      <header class="proposal-overlay-header">
+        <h2 id="toa-112-film-overlay-title">TOA-112 Product Film</h2>
+        <button class="proposal-overlay-close" type="button" aria-label="關閉 TOA-112 Product Film" data-case-overlay-close>×</button>
+      </header>
+      <div class="toa-112-film-overlay-content">
+        <video class="case-overlay-video" controls preload="metadata" width="1920" height="1080">
+          <source src="./assets/projects/toa-112/toa-112-film.mp4" type="video/mp4">
+        </video>
       </div>
     </section>
   </dialog>

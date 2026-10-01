@@ -1,4 +1,5 @@
 import { validateHomepageContent } from './content-contract.js';
+import { initializeCaseOverlays } from './overlay-dialog.js';
 
 const issues = validateHomepageContent();
 
@@ -28,46 +29,4 @@ if (cursorMetadata && window.matchMedia('(hover: hover) and (pointer: fine)').ma
   }
 }
 
-const caseOverlayTriggers = document.querySelectorAll('[data-case-overlay-trigger]');
-
-for (const trigger of caseOverlayTriggers) {
-  const dialogId = trigger.getAttribute('aria-controls');
-  const dialog = dialogId ? document.getElementById(dialogId) : null;
-  const closeButton = dialog?.querySelector('[data-case-overlay-close]');
-
-  if (!(dialog instanceof HTMLDialogElement) || !(closeButton instanceof HTMLButtonElement)) {
-    continue;
-  }
-
-  const closeDialog = () => {
-    if (!dialog.open || dialog.classList.contains('is-closing')) {
-      return;
-    }
-
-    dialog.classList.add('is-closing');
-    window.setTimeout(() => dialog.close(), 200);
-  };
-
-  trigger.addEventListener('click', () => {
-    dialog.showModal();
-    document.documentElement.classList.add('proposal-overlay-open');
-    document.body.classList.add('proposal-overlay-open');
-    closeButton.focus();
-  });
-
-  closeButton.addEventListener('click', closeDialog);
-
-  dialog.addEventListener('cancel', (event) => {
-    event.preventDefault();
-    closeDialog();
-  });
-
-  dialog.addEventListener('click', closeDialog);
-
-  dialog.addEventListener('close', () => {
-    dialog.classList.remove('is-closing');
-    document.documentElement.classList.remove('proposal-overlay-open');
-    document.body.classList.remove('proposal-overlay-open');
-    trigger.focus();
-  });
-}
+initializeCaseOverlays();
