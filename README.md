@@ -7,7 +7,7 @@
 - `main` 為正式網站基準。
 - root `index.html` 是目前正式首頁。
 - 三個正式 Case Detail 位於 `redesign/cases/`：`storyboard-workbench/`、`sampo-wireless-commercial/`、`presentation-automation/`。
-- 網站目前進入既有正式版本的持續優化階段，不進行全站 redesign。
+- 網站目前進入既有版本的品質收斂與內容更新階段，不是初始建置或全站 redesign。
 - 使用 Vite 與原生 HTML、CSS、JavaScript；不使用前端框架。
 
 ## 已確認的首頁資訊架構
@@ -28,18 +28,20 @@ Selected Work 目前六類為：
 - Vibe Coding 工具開發
 - 半自動化工具建構
 
-其中商業實拍／品牌／訪談類未來主要入口預計使用 YouTube playlist；生成式 AI 視覺已有獨立 Gallery；Vibe Coding 與半自動化工具則已有首頁深入案例。
+其中商業實拍／品牌／訪談類已接 YouTube playlist；生成式 AI 視覺已有獨立 Gallery；Vibe Coding 與半自動化工具則已有首頁深入案例。
+
+生成式 AI 視覺 Gallery 已包含 SAMPO 視覺探索、分鏡製作流程與成品截圖，以及 Vinda × Snoopy 三支短版廣告與影片 Overlay。
 
 ## 深入案例現況
 
 1. **分鏡提案工作台**：已建立並 commit，提供 Client Proposal Overlay。
 2. **半自動化工具建構**：已建立並 commit，提供 Meeting Brief 六頁 Overlay。
-3. **TOA-112 實拍製作**：首頁案例與 Video Overlay 已完成，但目前使用本機 draft preview。正式成片完成後，應以正式 Web MP4 覆蓋同一檔名並與案例一併 commit。
+3. **TOA-112 實拍製作**：已加入首頁與 Video Overlay，並建立本機 checkpoint。Web MP4 已最佳化為 1080p、約 19.86 MiB；Desktop／Mobile／Regression／Console 最小 QA 通過。已提交本機版本不代表已更新部署網站。
 
 ## 候選方向（尚未定案）
 
 - Selected Work 未來可能將「品牌形象影片」與「人物訪談／內容影片」整合為較大的實拍／內容類別。若因此空出欄位，候選方向為「AI 角色／IP 建構」；此方向仍在研發，待角色一致性、風格及可公開內容成熟後再決定是否上線。
-- 生成式 AI 視覺 Gallery 後續候選素材包括真實 AI 影像生成商業案例，以及以 ComfyUI 製作的 Vader × Snoopy 三支短版廣告。傾向優先納入既有 Gallery，不預設每案建立獨立深入案例。
+- 生成式 AI 視覺 Gallery 後續可擴充其他真實 AI 影像生成商業案例；優先納入既有 Gallery，不預設每案建立獨立深入案例。
 - 「AI 生成 × 實拍」目前沒有足夠清楚、值得獨立敘述的案例；暫不建立深入案例，待未來可清楚說明 AI 與實拍角色、使用原因及最終成果的專案出現後再評估。
 
 ## 作品呈現原則

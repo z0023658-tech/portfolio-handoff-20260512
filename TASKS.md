@@ -13,21 +13,27 @@
 - 深入案例已完成並 commit：
   - 分鏡提案工作台：Client Proposal Overlay。
   - 半自動化工具建構：Meeting Brief 六頁 Overlay。
-- TOA-112 實拍製作的首頁案例與 Video Overlay 已在 working tree 完成；目前只使用本機 draft preview。正式成片完成後，應以正式 Web MP4 覆蓋同一檔名，再一併 commit。
+  - TOA-112 實拍製作：首頁案例與 Video Overlay 程式整合完成；1080p Web MP4 已最佳化至約 19.86 MiB，Desktop／Mobile／Regression／Console 最小 QA 通過，已建立本機 checkpoint。
+- 商業實拍／品牌／訪談類已接 YouTube playlist；生成式 AI Gallery 已包含 SAMPO 視覺探索、分鏡流程與成品截圖，以及 Vinda × Snoopy 三支短版廣告與影片 Overlay。
+- 23 個研究／Prototype／QA／候選素材檔案已移出 production repo，數量、大小與 SHA-256 驗證通過；不再是 working tree 待整理項目。repo 外歸檔僅供歷史參考，不是正式網站 dependency。
 
 ## 候選方向（尚未定案）
 
 以下為內容候選，不是正式 roadmap 或待執行需求：
 
 - Selected Work 可能整合「品牌形象影片」與「人物訪談／內容影片」為實拍／內容類別；若空出欄位，才評估「AI 角色／IP 建構」。該方向仍待角色一致性、風格與公開內容成熟。
-- Generative AI Visual Gallery 可優先擴充真實 AI 影像生成商業案例，以及 ComfyUI 製作的 Vader × Snoopy 三支短版廣告；不預設每案建立獨立深入案例。
+- Generative AI Visual Gallery 後續可擴充其他真實 AI 影像生成商業案例；不預設每案建立獨立深入案例。
 - AI 生成 × 實拍目前沒有足夠清楚的獨立案例；暫不製作，待有可清楚說明 AI 與實拍角色、使用原因及完成成果的專案後再評估。
 
 ## Git／交付提醒
 
-- 目前本機 `main` 已知比 `origin/main` 領先 4 commits；`origin/main` 停在 `918e2ba`。
-- 最新已 commit 的 checkpoint 為 `ab0f701 feat: add presentation automation case`。
-- TOA-112 第三案例仍位於 working tree；draft MP4 尚未正式完成前，不得 commit、push 或 deploy。
+- 最新完成的作品功能 checkpoint：`fe816713e15f755d0083caa3d6bf13144ea5dd0e feat: add TOA-112 portfolio case`。
+- 本次 cleanup／文件同步開始時 working tree 為 clean；當時本機 `main` 相對本機 `origin/main` 紀錄領先 9 commits、落後 0，`origin/main` 停在 `918e2ba`。此為本輪開始時快照，不是固定的後續提交數。
+- 本機最小 QA 已通過；production／deployed site QA 尚未在本輪驗證。push 與 deploy 必須分別取得授權，不因本機 checkpoint 完成而自動執行。
+
+## 下一步（待決定）
+
+- 決定是否 push 目前本機 commits；若要更新正式網站，另行授權 deploy，並安排 deployed site QA。後續作品內容更新依指定 scope 另開任務；TOA-112 cleanup 已完成，不再列為 active task。
 
 ## 作品呈現原則
 
