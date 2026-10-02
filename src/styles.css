@@ -4221,3 +4221,98 @@ body.proposal-overlay-open {
   .screening-room-home .screening-method-links { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
   .screening-room-home .screening-method-links p { display: none; }
 }
+
+/* Phase 2: Film -> Method. Existing homepage composition and shared viewers stay intact. */
+.screening-room-home .toa-home-case-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.screening-room-home .toa-home-detail-link { margin-top: 12px; }
+.toa-case {
+  --toa-background: #121211;
+  --toa-text: #ece9e0;
+  --toa-muted: #aaa79c;
+  --toa-line: rgba(236, 233, 224, 0.21);
+  --toa-accent: #c8b38b;
+  background: var(--toa-background);
+  color: var(--toa-text);
+  font-size: 17px;
+}
+.toa-case .container { max-width: 1280px; }
+.toa-case .header-inner { min-height: 76px; padding-block: 8px; }
+.toa-case .brand { font-size: 20px; font-weight: 500; letter-spacing: 0.07em; }
+.toa-case .brand::before { display: none; }
+.toa-case .site-nav a { font-size: 16px; display: inline-flex; align-items: center; min-height: 44px; }
+.toa-case a:focus-visible,
+.toa-case button:focus-visible,
+.toa-case .toa-evidence-stage:focus-visible { outline: 3px solid var(--toa-accent); outline-offset: 4px; }
+.toa-case .toa-opening { padding-top: 20px; }
+.toa-case .toa-project-credit { max-width: 1100px; margin: 0 auto 22px; }
+.toa-case .toa-project-credit h1 { margin: 0; font-size: 40px; line-height: 1.2; font-weight: 500; letter-spacing: 0.02em; }
+.toa-case .toa-project-credit p { margin: 8px 0 0; font-size: 17px; }
+.toa-case .toa-project-credit .toa-role { color: var(--toa-muted); font-size: 15px; }
+.toa-case .toa-final-film { max-width: 1100px; margin: 0 auto; }
+.toa-case .toa-final-film video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: #080909; }
+.toa-case .toa-final-film figcaption { padding-top: 12px; font-size: 14px; color: var(--toa-muted); }
+.toa-case .toa-method { max-width: 1000px; margin: 48px auto 0; }
+.toa-case .toa-section { border-top: 1px solid var(--toa-line); padding-block: 44px; }
+.toa-case .toa-section h2 { font-size: 30px; font-weight: 500; line-height: 1.3; margin: 0 0 22px; }
+.toa-case .toa-section > p { margin: 0; max-width: 700px; color: var(--toa-muted); }
+.toa-case .toa-process { list-style: none; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; padding: 0; margin: 0; }
+.toa-case .toa-process h3,
+.toa-case .toa-evidence-previews h3 { margin: 0 0 10px; font-size: 20px; font-weight: 500; line-height: 1.35; }
+.toa-case .toa-process p { color: var(--toa-muted); margin: 0; font-size: 16px; }
+.toa-case .toa-evidence-previews { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; max-width: 840px; margin-top: 28px; }
+.toa-case .toa-evidence-previews article > p { margin: 0 0 14px; color: var(--toa-muted); font-size: 15px; }
+.toa-case .toa-evidence-preview { display: block; padding: 0; width: 100%; border: 1px solid var(--toa-line); background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.toa-case .toa-evidence-preview:hover { border-color: var(--toa-accent); }
+.toa-case .toa-evidence-preview img { display: block; width: 100%; height: 180px; object-fit: cover; object-position: top; }
+.toa-case .toa-evidence-preview span { display: flex; align-items: center; min-height: 48px; padding: 10px 14px; font-size: 16px; }
+.toa-case .toa-text-link { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: underline; text-underline-offset: 6px; font-size: 16px; }
+.toa-case .toa-text-link:hover { color: var(--toa-accent); }
+.toa-case .toa-return { margin-bottom: 48px; }
+.toa-case .toa-footer { border-top: 1px solid var(--toa-line); padding-block: 28px 40px; }
+.toa-case .toa-footer p { color: var(--toa-muted); margin: 0 0 8px; font-size: 15px; }
+.toa-case #evidence { scroll-margin-top: 24px; }
+.toa-case .toa-evidence-dialog { background: var(--toa-background); color: var(--toa-text); }
+.toa-case .toa-evidence-dialog .proposal-overlay-panel { width: min(100%, 1120px); height: 100%; display: grid; grid-template-rows: auto auto minmax(0, 1fr); }
+.toa-case .toa-evidence-dialog .proposal-overlay-header { padding-bottom: 12px; }
+.toa-case .toa-evidence-dialog .proposal-overlay-header h2 { font-size: 22px; font-weight: 500; }
+.toa-case .toa-evidence-dialog .proposal-overlay-close { width: auto; min-width: 64px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--toa-line); font-size: 16px; }
+.toa-case .toa-viewer-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.toa-case .toa-viewer-tools p { margin: 0; font-size: 14px; color: var(--toa-muted); }
+.toa-case .toa-page-controls { display: flex; align-items: center; gap: 12px; }
+.toa-case .toa-page-controls [data-brief-counter] { min-width: 44px; text-align: center; font-size: 16px; color: var(--toa-text); }
+.toa-case .toa-viewer-tools button { min-height: 44px; padding: 8px 12px; border: 1px solid var(--toa-accent); border-radius: 2px; background: transparent; color: var(--toa-text); font: inherit; font-size: 16px; cursor: pointer; }
+.toa-case .toa-viewer-tools button:disabled { opacity: 0.45; cursor: default; }
+.toa-case .toa-viewer-tools button[aria-pressed="true"] { background: var(--toa-accent); color: var(--toa-background); }
+.toa-case .toa-viewer-tools .toa-viewer-help { flex-basis: 100%; line-height: 1.5; }
+.toa-case .toa-evidence-stage { min-width: 0; min-height: 0; overflow: auto; overscroll-behavior: contain; background: #20201e; }
+.toa-case .toa-evidence-canvas { display: flex; align-items: center; justify-content: center; height: 100%; }
+.toa-case .toa-evidence-canvas img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
+.toa-case .toa-evidence-canvas img[hidden] { display: none; }
+.toa-case .toa-proposal-viewer { --toa-evidence-width: 1170px; }
+.toa-case .toa-brief-viewer { --toa-evidence-width: 1280px; }
+.toa-case .is-zoomed .toa-evidence-canvas { display: block; width: max-content; min-width: 100%; height: auto; min-height: 100%; }
+.toa-case .is-zoomed .toa-evidence-canvas img { width: var(--toa-evidence-width); height: auto; max-width: none; max-height: none; }
+@media (max-width: 900px) {
+  .toa-case .toa-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .toa-case .container { padding-inline: 20px; }
+  .toa-case .header-inner { min-height: 68px; gap: 12px; }
+  .toa-case .brand { font-size: 18px; white-space: nowrap; }
+  .toa-case .site-nav { gap: 16px; }
+  .toa-case .site-nav a { font-size: 14px; white-space: nowrap; }
+  .toa-case .toa-opening { padding-top: 16px; }
+  .toa-case .toa-project-credit { margin-bottom: 18px; }
+  .toa-case .toa-project-credit h1 { font-size: 32px; }
+  .toa-case .toa-project-credit p { font-size: 16px; }
+  .toa-case .toa-method { margin-top: 32px; }
+  .toa-case .toa-section { padding-block: 32px; }
+  .toa-case .toa-section h2 { font-size: 26px; }
+  .toa-case .toa-process { grid-template-columns: 1fr; gap: 24px; }
+  .toa-case .toa-evidence-previews { grid-template-columns: 1fr; gap: 28px; }
+  .toa-case .toa-evidence-preview img { height: 148px; }
+  .toa-case .toa-evidence-dialog .proposal-overlay-header h2 { font-size: 19px; }
+  .toa-case .toa-viewer-tools { gap: 8px; }
+  .toa-case .toa-viewer-tools button { padding-inline: 10px; }
+  .toa-case .toa-page-controls { gap: 8px; }
+}

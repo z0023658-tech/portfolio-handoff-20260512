@@ -49,6 +49,10 @@ export function validateHomepageContent(root = document) {
   if (filmEntry?.getAttribute('aria-controls') !== 'toa-112-film-overlay') {
     issues.push('Hero is missing the TOA-112 film entry');
   }
+  if (hero?.querySelector('[data-home-entry="toa-case"]')?.getAttribute('href') !== './redesign/cases/toa-112/' ||
+      !root.querySelector('.toa-112-case a[href="./redesign/cases/toa-112/"]')) {
+    issues.push('TOA-112 case URL is missing from the homepage');
+  }
 
   const requiredEntries = {
     commercial: 'https://www.youtube.com/playlist?list=PLPJy-5tpOuwW43s8tr8lGtA8jTszo54jN',
@@ -114,5 +118,40 @@ export function validateHomepageContent(root = document) {
     }
   }
 
+  return issues;
+}
+
+/** Validate case content and reading actions, independent of its visual layout. */
+export function validateToaCaseContent(root = document) {
+  const issues = [];
+  const hasAsset = (element, stem, extension) =>
+    new RegExp(`/${stem}(?:-[\\w-]+)?\\.${extension}$`).test(element?.getAttribute('src') ?? '');
+  const film = root.querySelector('[data-toa-final-film]');
+  if (!hasAsset(film?.querySelector('source[type="video/mp4"]'), 'toa-112-film', 'mp4')) {
+    issues.push('TOA-112 final film source is missing');
+  }
+  if (!hasAsset(root.querySelector('[data-toa-proposal]'), 'storyboard-workbench-client-proposal', 'png')) {
+    issues.push('Client Proposal source is missing');
+  }
+  const briefPages = [...root.querySelectorAll('[data-brief-page]')];
+  if (briefPages.length !== 6 || Array.from({ length: 6 }, (_, index) =>
+    briefPages.filter(image => hasAsset(image, `meeting-brief-0${index + 1}`, 'png')).length
+  ).some(count => count !== 1)) {
+    issues.push('Meeting Brief must retain all six original pages');
+  }
+  if (!root.querySelector('a[data-toa-home][href="../../../index.html#work"]')) {
+    issues.push('TOA-112 case is missing its return-to-home entry');
+  }
+  if (!root.querySelector('[data-brief-prev]') || !root.querySelector('[data-brief-next]') ||
+      !root.querySelector('[data-brief-counter]')) {
+    issues.push('Meeting Brief reading controls are missing');
+  }
+  for (const trigger of root.querySelectorAll('[data-case-overlay-trigger]')) {
+    const target = trigger.getAttribute('aria-controls');
+    const dialog = target ? root.querySelector(`dialog[id="${target}"]`) : null;
+    if (!dialog?.querySelector('[data-case-overlay-close]') || !dialog.querySelector('[data-evidence-zoom]')) {
+      issues.push(`Missing evidence viewer or reading action: ${target ?? '(missing)'}`);
+    }
+  }
   return issues;
 }
