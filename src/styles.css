@@ -4503,3 +4503,51 @@ body.proposal-overlay-open {
   .screening-room-home .screening-author-credit { padding: 8px 10px; gap: 10px; }
   .screening-room-home .screening-author-credit h1 { font-size: 22px; }
 }
+
+/* Batch B: viewing actions and supporting methods; Batch A scales remain shared. */
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #c8b38b;
+  border-radius: 2px;
+  background: #c8b38b;
+  color: #121211;
+  font: inherit;
+  font-size: var(--sr-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary:hover {
+  background: #ece9e0;
+  color: #121211;
+}
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary:focus-visible {
+  outline: 3px solid #c8b38b;
+  outline-offset: 4px;
+}
+.film-viewing-path { margin-top: var(--sr-reading-space); }
+.film-viewing-path p { margin: 0 0 16px; color: #aaa79c; font-size: var(--sr-body); }
+.screening-room-home .toa-home-detail-link { margin-left: 16px; }
+.screening-room-home .screening-method-case { border-top: 1px solid var(--screening-line); padding-top: 20px; }
+.screening-room-home .screening-method-case .screening-method-meta { margin: 8px 0 12px; font-size: var(--sr-meta); }
+.screening-room-home .screening-method-actions { gap: 8px 20px; }
+.screening-room-home .screening-method-evidence { color: var(--screening-muted); font-size: var(--sr-meta); text-decoration: none; }
+.vinda-snoopy-ad-card { position: relative; color: #ece9e0; font: inherit; text-align: left; }
+.vinda-play-label { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; background: #121211; font-size: var(--sr-meta); }
+.visual-expectation { margin: 12px 0 24px; color: #aaa79c; font-size: var(--sr-body); }
+@media (max-width: 620px) {
+  .screening-room-home .toa-home-detail-link { display: flex; width: fit-content; margin-left: 0; }
+  .screening-room-home .screening-other-films { gap: 24px; }
+  .screening-room-home .screening-other-films .screening-project { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); align-items: center; gap: 16px; }
+  .screening-room-home .screening-other-films h3 { margin: 0; font-size: var(--sr-subheading); }
+  .screening-room-home .screening-other-films .screening-project-action { position: static; padding: 6px 0; font-size: var(--sr-meta); background: transparent; }
+  .screening-room-home .screening-generative-work { grid-template-columns: 1fr; gap: 28px; }
+  .screening-room-home .screening-generative-intro { grid-column: auto; }
+  .screening-room-home .screening-generative-work .screening-project { width: 100%; }
+  .screening-room-home .screening-method-actions { display: flex; flex-wrap: wrap; }
+  .screening-room-home .screening-method-actions a { flex-basis: 100%; }
+}
