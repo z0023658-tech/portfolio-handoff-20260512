@@ -4129,3 +4129,95 @@ body.proposal-overlay-open {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Phase 1: Screening Room. No global media or shared dialog overrides. */
+.screening-room-home {
+  --screening-surface: #121211;
+  --screening-credit: #171715;
+  --screening-text: #ece9e0;
+  --screening-muted: #aaa79c;
+  --screening-accent: #c8b38b;
+  --screening-line: rgba(236, 233, 224, 0.21);
+}
+.screening-room-home .container { max-width: 1376px; }
+.screening-room-home > .site-header .header-inner { min-height: 76px; padding-block: 8px; }
+.screening-room-home > .site-header .brand { font-size: 20px; font-weight: 500; letter-spacing: 0.07em; }
+.screening-room-home > .site-header .brand::before { display: none; }
+.screening-room-home > .site-header .site-nav a { font-size: 16px; min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
+.screening-room-home a:focus-visible,
+.screening-room-home button:focus-visible { outline: 3px solid var(--screening-accent); outline-offset: 4px; }
+.screening-room-home .home-hero { border-bottom: 0; }
+.screening-room-home .screening-hero-layout { padding-top: 12px; }
+.screening-room-home .screening-hero-frame { position: relative; }
+.screening-room-home .screening-hero-image { display: block; width: 100%; height: clamp(420px, 45vw, 610px); object-fit: cover; object-position: center; }
+.screening-room-home .screening-author-credit { position: absolute; top: 24px; left: 28px; display: flex; align-items: center; gap: 16px; background: var(--screening-credit); padding: 14px 18px; }
+.screening-room-home .screening-author-credit img { display: block; width: 56px; height: 56px; object-fit: cover; }
+.screening-room-home .screening-author-credit h1 { margin: 0; font-size: 32px; font-weight: 500; letter-spacing: 0.09em; line-height: 1.25; }
+.screening-room-home .screening-author-credit p { margin: 5px 0 0; font-size: 16px; line-height: 1.4; }
+.screening-room-home .screening-film-access { position: absolute; bottom: 26px; left: 28px; display: flex; align-items: center; gap: 26px; background: var(--screening-credit); padding: 18px 22px; }
+.screening-room-home .screening-film-access h2 { margin: 0; font-size: 24px; font-weight: 500; line-height: 1.3; }
+.screening-room-home .screening-film-access p { margin: 4px 0 0; color: var(--screening-muted); font-size: 16px; }
+.screening-room-home .screening-watch { display: inline-flex; align-items: center; gap: 16px; min-height: 48px; border: 1px solid var(--screening-accent); border-radius: 2px; padding: 12px 22px; background: var(--screening-accent); color: var(--screening-surface); font: inherit; cursor: pointer; white-space: nowrap; }
+.screening-room-home .screening-watch:hover { background: var(--screening-text); }
+.screening-room-home .screening-hero-note { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 0 8px; }
+.screening-room-home .screening-hero-note p { margin: 0; font-size: 19px; }
+.screening-room-home .screening-text-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--screening-text); font-size: 16px; text-decoration: underline; text-underline-offset: 6px; }
+.screening-room-home .screening-text-link:hover { color: var(--screening-accent); }
+.screening-room-home .home-selected-work { padding-block: 64px 80px; }
+.screening-room-home .selected-work-heading { margin-bottom: 32px; }
+.screening-room-home .selected-work-heading h2 { font-size: 34px; font-weight: 500; line-height: 1.25; letter-spacing: 0; }
+.screening-room-home .screening-film-grid { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+.screening-room-home .screening-other-films { display: grid; gap: 36px; padding-top: 80px; }
+.screening-room-home .screening-project { min-width: 0; }
+.screening-room-home .screening-project-media { display: block; position: relative; overflow: hidden; color: var(--screening-text); text-decoration: none; }
+.screening-room-home .screening-project-media img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; transition: transform 200ms ease; }
+.screening-room-home .screening-project-media:hover img { transform: scale(1.015); }
+.screening-room-home .screening-project-action { position: absolute; bottom: 14px; left: 14px; min-height: 44px; display: flex; align-items: center; background: var(--screening-credit); padding: 10px 14px; font-size: 16px; }
+.screening-room-home .screening-project h3 { margin: 18px 0 0; font-size: 24px; font-weight: 500; line-height: 1.35; }
+.screening-room-home .screening-project p { margin: 7px 0 0; font-size: 16px; color: var(--screening-muted); }
+.screening-room-home .screening-other-films h3,
+.screening-room-home .screening-generative-work h3 { font-size: 22px; }
+.screening-room-home .screening-generative-work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; max-width: 920px; margin: 80px 0 0 auto; }
+.screening-room-home .screening-method-links { margin-top: 52px; border-top: 1px solid var(--screening-line); padding-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+.screening-room-home .screening-method-links h3 { margin: 0; font-size: 20px; font-weight: 500; }
+.screening-room-home .screening-method-links p { margin: 6px 0 0; color: var(--screening-muted); font-size: 16px; }
+.screening-room-home .screening-method-links > div:last-child > a { display: flex; }
+.screening-room-home .screening-tool-detail-links { display: flex; flex-wrap: wrap; gap: 24px; }
+.screening-room-home #work,
+.screening-room-home #featured-cases,
+.screening-room-home #storyboard-case,
+.screening-room-home #meeting-brief-case,
+.screening-room-home #contact { scroll-margin-top: 24px; }
+@media (max-width: 1000px) {
+  .screening-room-home .screening-film-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; }
+  .screening-room-home .screening-other-films { padding-top: 48px; gap: 28px; }
+  .screening-room-home .screening-project-action { font-size: 14px; left: 10px; bottom: 10px; padding: 8px 10px; }
+}
+@media (max-width: 620px) {
+  .screening-room-home > .site-header .header-inner { min-height: 68px; gap: 12px; }
+  .screening-room-home > .site-header .brand { font-size: 18px; white-space: nowrap; }
+  .screening-room-home > .site-header .site-nav { gap: 14px; }
+  .screening-room-home > .site-header .site-nav a { font-size: 14px; white-space: nowrap; }
+  .screening-room-home .screening-hero-image { height: auto; aspect-ratio: 16 / 9; }
+  .screening-room-home .screening-author-credit { top: 10px; left: 10px; padding: 9px 11px; gap: 10px; }
+  .screening-room-home .screening-author-credit img { width: 36px; height: 36px; }
+  .screening-room-home .screening-author-credit h1 { font-size: 22px; letter-spacing: 0.08em; }
+  .screening-room-home .screening-author-credit p { font-size: 14px; margin-top: 3px; }
+  .screening-room-home .screening-film-access { position: static; padding: 20px 0 0; background: transparent; display: block; }
+  .screening-room-home .screening-film-access p { display: none; }
+  .screening-room-home .screening-watch { margin-top: 16px; }
+  .screening-room-home .screening-hero-note { display: block; padding-top: 18px; }
+  .screening-room-home .screening-hero-note p { font-size: 16px; }
+  .screening-room-home .screening-hero-note a { margin-top: 8px; }
+  .screening-room-home .home-selected-work { padding-block: 44px 56px; }
+  .screening-room-home .selected-work-heading h2 { font-size: 29px; }
+  .screening-room-home .screening-film-grid { display: block; }
+  .screening-room-home .screening-other-films { padding-top: 36px; gap: 32px; }
+  .screening-room-home .screening-generative-work { margin-top: 44px; gap: 20px; }
+  .screening-room-home .screening-generative-work .screening-project-action { position: static; padding: 8px 0; font-size: 14px; }
+  .screening-room-home .screening-generative-work h3 { margin-top: 8px; font-size: 18px; }
+  .screening-room-home .screening-generative-work p { font-size: 14px; }
+  .screening-room-home .screening-primary-film > p { display: none; }
+  .screening-room-home .screening-method-links { grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
+  .screening-room-home .screening-method-links p { display: none; }
+}
