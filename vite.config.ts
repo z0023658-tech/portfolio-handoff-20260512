@@ -14,6 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         homepage: path.resolve(configDir, 'index.html'),
+        toa112: path.resolve(configDir, 'redesign/cases/toa-112/index.html'),
         storyboardWorkbench: path.resolve(configDir, 'redesign/cases/storyboard-workbench/index.html'),
         sampoWirelessCommercial: path.resolve(configDir, 'redesign/cases/sampo-wireless-commercial/index.html'),
         presentationAutomation: path.resolve(configDir, 'redesign/cases/presentation-automation/index.html'),
