@@ -85,6 +85,16 @@ export function validateHomepageContent(root = document) {
       issues.push(`Missing existing case demonstration: ${selector}`);
     }
   }
+  const methodEntries = {
+    'storyboard-case': './redesign/cases/storyboard-workbench/',
+    'presentation-case': './redesign/cases/presentation-automation/',
+  };
+  for (const [name, href] of Object.entries(methodEntries)) {
+    const entry = root.querySelector(`a[data-home-entry="${name}"]`);
+    if (!entry || entry.closest('[hidden]') || entry.getAttribute('href') !== href) {
+      issues.push(`Missing or invalid production method entry: ${name}`);
+    }
+  }
   for (const trigger of root.querySelectorAll('[data-case-overlay-trigger]')) {
     const id = trigger.getAttribute('aria-controls');
     const dialog = id ? root.querySelector(`dialog[id="${id}"]`) : null;

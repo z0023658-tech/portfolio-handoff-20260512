@@ -4316,3 +4316,27 @@ body.proposal-overlay-open {
   .toa-case .toa-viewer-tools button { padding-inline: 10px; }
   .toa-case .toa-page-controls { gap: 8px; }
 }
+
+/* Phase 3: visual exploration and production methods support the film work. */
+.screening-room-home .screening-generative-intro { grid-column: 1 / -1; }
+.screening-room-home .screening-generative-intro h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; }
+.screening-room-home .screening-generative-intro p { margin: 0; color: var(--screening-muted); font-size: 16px; }
+.screening-room-home .screening-supporting-methods { border-top: 1px solid var(--screening-line); margin-top: 48px; padding-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
+.screening-room-home .screening-supporting-heading { grid-column: 1 / -1; }
+.screening-room-home .screening-supporting-heading h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; }
+.screening-room-home .screening-supporting-heading p { margin: 0; font-size: 16px; color: var(--screening-muted); }
+.screening-room-home .screening-method-case { min-width: 0; }
+.screening-room-home .screening-method-case h4 { margin: 0 0 10px; font-size: 20px; line-height: 1.35; font-weight: 500; }
+.screening-room-home .screening-method-case > p { margin: 0; max-width: 520px; font-size: 16px; color: var(--screening-muted); }
+.screening-room-home .screening-method-actions { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.screening-room-home .screening-method-evidence { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--screening-text); font: inherit; font-size: 16px; text-decoration: underline; text-underline-offset: 6px; cursor: pointer; }
+.screening-room-home .screening-method-evidence:hover { color: var(--screening-accent); }
+@media (max-width: 620px) {
+  .screening-room-home .screening-generative-intro h3 { font-size: 18px; }
+  .screening-room-home .screening-generative-intro p { font-size: 14px; }
+  .screening-room-home .screening-method-links p { display: block; }
+  .screening-room-home .screening-supporting-methods { grid-template-columns: 1fr; margin-top: 32px; gap: 24px; }
+  .screening-room-home .screening-method-case h4 { font-size: 18px; }
+  .screening-room-home .screening-method-actions { display: block; }
+  .screening-room-home .screening-method-actions a { display: flex; }
+}

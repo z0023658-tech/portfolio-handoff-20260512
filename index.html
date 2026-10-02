@@ -82,28 +82,31 @@
             </article>
           </div>
         </div>
-        <div class="screening-generative-work" aria-label="生成式影像作品">
+        <div class="screening-generative-work" aria-labelledby="screening-generative-title">
+          <div class="screening-generative-intro">
+            <h3 id="screening-generative-title">生成式影像</h3>
+            <p>影像創作的另一種媒材：從視覺探索到短片。</p>
+          </div>
           <article class="screening-project" data-selected-work>
             <a class="screening-project-media" href="./redesign/galleries/generative-ai-visual/" data-home-entry="generative-gallery">
               <img src="./assets/projects/ai-advertising/sampo-image00.jpg" alt="SAMPO 生成式影像研究" width="1920" height="1080" loading="lazy">
-              <span class="screening-project-action">進入圖像 Gallery →</span>
+              <span class="screening-project-action">觀看靜態探索 →</span>
             </a>
-            <h3>SAMPO</h3><p>生成式影像 · 圖像研究</p>
+            <h3>SAMPO</h3><p>生成式影像 · 靜態視覺探索</p>
           </article>
           <article class="screening-project" data-selected-work>
             <a class="screening-project-media" href="./redesign/galleries/generative-ai-visual/#vinda-snoopy-short-ads-title" data-home-entry="vinda-gallery">
               <img src="./assets/projects/ai-advertising/vinda-snoopy/vinda-snoopy-01-cover.jpg" alt="Vinda × Snoopy 短版廣告封面" width="1280" height="720" loading="lazy">
-              <span class="screening-project-action">進入影片 Gallery →</span>
+              <span class="screening-project-action">觀看三支短片 →</span>
             </a>
             <h3>Vinda × Snoopy</h3><p>生成式影像 · 短版廣告</p>
           </article>
         </div>
         <aside class="screening-method-links" aria-labelledby="screening-method-title">
-          <div><h3 id="screening-method-title">製作方法，在作品之後。</h3><p>分鏡提案、會議資料與工具，支持影像製作。</p></div>
+          <div><h3 id="screening-method-title">製作方法，在作品之後。</h3><p>從分鏡規劃到需求對焦，讓製作與溝通有共同依據。</p></div>
           <div>
-            <a class="screening-text-link" href="#storyboard-case" data-home-entry="storyboard">分鏡提案工作台｜查看展示 ↓</a>
-            <a class="screening-text-link" href="#meeting-brief-case" data-home-entry="meeting-brief">半自動化 Meeting Brief｜查看展示 ↓</a>
-            <div class="screening-tool-detail-links"><a class="screening-text-link" href="./redesign/cases/storyboard-workbench/">工具案例 →</a><a class="screening-text-link" href="./redesign/cases/presentation-automation/">自動化案例 →</a></div>
+            <a class="screening-text-link" href="#storyboard-case" data-home-entry="storyboard">分鏡規劃與提案 ↓</a>
+            <a class="screening-text-link" href="#meeting-brief-case" data-home-entry="meeting-brief">需求對焦與會議準備 ↓</a>
           </div>
         </aside>
       </div>
@@ -133,32 +136,28 @@
           <p>Pending Case</p>
         </article>
 
-        <article id="storyboard-case" class="featured-case storyboard-case" aria-labelledby="storyboard-case-title">
-          <header class="storyboard-case-heading">
-            <h3 id="storyboard-case-title">分鏡提案工作台</h3>
-            <p>Vibe Coding 開發的分鏡製作工具。</p>
+        <div class="screening-supporting-methods" aria-labelledby="screening-supporting-title">
+          <header class="screening-supporting-heading">
+            <h3 id="screening-supporting-title">製作方法</h3>
+            <p>支持影像前期的規劃與溝通。</p>
           </header>
-
-          <figure class="storyboard-case-media"><img src="./assets/projects/storyboard-workbench/storyboard-workbench-cover.png" alt="分鏡提案工作台的完整工作台畫面" width="2136" height="1197" loading="lazy"></figure>
-          <button class="storyboard-case-proposal-trigger" type="button" aria-haspopup="dialog" aria-controls="storyboard-client-proposal" data-case-overlay-trigger>查看 Client Proposal <span aria-hidden="true">↗</span></button>
-        </article>
-
-        <article id="meeting-brief-case" class="featured-case meeting-brief-case" aria-labelledby="meeting-brief-case-title">
-          <header class="meeting-brief-case-heading">
-            <h3 id="meeting-brief-case-title">半自動化工具建構</h3>
-            <p>將結構化專案需求轉成可編輯的 Meeting Brief，供第一次客戶會議對焦。</p>
-          </header>
-
-          <ol class="meeting-brief-pipeline" aria-label="Meeting Brief 製作流程">
-            <li>專案需求</li>
-            <li>AI 結構化</li>
-            <li>Brief 建構</li>
-            <li>Meeting Brief</li>
-          </ol>
-
-          <figure class="meeting-brief-case-media"><img src="./assets/projects/presentation-automation/meeting-brief-01.png" alt="TOA-112 Meeting Brief 第一頁" width="1920" height="1080" loading="lazy"></figure>
-          <button class="meeting-brief-case-trigger" type="button" aria-haspopup="dialog" aria-controls="meeting-brief-overlay" data-case-overlay-trigger>查看 Meeting Brief <span aria-hidden="true">↗</span></button>
-        </article>
+          <article id="storyboard-case" class="screening-method-case" aria-labelledby="storyboard-case-title">
+            <h4 id="storyboard-case-title">分鏡提案工作台</h4>
+            <p>整理分鏡與 Client Proposal，把影像前期的想法轉成可討論的拍攝規劃。</p>
+            <div class="screening-method-actions">
+              <button class="screening-method-evidence" type="button" aria-haspopup="dialog" aria-controls="storyboard-client-proposal" data-case-overlay-trigger>查看 Client Proposal <span aria-hidden="true">↗</span></button>
+              <a class="screening-text-link" href="./redesign/cases/storyboard-workbench/" data-home-entry="storyboard-case">了解分鏡提案方法 →</a>
+            </div>
+          </article>
+          <article id="meeting-brief-case" class="screening-method-case" aria-labelledby="meeting-brief-case-title">
+            <h4 id="meeting-brief-case-title">Meeting Brief 製作流程</h4>
+            <p>將專案需求整理為可編輯的 Meeting Brief，支持會議準備與影像製作的需求對焦。</p>
+            <div class="screening-method-actions">
+              <button class="screening-method-evidence" type="button" aria-haspopup="dialog" aria-controls="meeting-brief-overlay" data-case-overlay-trigger>查看 Meeting Brief <span aria-hidden="true">↗</span></button>
+              <a class="screening-text-link" href="./redesign/cases/presentation-automation/" data-home-entry="presentation-case">了解 Brief 製作流程 →</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
