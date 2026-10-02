@@ -15,6 +15,19 @@
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
 }
 
+/* Shared Screening Room scale: content types retain their existing layouts. */
+:root {
+  --sr-page-title: clamp(2rem, 3vw, 2.75rem);
+  --sr-section-title: clamp(1.75rem, 2.4vw, 2.125rem);
+  --sr-project-title: clamp(1.25rem, 1.8vw, 1.5rem);
+  --sr-subheading: 1.125rem;
+  --sr-body: 1rem;
+  --sr-meta: 0.875rem;
+  --sr-viewing-space: clamp(2rem, 4vw, 3.5rem);
+  --sr-reading-space: clamp(1.5rem, 3vw, 2.5rem);
+  --sr-transition-space: clamp(3rem, 5vw, 5rem);
+}
+
 /* Gate 4 artwork galleries */
 .case-gallery-page {
   min-width: 320px;
@@ -4339,4 +4352,154 @@ body.proposal-overlay-open {
   .screening-room-home .screening-method-case h4 { font-size: 18px; }
   .screening-room-home .screening-method-actions { display: block; }
   .screening-room-home .screening-method-actions a { display: flex; }
+}
+
+/* Batch A: shared presentation rules, without changing content or interactions. */
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) {
+  font-size: var(--sr-body);
+  line-height: 1.65;
+}
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .header-inner {
+  min-height: 76px;
+  padding-block: 8px;
+}
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand::before { display: none; }
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-footer,
+.toa-case .toa-footer {
+  padding-block: var(--sr-reading-space);
+  font-size: var(--sr-meta);
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page) .site-footer a,
+.toa-case .toa-footer a { font-size: var(--sr-body); }
+.case-detail-page h1,
+.case-film-page h1,
+.case-presentation-page h1,
+.case-gallery-hero h1,
+.ai-visual-gallery-hero h1,
+.toa-case .toa-project-credit h1 {
+  max-width: 24ch;
+  font-size: var(--sr-page-title);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+.screening-room-home .selected-work-heading h2,
+.screening-room-home .featured-cases-heading h2,
+.screening-room-home .home-contact h2,
+.case-detail-section-heading h2,
+.case-film-section-heading h2,
+.case-presentation-heading h2,
+.ai-visual-development-heading h2,
+.ai-visual-workflow-section h2,
+.ai-visual-full-commercial-section h2,
+.vinda-snoopy-short-ads-section h2,
+.toa-case .toa-section h2 {
+  font-size: var(--sr-section-title);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.toa-case #toa-evidence-title { font-size: var(--sr-project-title); }
+.screening-room-home .screening-supporting-heading h3 { font-size: var(--sr-project-title); }
+.screening-room-home .screening-method-case h4,
+.toa-case .toa-evidence-previews h3 { font-size: var(--sr-subheading); }
+.case-detail-lead,
+.case-film-hero-copy > p:last-child,
+.case-presentation-hero-copy > p:last-child,
+.case-film-visual-copy > p:first-child {
+  font-size: var(--sr-body);
+  line-height: 1.65;
+}
+.case-detail-back,
+.portfolio-gallery-controls button,
+.portfolio-gallery-controls p,
+.case-detail-hero-visual figcaption,
+.case-film-hero-visual figcaption,
+.case-presentation-hero-visual figcaption,
+.case-presentation-handoff-visual figcaption,
+.case-presentation-contact-sheet figcaption,
+.ai-visual-development-heading p { font-size: var(--sr-meta); }
+
+/* These existing semantic containers hold documents, not decorative photography. */
+.case-detail-hero-visual img,
+.case-detail-work-image img,
+.case-presentation-hero-visual img,
+.case-presentation-handoff-visual img,
+.case-presentation-contact-sheet img,
+.ai-visual-workflow img,
+.case-film-hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+/* Document previews remain supporting content; the existing viewer reads the full image. */
+.toa-case .toa-evidence-preview img {
+  height: clamp(148px, 15vw, 180px);
+  object-fit: contain;
+  object-position: center;
+  background: #20201e;
+}
+
+/* Viewing, reading and transitions have different spacing responsibilities. */
+.screening-room-home .featured-cases,
+.screening-room-home .home-contact { padding-block: var(--sr-transition-space); }
+.screening-room-home .featured-cases-heading { margin-bottom: var(--sr-viewing-space); }
+.screening-room-home .toa-112-case { margin-top: 0; }
+.screening-room-home .screening-supporting-methods { margin-top: var(--sr-reading-space); padding-top: var(--sr-reading-space); }
+.case-detail-hero,
+.case-film-hero,
+.case-presentation-hero,
+.case-gallery-hero,
+.ai-visual-gallery-hero { padding-block: var(--sr-viewing-space); }
+.case-detail-hero-copy,
+.case-film-hero-copy,
+.case-presentation-hero-copy { margin-top: var(--sr-reading-space); }
+.case-gallery-hero .case-detail-back { margin-bottom: var(--sr-reading-space); }
+.case-detail-hero-visual,
+.case-film-hero-visual { margin-top: var(--sr-viewing-space); }
+.case-detail-section,
+.case-film-section,
+.case-presentation-section,
+.ai-visual-workflow-section,
+.ai-visual-full-commercial-section,
+.vinda-snoopy-short-ads-section { padding-block: var(--sr-transition-space); }
+.case-detail-section-heading,
+.case-presentation-output .case-presentation-heading { margin-bottom: var(--sr-reading-space); }
+.case-gallery-section { padding-block: 0 var(--sr-viewing-space); }
+.toa-case .toa-section { padding-block: var(--sr-reading-space); }
+
+/* A quiet credit treatment, with a dark backing retained for reliable contrast. */
+.screening-room-home .screening-author-credit {
+  background: rgba(18, 18, 17, 0.82);
+  padding: 12px 16px;
+  gap: 14px;
+}
+.screening-room-home .screening-author-credit h1 {
+  font-size: 30px;
+  letter-spacing: 0.06em;
+}
+.screening-room-home .screening-author-credit p { margin-top: 3px; }
+@media (max-width: 620px) {
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .header-inner { min-height: 68px; gap: 12px; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand { font-size: 18px; white-space: nowrap; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav { gap: 14px; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav a { font-size: 14px; }
+  .screening-room-home .screening-author-credit { padding: 8px 10px; gap: 10px; }
+  .screening-room-home .screening-author-credit h1 { font-size: 22px; }
 }
