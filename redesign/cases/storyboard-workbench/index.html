@@ -42,20 +42,16 @@
           <h2 id="method-title">先在內部整理，再變成可閱讀的提案。</h2>
           <p>同一份製作思考，依照閱讀對象轉成不同的資訊密度。</p>
         </header>
-        <div class="case-detail-work-grid">
+        <div class="case-detail-work-grid evidence-core-grid">
           <figure class="case-detail-work-card">
             <div class="case-detail-work-image">
               <img src="../../../case-evidence/storyboard-workbench/01-internal-workbench-mock.png" alt="使用合成資料的內部工作台，整合素材、CUT、拍攝資訊與檢查狀態" width="1920" height="1027" loading="lazy">
             </div>
             <figcaption><span>01</span>內部整理</figcaption>
           </figure>
-          <figure class="case-detail-work-card">
-            <div class="case-detail-work-image">
-              <img src="../../../case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="使用合成資料的客戶提案閱讀頁" width="1265" height="712" loading="lazy">
-            </div>
-            <figcaption><span>02</span>客戶提案</figcaption>
-          </figure>
+
         </div>
+        <button class="evidence-link" type="button" data-case-overlay-trigger aria-haspopup="dialog" aria-controls="storyboard-evidence">查看完整提案 <span aria-hidden="true">＋</span></button>
       </div>
     </section>
 
@@ -83,5 +79,25 @@
       <div><strong>王韋捷</strong><br><a href="mailto:z0023658@gmail.com">z0023658@gmail.com</a></div>
     </div>
   </footer>
+  <dialog id="storyboard-evidence" class="proposal-overlay evidence-dialog" aria-labelledby="storyboard-evidence-title" data-case-overlay>
+    <div class="proposal-overlay-panel">
+      <header class="proposal-overlay-header">
+        <h2 id="storyboard-evidence-title">客戶提案</h2>
+        <button class="proposal-overlay-close" type="button" data-case-overlay-close aria-label="關閉客戶提案">×</button>
+      </header>
+      <div class="evidence-reader">
+        <input id="storyboard-evidence-zoom" class="evidence-zoom-toggle" type="checkbox" aria-controls="storyboard-evidence-stage">
+        <label class="evidence-zoom-label" for="storyboard-evidence-zoom">放大閱讀</label>
+        <p class="evidence-reading-help">勾選後可放大，在圖像區橫向與縱向捲動；取消勾選可還原。</p>
+        <div id="storyboard-evidence-stage" class="evidence-reading-stage" tabindex="0" role="region" aria-label="客戶提案閱讀區">
+          <img src="../../../case-evidence/storyboard-workbench/02-public-proposal-mock.png" alt="使用合成資料的客戶提案閱讀頁" width="1265" height="712" style="--evidence-image-width: 1265px">
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <script type="module">
+    import { initializeCaseOverlays } from '../../../src/overlay-dialog.js';
+    initializeCaseOverlays();
+  </script>
 </body>
 </html>

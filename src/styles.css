@@ -15,6 +15,19 @@
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
 }
 
+/* Shared Screening Room scale: content types retain their existing layouts. */
+:root {
+  --sr-page-title: clamp(2rem, 3vw, 2.75rem);
+  --sr-section-title: clamp(1.75rem, 2.4vw, 2.125rem);
+  --sr-project-title: clamp(1.25rem, 1.8vw, 1.5rem);
+  --sr-subheading: 1.125rem;
+  --sr-body: 1rem;
+  --sr-meta: 0.875rem;
+  --sr-viewing-space: clamp(2rem, 4vw, 3.5rem);
+  --sr-reading-space: clamp(1.5rem, 3vw, 2.5rem);
+  --sr-transition-space: clamp(3rem, 5vw, 5rem);
+}
+
 /* Gate 4 artwork galleries */
 .case-gallery-page {
   min-width: 320px;
@@ -214,6 +227,7 @@
   grid-template-rows: repeat(11, minmax(0, 1fr));
   gap: 0.4rem;
   min-height: 0;
+  contain: size;
 }
 
 .ai-visual-thumbnail {
@@ -248,6 +262,7 @@
 
 .ai-visual-preview {
   position: relative;
+  width: 100%;
   min-width: 0;
   aspect-ratio: 16 / 9;
   margin: 0;
@@ -398,6 +413,7 @@
 
   .ai-visual-thumbnail-list {
     order: 2;
+    contain: none;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-rows: none;
     gap: 0.6rem;
@@ -2908,9 +2924,13 @@ h2 {
   height: auto;
 }
 
-.toa-112-case-media {
+.toa-112-case-viewing {
   width: 80%;
-  margin: 0 auto;
+  margin-inline: auto;
+}
+
+.toa-112-case-media {
+  margin: 0;
 }
 
 .toa-112-case-media img {
@@ -3463,8 +3483,7 @@ body.proposal-overlay-open {
   text-transform: uppercase;
 }
 
-.case-detail-section-label,
-.case-detail-role-label {
+.case-detail-section-label {
   color: #817e75;
   font-size: 0.64rem;
   font-weight: 650;
@@ -3574,7 +3593,7 @@ body.proposal-overlay-open {
 }
 
 .case-detail-meta {
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: var(--sr-reading-space);
   border-top: 1px solid rgba(236, 233, 224, 0.21);
 }
 
@@ -3609,10 +3628,10 @@ body.proposal-overlay-open {
 }
 
 .case-detail-stack li {
-  padding: 0.32rem 0.48rem;
+  padding: 0.32rem 0.6rem;
   border: 1px solid rgba(236, 233, 224, 0.22);
-  color: #aaa79c;
-  font-size: 0.66rem;
+  color: #c0bcb1;
+  font-size: 0.8125rem;
 }
 
 .case-film-page {
@@ -3732,7 +3751,7 @@ body.proposal-overlay-open {
 }
 
 .case-film-meta {
-  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  padding-block: var(--sr-reading-space);
   border-top: 1px solid rgba(236, 233, 224, 0.21);
 }
 
@@ -3744,11 +3763,12 @@ body.proposal-overlay-open {
   gap: 2rem;
 }
 
+.case-detail-role-label,
 .case-film-role-meta > p {
   margin: 0;
-  color: #817e75;
-  font-size: 0.64rem;
-  letter-spacing: 0.12em;
+  color: #aaa79c;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
 }
 
 .case-film-role-meta .case-detail-stack {
@@ -3887,7 +3907,7 @@ body.proposal-overlay-open {
 }
 
 .case-presentation-meta {
-  padding-block: clamp(2.75rem, 6vw, 5rem);
+  padding-block: var(--sr-reading-space);
   border-top: 1px solid rgba(236, 233, 224, 0.21);
 }
 
@@ -3902,9 +3922,9 @@ body.proposal-overlay-open {
 .case-presentation-deliverable > p,
 .case-presentation-role-meta > p {
   margin: 0;
-  color: #817e75;
-  font-size: 0.64rem;
-  letter-spacing: 0.12em;
+  color: #aaa79c;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
 }
 
 .case-presentation-deliverable strong {
@@ -4042,7 +4062,7 @@ body.proposal-overlay-open {
 
   .storyboard-case-media,
   .meeting-brief-case-media,
-  .toa-112-case-media {
+  .toa-112-case-viewing {
     width: 100%;
   }
 
@@ -4325,10 +4345,10 @@ body.proposal-overlay-open {
 .screening-room-home .screening-supporting-heading { grid-column: 1 / -1; }
 .screening-room-home .screening-supporting-heading h3 { margin: 0 0 8px; font-size: 20px; font-weight: 500; }
 .screening-room-home .screening-supporting-heading p { margin: 0; font-size: 16px; color: var(--screening-muted); }
-.screening-room-home .screening-method-case { min-width: 0; }
+.screening-room-home .screening-method-case { min-width: 0; display: flex; flex-direction: column; }
 .screening-room-home .screening-method-case h4 { margin: 0 0 10px; font-size: 20px; line-height: 1.35; font-weight: 500; }
 .screening-room-home .screening-method-case > p { margin: 0; max-width: 520px; font-size: 16px; color: var(--screening-muted); }
-.screening-room-home .screening-method-actions { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
+.screening-room-home .screening-method-actions { margin-top: auto; padding-top: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; }
 .screening-room-home .screening-method-evidence { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 0; border: 0; background: transparent; color: var(--screening-text); font: inherit; font-size: 16px; text-decoration: underline; text-underline-offset: 6px; cursor: pointer; }
 .screening-room-home .screening-method-evidence:hover { color: var(--screening-accent); }
 @media (max-width: 620px) {
@@ -4337,6 +4357,256 @@ body.proposal-overlay-open {
   .screening-room-home .screening-method-links p { display: block; }
   .screening-room-home .screening-supporting-methods { grid-template-columns: 1fr; margin-top: 32px; gap: 24px; }
   .screening-room-home .screening-method-case h4 { font-size: 18px; }
-  .screening-room-home .screening-method-actions { display: block; }
-  .screening-room-home .screening-method-actions a { display: flex; }
+  .screening-room-home .screening-method-actions { column-gap: 16px; }
+}
+
+/* Batch A: shared presentation rules, without changing content or interactions. */
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) {
+  font-size: var(--sr-body);
+  line-height: 1.65;
+}
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .header-inner {
+  min-height: 76px;
+  padding-block: 8px;
+}
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand::before { display: none; }
+:is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 16px;
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-footer,
+.toa-case .toa-footer {
+  padding-block: var(--sr-reading-space);
+  font-size: var(--sr-meta);
+}
+:is(.case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page) .site-footer a,
+.toa-case .toa-footer a { font-size: var(--sr-body); }
+.case-detail-page h1,
+.case-film-page h1,
+.case-presentation-page h1,
+.case-gallery-hero h1,
+.ai-visual-gallery-hero h1,
+.toa-case .toa-project-credit h1 {
+  max-width: 24ch;
+  font-size: var(--sr-page-title);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+.screening-room-home .selected-work-heading h2,
+.screening-room-home .featured-cases-heading h2,
+.screening-room-home .home-contact h2,
+.case-detail-section-heading h2,
+.case-film-section-heading h2,
+.case-presentation-heading h2,
+.ai-visual-development-heading h2,
+.ai-visual-workflow-section h2,
+.ai-visual-full-commercial-section h2,
+.vinda-snoopy-short-ads-section h2,
+.toa-case .toa-section h2 {
+  font-size: var(--sr-section-title);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.toa-case #toa-evidence-title { font-size: var(--sr-project-title); }
+.screening-room-home .screening-supporting-heading h3 { font-size: var(--sr-project-title); }
+.screening-room-home .screening-method-case h4,
+.toa-case .toa-evidence-previews h3 { font-size: var(--sr-subheading); }
+.case-detail-lead,
+.case-film-hero-copy > p:last-child,
+.case-presentation-hero-copy > p:last-child,
+.case-film-visual-copy > p:first-child {
+  font-size: var(--sr-body);
+  line-height: 1.65;
+}
+.case-detail-back,
+.portfolio-gallery-controls button,
+.portfolio-gallery-controls p,
+.case-detail-hero-visual figcaption,
+.case-film-hero-visual figcaption,
+.case-presentation-hero-visual figcaption,
+.case-presentation-handoff-visual figcaption,
+.case-presentation-contact-sheet figcaption,
+.ai-visual-development-heading p { font-size: var(--sr-meta); }
+
+/* These existing semantic containers hold documents, not decorative photography. */
+.case-detail-hero-visual img,
+.case-detail-work-image img,
+.case-presentation-hero-visual img,
+.case-presentation-handoff-visual img,
+.case-presentation-contact-sheet img,
+.ai-visual-workflow img,
+.case-film-hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+/* Document previews remain supporting content; the existing viewer reads the full image. */
+.toa-case .toa-evidence-preview img {
+  height: clamp(148px, 15vw, 180px);
+  object-fit: contain;
+  object-position: center;
+  background: #20201e;
+}
+
+/* Viewing, reading and transitions have different spacing responsibilities. */
+.screening-room-home .featured-cases,
+.screening-room-home .home-contact { padding-block: var(--sr-transition-space); }
+.screening-room-home .featured-cases-heading { margin-bottom: var(--sr-viewing-space); }
+.screening-room-home .toa-112-case { margin-top: 0; }
+.screening-room-home .screening-supporting-methods { margin-top: var(--sr-reading-space); padding-top: var(--sr-reading-space); }
+.case-detail-hero,
+.case-film-hero,
+.case-presentation-hero,
+.case-gallery-hero,
+.ai-visual-gallery-hero { padding-block: var(--sr-viewing-space); }
+.case-detail-hero-copy,
+.case-film-hero-copy,
+.case-presentation-hero-copy { margin-top: var(--sr-reading-space); }
+.case-gallery-hero .case-detail-back { margin-bottom: var(--sr-reading-space); }
+.case-detail-hero-visual,
+.case-film-hero-visual { margin-top: var(--sr-viewing-space); }
+.case-detail-section,
+.case-film-section,
+.case-presentation-section,
+.ai-visual-workflow-section,
+.ai-visual-full-commercial-section,
+.vinda-snoopy-short-ads-section { padding-block: var(--sr-transition-space); }
+.case-detail-section-heading,
+.case-presentation-output .case-presentation-heading { margin-bottom: var(--sr-reading-space); }
+.case-gallery-section { padding-block: 0 var(--sr-viewing-space); }
+.toa-case .toa-section { padding-block: var(--sr-reading-space); }
+
+/* A quiet credit treatment, with a dark backing retained for reliable contrast. */
+.screening-room-home .screening-author-credit {
+  background: rgba(18, 18, 17, 0.82);
+  padding: 12px 16px;
+  gap: 14px;
+}
+.screening-room-home .screening-author-credit h1 {
+  font-size: 30px;
+  letter-spacing: 0.06em;
+}
+.screening-room-home .screening-author-credit p { margin-top: 3px; }
+@media (max-width: 620px) {
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .header-inner { min-height: 68px; gap: 12px; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .brand { font-size: 18px; white-space: nowrap; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav { gap: 14px; }
+  :is(.screening-room-home, .toa-case, .case-gallery-page, .case-detail-page, .case-film-page, .case-presentation-page, .ai-visual-gallery-page) .site-nav a { font-size: 14px; }
+  .screening-room-home .screening-author-credit { padding: 8px 10px; gap: 10px; }
+  .screening-room-home .screening-author-credit h1 { font-size: 22px; }
+}
+
+/* Batch B: viewing actions and supporting methods; Batch A scales remain shared. */
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #c8b38b;
+  border-radius: 2px;
+  background: #c8b38b;
+  color: #121211;
+  font: inherit;
+  font-size: var(--sr-body);
+  text-decoration: none;
+  cursor: pointer;
+}
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary:hover {
+  background: #ece9e0;
+  color: #121211;
+}
+:is(.screening-room-home, .case-gallery-page, .case-film-page) .viewing-primary:focus-visible {
+  outline: 3px solid #c8b38b;
+  outline-offset: 4px;
+}
+.film-viewing-path { margin-top: var(--sr-reading-space); }
+.film-viewing-path p { margin: 0 0 16px; color: #aaa79c; font-size: var(--sr-body); }
+.screening-room-home .toa-home-detail-link { margin-left: 16px; }
+.screening-room-home .screening-method-case { border-top: 1px solid var(--screening-line); padding-top: 20px; }
+.screening-room-home .screening-method-case .screening-method-meta { margin: 8px 0 12px; font-size: var(--sr-meta); }
+.screening-room-home .screening-method-actions { gap: 8px 20px; }
+.screening-room-home .screening-method-evidence { color: var(--screening-muted); font-size: var(--sr-meta); text-decoration: none; }
+.vinda-snoopy-ad-card { position: relative; color: #ece9e0; font: inherit; text-align: left; }
+.vinda-play-label { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; background: #121211; font-size: var(--sr-meta); }
+.visual-expectation { margin: 12px 0 24px; color: #aaa79c; font-size: var(--sr-body); }
+@media (max-width: 620px) {
+  .screening-room-home .toa-home-detail-link { display: flex; width: fit-content; margin-left: 0; }
+  .screening-room-home .screening-other-films { gap: 24px; }
+  .screening-room-home .screening-other-films .screening-project { display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); align-items: center; gap: 16px; }
+  .screening-room-home .screening-other-films h3 { margin: 0; font-size: var(--sr-subheading); }
+  .screening-room-home .screening-other-films .screening-project-action { position: static; padding: 6px 0; font-size: var(--sr-meta); background: transparent; }
+  .screening-room-home .screening-generative-work { grid-template-columns: 1fr; gap: 28px; }
+  .screening-room-home .screening-generative-intro { grid-column: auto; }
+  .screening-room-home .screening-generative-work .screening-project { width: 100%; }
+  .screening-room-home .screening-method-actions { row-gap: 4px; }
+}
+
+/* Batch C: representative evidence stays inline; full documents use the shared dialog. */
+.evidence-preview-row {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sr-reading-space);
+}
+.evidence-preview-caption { margin: 0 0 8px; color: #aaa79c; font-size: var(--sr-meta); }
+.evidence-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #aaa79c;
+  font: inherit;
+  font-size: var(--sr-body);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  cursor: pointer;
+}
+.evidence-link:hover { color: #c8b38b; }
+.evidence-link:focus-visible { outline: 2px solid #c8b38b; outline-offset: 4px; }
+.case-detail-work-grid.evidence-core-grid { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+.evidence-core-grid + .evidence-link { margin-top: var(--sr-reading-space); }
+.evidence-dialog .proposal-overlay-panel { width: min(100%, 70rem); }
+.evidence-reader {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  column-gap: 10px;
+}
+.evidence-zoom-toggle { width: 18px; height: 18px; margin: 0; align-self: center; accent-color: #c8b38b; }
+.evidence-zoom-label { display: flex; align-items: center; min-height: 44px; font-size: var(--sr-body); cursor: pointer; }
+.evidence-reading-help { grid-column: 1 / -1; margin: 0 0 12px; color: #aaa79c; font-size: var(--sr-meta); }
+.evidence-reading-stage {
+  grid-column: 1 / -1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #20201e;
+}
+.evidence-reading-stage img { display: block; width: 100%; height: auto; }
+.evidence-zoom-toggle:checked ~ .evidence-reading-stage img { width: max(200%, var(--evidence-image-width)); max-width: none; }
+@media (max-width: 620px) {
+  .evidence-preview-row { grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); gap: 16px; }
 }
