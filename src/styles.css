@@ -4556,3 +4556,57 @@ body.proposal-overlay-open {
   .screening-room-home .screening-generative-work .screening-project { width: 100%; }
   .screening-room-home .screening-method-actions { row-gap: 4px; }
 }
+
+/* Batch C: representative evidence stays inline; full documents use the shared dialog. */
+.evidence-preview-row {
+  display: grid;
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sr-reading-space);
+}
+.evidence-preview-caption { margin: 0 0 8px; color: #aaa79c; font-size: var(--sr-meta); }
+.evidence-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: #aaa79c;
+  font: inherit;
+  font-size: var(--sr-body);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  cursor: pointer;
+}
+.evidence-link:hover { color: #c8b38b; }
+.evidence-link:focus-visible { outline: 2px solid #c8b38b; outline-offset: 4px; }
+.case-detail-work-grid.evidence-core-grid { grid-template-columns: minmax(0, 1fr); max-width: 52rem; }
+.evidence-core-grid + .evidence-link { margin-top: var(--sr-reading-space); }
+.evidence-dialog .proposal-overlay-panel { width: min(100%, 70rem); }
+.evidence-reader {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
+  column-gap: 10px;
+}
+.evidence-zoom-toggle { width: 18px; height: 18px; margin: 0; align-self: center; accent-color: #c8b38b; }
+.evidence-zoom-label { display: flex; align-items: center; min-height: 44px; font-size: var(--sr-body); cursor: pointer; }
+.evidence-reading-help { grid-column: 1 / -1; margin: 0 0 12px; color: #aaa79c; font-size: var(--sr-meta); }
+.evidence-reading-stage {
+  grid-column: 1 / -1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: #20201e;
+}
+.evidence-reading-stage img { display: block; width: 100%; height: auto; }
+.evidence-zoom-toggle:checked ~ .evidence-reading-stage img { width: max(200%, var(--evidence-image-width)); max-width: none; }
+@media (max-width: 620px) {
+  .evidence-preview-row { grid-template-columns: minmax(0, 9rem) minmax(0, 1fr); gap: 16px; }
+}

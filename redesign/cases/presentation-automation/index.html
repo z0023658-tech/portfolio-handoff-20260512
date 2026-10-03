@@ -56,10 +56,7 @@
           <p class="case-detail-section-label">PRESENTATION OUTPUT</p>
           <h2 id="output-title">最後，產出一份能拿來討論的簡報。</h2>
         </header>
-        <figure class="case-presentation-contact-sheet">
-          <img src="../../../case-evidence/presentation-automation/source/contact-sheet.png" alt="DW-06 合成測試案例的七頁簡報 render contact sheet" width="960" height="1080" loading="lazy">
-          <figcaption>DW-06 / 7-PAGE RENDER CONTACT SHEET / SYNTHETIC TEST DATA</figcaption>
-        </figure>
+        <button class="evidence-link" type="button" data-case-overlay-trigger aria-haspopup="dialog" aria-controls="presentation-evidence">查看完整七頁簡報總覽 <span aria-hidden="true">＋</span></button>
       </div>
     </section>
 
@@ -86,5 +83,25 @@
       <div><strong>王韋捷</strong><br><a href="mailto:z0023658@gmail.com">z0023658@gmail.com</a></div>
     </div>
   </footer>
+  <dialog id="presentation-evidence" class="proposal-overlay evidence-dialog" aria-labelledby="presentation-evidence-title" data-case-overlay>
+    <div class="proposal-overlay-panel">
+      <header class="proposal-overlay-header">
+        <h2 id="presentation-evidence-title">七頁簡報總覽</h2>
+        <button class="proposal-overlay-close" type="button" data-case-overlay-close aria-label="關閉七頁簡報總覽">×</button>
+      </header>
+      <div class="evidence-reader">
+        <input id="presentation-evidence-zoom" class="evidence-zoom-toggle" type="checkbox" aria-controls="presentation-evidence-stage">
+        <label class="evidence-zoom-label" for="presentation-evidence-zoom">放大閱讀</label>
+        <p class="evidence-reading-help">勾選後可放大，在圖像區橫向與縱向捲動；取消勾選可還原。</p>
+        <div id="presentation-evidence-stage" class="evidence-reading-stage" tabindex="0" role="region" aria-label="七頁簡報總覽閱讀區">
+          <img src="../../../case-evidence/presentation-automation/source/contact-sheet.png" alt="DW-06 合成測試案例的七頁簡報 render contact sheet" width="960" height="1080" style="--evidence-image-width: 960px">
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <script type="module">
+    import { initializeCaseOverlays } from '../../../src/overlay-dialog.js';
+    initializeCaseOverlays();
+  </script>
 </body>
 </html>
